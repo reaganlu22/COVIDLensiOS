@@ -2,15 +2,22 @@
 <br />
 <p align="center">
 <a href="#">
-    <img src="https://drive.google.com/file/d/11t3Db-F0Ip6tMTHwQi1xmuKRTOyTlLXl/uc?usp=sharing">
+    <img src="https://drive.google.com/uc?export=download&id=11t3Db-F0Ip6tMTHwQi1xmuKRTOyTlLXl">
   </a>
 
-  <h3 align="center">COVID-Team-5</h3>
-## COVID-Lens
+  <h3 align="center">COVID Lens</h3>
+  
 Senior Capstone Project (COVID Lens) - A viable countermeasure to the current safety and social threats posed by COVID-19.
 
 ## Motivation and Goals
  The global COVID-19 pandemic was declared on March 11, 2020 by the World Health Organization and, as the new year is slowly approaching, the virus shows no apparent signs of disappearing soon. This suggests a necessity of new data-driven tools and methods to help society work around and cope with COVID-19 while promoting safety. The main goal of COVID Lens is to produce a novel COVID-19 tracking and public awareness system that will inform and protect members of the UNCG community from the COVID-19 virus.
+
+## Team Members
+- [**Seth Goodwin**](https://github.com/SethGoodwin)
+- [**Tammy Ogunkale**](https://github.com/tammycodes)
+- [**Reagan Berhe**](https://github.com/reaganlu22)
+- [**Mark He**](https://github.com/mhe98)
+- [**Isaac Taylor**](https://github.com/iataylor15)
 
 ## Implementation & Features Checklist 
 ### This is list of completed tasks/stages and features regarding this project.
@@ -30,25 +37,17 @@ Senior Capstone Project (COVID Lens) - A viable countermeasure to the current sa
 - [ ] [Source code and User Manual]()
 - [ ] [Technical report]()
 - [ ] [Evaluation by Clients, Poster Presentation (TBA)]()
-- [ ] [Evaluation by Clients, Poster Presentation (TBA)]()
 - [ ] [Final Report Due]()
 
 #### Features
 - [ ] [TBD]()
-
-## Team Members
-- [**Seth Goodwin**](https://github.com/SethGoodwin)
-- [**Tammy Ogunkale**](https://github.com/tammycodes)
-- [**Reagan Berhe**](https://github.com/reaganlu22)
-- [**Mark He**](https://github.com/mhe98)
-- [**Isaac Taylor**](https://github.com/iataylor15)
  
 ## Architecture
  <!-- Architecture -->
  <br />
  <p align="center">
  <a href="#">
-     <img src="https://drive.google.com/file/d/14aSdD56meCGeWUrZoBeDdUxhrmpMxbI-/uc?usp=sharing">
+     <img src="https://drive.google.com/uc?export=download&id=14aSdD56meCGeWUrZoBeDdUxhrmpMxbI">
    </a>
    
 ## Installation  (More Detailed Instructions Coming Soon...)
