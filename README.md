@@ -58,7 +58,7 @@
   - Install Xampp, a server tool used for hosting php files [Xampp](https://www.apachefriends.org/index.html)
   - Install Python, used in this project for data analysis  [Python](https://www.python.org/downloads/)
   
-  ### Installation Steps
+### Installation Steps
   
 1. Clone this repo 
   ```console
