@@ -2,7 +2,7 @@
 <br />
 <p align="center">
 <a href="#">
-    <img src="https://drive.google.com/uc?export=download&id=11t3Db-F0Ip6tMTHwQi1xmuKRTOyTlLXl">
+    <img src="https://user-images.githubusercontent.com/32807934/94518504-0c9c0200-01f8-11eb-8883-667876b9d639.png">
   </a>
 
   <h3 align="center">COVID Lens</h3> <p> - A viable countermeasure to the current safety and social threats posed by COVID-19. </p>
@@ -47,7 +47,7 @@
  <br />
  <p align="center">
  <a href="#">
-   <img src="https://drive.google.com/uc?export=download&id=14aSdD56meCGeWUrZoBeDdUxhrmpMxbI">
+   <img src="https://user-images.githubusercontent.com/32807934/94518395-d65e8280-01f7-11eb-9bdf-f39db702939d.png">
  </a>
    
 ## Installation  (More Detailed Instructions Coming Soon...)
