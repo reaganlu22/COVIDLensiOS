@@ -65,7 +65,7 @@
   $ git clone https://github.com/iataylor15/COVID-Lens-App.git
   ```
 2. Start the Xampp servers
-3. Open the Xcode project and ...
+3. Open the Xcode project and get started!
   
 ## License 
    ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
