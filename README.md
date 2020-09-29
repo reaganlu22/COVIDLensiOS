@@ -46,9 +46,8 @@ Senior Capstone Project (COVID Lens) - A viable countermeasure to the current sa
  <!-- Architecture -->
  <br />
  <p align="center">
- <a href="#">
-     <img src="https://drive.google.com/uc?export=download&id=14aSdD56meCGeWUrZoBeDdUxhrmpMxbI">
-   </a>
+   <a href="https://drive.google.com/uc?export=view&id=14aSdD56meCGeWUrZoBeDdUxhrmpMxbI><img src="https://drive.google.com/uc?export=view&id=14aSdD56meCGeWUrZoBeDdUxhrmpMxbI" style="width: 500px; max-width: 100%; height: auto" title="Click for the larger version." /></a>
+
    
 ## Installation  (More Detailed Instructions Coming Soon...)
 
