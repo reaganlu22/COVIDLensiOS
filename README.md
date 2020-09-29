@@ -53,12 +53,12 @@
 ## Installation  (More Detailed Instructions Coming Soon...)
 
 - The following preliminary steps are recommended  to begin working with this project:
-  - Install Xcode, the development tool used for creating this project [Xcode](https://developer.apple.com/xcode/)
-  - Install Netbeans (with PHP), the IDE this project used for PHP development [Netbeans](https://netbeans.org)
-  - Install Xampp, a server tool used for hosting php files [Xampp](https://www.apachefriends.org/index.html)
+  - Install Xcode, the main development tool used for creating this project [Xcode](https://developer.apple.com/xcode/)
+  - Install Netbeans (with PHP), the IDE this project used for PHP & REST api development [Netbeans](https://netbeans.org)
+  - Install Xampp, a server tool used for hosting php files locally [Xampp](https://www.apachefriends.org/index.html)
   - Install Python, used in this project for data analysis  [Python](https://www.python.org/downloads/)
   
-### Installation Steps
+### Project Installation Steps
   
 1. Clone this repo 
   ```console
