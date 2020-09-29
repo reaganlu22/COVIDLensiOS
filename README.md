@@ -2,7 +2,7 @@
 <br />
 <p align="center">
 <a href="#">
-    <img src="https://drive.google.com/file/d/11t3Db-F0Ip6tMTHwQi1xmuKRTOyTlLXl/view?usp=sharing">
+    <img src="https://drive.google.com/file/d/11t3Db-F0Ip6tMTHwQi1xmuKRTOyTlLXl/uc?usp=sharing">
   </a>
 
   <h3 align="center">COVID-Team-5</h3>
@@ -23,32 +23,32 @@ Senior Capstone Project (COVID Lens) - A viable countermeasure to the current sa
 - [x] [Amended models]()
 - [x] [Systems/Algorithm Analysis report with data & process models]()
 - [x] [Data Dictionary]()
-- [] [Plan and Testing]()
-- [] [Training plan]()
-- [] [Preliminary demonstration]()
-- [] [Final presentation]()
-- [] [Source code and User Manual]()
-- [] [Technical report]()
-- [] [Evaluation by Clients, Poster Presentation (TBA)]()
-- [] [Evaluation by Clients, Poster Presentation (TBA)]()
-- [] [Final Report Due]()
+- [ ] [Plan and Testing]()
+- [ ] [Training plan]()
+- [ ] [Preliminary demonstration]()
+- [ ] [Final presentation]()
+- [ ] [Source code and User Manual]()
+- [ ] [Technical report]()
+- [ ] [Evaluation by Clients, Poster Presentation (TBA)]()
+- [ ] [Evaluation by Clients, Poster Presentation (TBA)]()
+- [ ] [Final Report Due]()
 
 #### Features
-- [] [TBD]()
+- [ ] [TBD]()
 
 ## Team Members
-- [** Seth Goodwin**](https://github.com/SethGoodwin)
-- [** Tammy Ogunkale**](https://github.com/tammycodes)
-- [** Reagan Berhe**](https://github.com/reaganlu22)
-- [** Mark He**](https://github.com/mhe98)
-- [** Isaac Taylor**](https://github.com/iataylor15)
+- [**Seth Goodwin**](https://github.com/SethGoodwin)
+- [**Tammy Ogunkale**](https://github.com/tammycodes)
+- [**Reagan Berhe**](https://github.com/reaganlu22)
+- [**Mark He**](https://github.com/mhe98)
+- [**Isaac Taylor**](https://github.com/iataylor15)
  
 ## Architecture
  <!-- Architecture -->
  <br />
  <p align="center">
  <a href="#">
-     <img src="https://drive.google.com/file/d/14aSdD56meCGeWUrZoBeDdUxhrmpMxbI-/view?usp=sharing">
+     <img src="https://drive.google.com/file/d/14aSdD56meCGeWUrZoBeDdUxhrmpMxbI-/uc?usp=sharing">
    </a>
    
 ## Installation  (More Detailed Instructions Coming Soon...)
@@ -61,17 +61,15 @@ Senior Capstone Project (COVID Lens) - A viable countermeasure to the current sa
   
   ### Installation Steps
   
-  1. Clone this repo 
+1. Clone this repo 
   ```console
   $ git clone https://github.com/iataylor15/COVID-Lens-App.git
   ```
-  2. Start the Xampp servers
-  3. Open the Xcode project and ...
+2. Start the Xampp servers
+3. Open the Xcode project and ...
   
 ## License 
-   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT
-
-
+   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 
 
