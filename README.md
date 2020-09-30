@@ -40,7 +40,12 @@
 - [ ] [Final Report]()
 
 #### Features
-- [ ] [TBD]()
+- [ ] [Interactive COVID-19 Case Map]()
+- [ ] [Self Report Form]()
+- [ ] [Statisic Summary Table]()
+- [ ] [Helpful Resources List]()
+- [ ] [Contact Tracing]()
+
  
 ## Architecture
  <!-- Architecture -->
