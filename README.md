@@ -76,7 +76,7 @@
 3. Open the Xcode project and get started!
   
 ## License 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/iataylor15/COVID-Lens-App/blob/master/LICENSE)
 
 
 
