@@ -7,8 +7,8 @@
 
   <h3 align="center">COVID Lens - A viable countermeasure to the current safety and social threats posed by COVID-19. </h3> <p> 
     
-  First Header | Second Header
------------- | -------------
+ [Motivation and Goals]() | [Team Members]() | [Feautures]() | [Installation]()
+------------ | ------------- | ------------- | -------------
     
 ### Senior Capstone Project 🎓
 
