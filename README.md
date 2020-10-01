@@ -3,15 +3,15 @@
 <p align="center">
 <a href="#">
     <img src="https://user-images.githubusercontent.com/32807934/94518504-0c9c0200-01f8-11eb-8883-667876b9d639.png">
-  </a>
+</a>
 
-  <h3 align="center">COVID Lens - A viable countermeasure to the current safety and social threats posed by COVID-19. </h3> <p> 
-    
- [Motivation and Goals]() | [Team Members]() | [Feautures]() | [Installation]()
+<h3 align="center">COVID Lens - A viable countermeasure to the current safety and social threats posed by COVID-19. </h3> <p> 
+<p style="text-align: center;">      
+ [Motivation and Goals](https://github.com/iataylor15/COVID-Lens-App#motivation-and-goals) | [Team Members](https://github.com/iataylor15/COVID-Lens-App#team-members) | [Feautures](https://github.com/iataylor15/COVID-Lens-App#features) | [Installation](https://github.com/iataylor15/COVID-Lens-App#installation--more-detailed-instructions-coming-soon)
 ------------ | ------------- | ------------- | -------------
     
 ### Senior Capstone Project 🎓
-
+</p>
 ## Motivation and Goals
  The global COVID-19 pandemic was declared on March 11, 2020 by the World Health Organization and, as the new year is slowly approaching, the virus shows no apparent signs of disappearing soon. This suggests a necessity of new data-driven tools and methods to help society work around and cope with COVID-19 while promoting safety. The main goal of COVID Lens is to provide a novel COVID-19 tracking and public awareness system that will inform and protect members of the UNCG community from the COVID-19 virus.
 
