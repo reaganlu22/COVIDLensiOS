@@ -8,7 +8,7 @@
 <h3 align="center">COVID Lens - A viable countermeasure to the current safety and social threats posed by COVID-19. </h3> <p> 
 
 [Motivation and Goals](https://github.com/iataylor15/COVID-Lens-App#motivation-and-goals) | [Team Members](https://github.com/iataylor15/COVID-Lens-App#team-members) | [Stages](https://github.com/iataylor15/COVID-Lens-App#stages) | [Feautures](https://github.com/iataylor15/COVID-Lens-App#features) | [Architecture](https://github.com/iataylor15/COVID-Lens-App#architecture) | [Installation](https://github.com/iataylor15/COVID-Lens-App#installation--more-detailed-instructions-coming-soon) 
------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
+------------ | ------------- | ------------- | ------------- | ------------- | ------------- 
     
 ### Senior Capstone Project 🎓
 ## Motivation and Goals
