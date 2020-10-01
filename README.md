@@ -59,7 +59,7 @@
    <img src="https://user-images.githubusercontent.com/32807934/94518395-d65e8280-01f7-11eb-9bdf-f39db702939d.png">
  </a>
    
-## Installation  (More Detailed Instructions Coming Soon...)
+## Installation  
 
 - The following preliminary steps are recommended  to begin working with this project:
   - Install Xcode, the main development tool used for creating this project [Xcode](https://developer.apple.com/xcode/)
