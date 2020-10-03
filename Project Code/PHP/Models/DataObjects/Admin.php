@@ -12,7 +12,6 @@ class Admin extends DataObject {
     private $adminId;
     private $email;
     private $password;
-    private $sql;
 
     public function setAdminId(string $id) {
         $this->adminId = $id;

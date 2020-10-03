@@ -2,9 +2,19 @@
 
 
 /**
- * Description of ReportModel
+ * Description of ReportController
  *
  * @author isaactaylor
  */
-class ReportModel {
+class ReportController {
+    private $reportModel;
+
+    public function __construct() {
+        $this->reportModel = new ReportModel();
+    }
+
+    public function invokeReport(string $request, Report $dataObj) {
+        
+    }
+
 }

@@ -1,10 +1,20 @@
 <?php
 
-
 /**
- * Description of AlertModel
+ * Description of AlertController
  *
  * @author isaactaylor
  */
-class AlertModel {
+class AlertController {
+
+    private $alertController;
+
+    public function __construct() {
+        $this->alertModel = new AlertModel();
+    }
+
+    public function invokeAlert(string $request, Alert $dataObj) {
+        
+    }
+
 }

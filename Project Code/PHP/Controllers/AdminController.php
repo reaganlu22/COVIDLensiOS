@@ -1,11 +1,20 @@
 <?php
 
-
-
 /**
- * Description of AdminModel
+ * Description of AdminController
  *
  * @author isaactaylor
  */
-class AdminModel {
+class AdminController {
+
+    private $adminModel;
+
+    public function __construct() {
+        $this->adminModel = new AdminModel();
+    }
+
+    public function invokeAdmin(string $request, Admin $dataObj) {
+        
+    }
+
 }

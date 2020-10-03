@@ -7,6 +7,23 @@
  *
  * @author isaactaylor
  */
-class Resources {
-    //put your code here
+class Resources extends DataObject{
+    private $categoryName;
+    private $linkResource;
+    
+    public function setCategoryName(string $categoryName){
+        $this->categoryName = $categoryName;
+    }
+    
+    public function setLinkResource(string $linkResource) {
+        $this->linkResource = $linkResource;
+    }
+    
+    public function getCategoryName(){
+        return $this->categoryName;
+    }
+    
+    public function getLinkResource() {
+        return $this->linkResource;
+    }
 }

@@ -5,5 +5,12 @@
  * @author isaactaylor
  */
 interface DatabaseAdapterInterface {
-    //put your code here
+
+    public function create(DataObject $object);
+
+    public function read(DataObject $object);
+
+    public function update(DataObject $object);
+
+    public function delete(DataObject $object);
 }

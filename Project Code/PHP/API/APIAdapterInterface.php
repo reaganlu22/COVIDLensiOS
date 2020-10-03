@@ -6,5 +6,5 @@
  * @author isaactaylor
  */
 interface APIAdapterInterface {
-    //put your code here
+    public function getStats($data);
 }
