@@ -9,7 +9,6 @@
  */
 class Report extends DataObject {
     private $age;
-    private $report;
     private $phoneNumber;
     private $residenceHall;
     private $affiliation;
@@ -18,6 +17,10 @@ class Report extends DataObject {
     private $reportInfo;
     private $situationDescription;
     private $confirmerID;
+    
+    public function __construct() {
+        $this->setTableName("Report");
+    }
     
     public function setAge(int $age){
         $this->age = $age;
@@ -51,6 +54,11 @@ class Report extends DataObject {
         $this->confirmerID = $confirmerID;
     }
     
+    private function setReportInfo(string $reportInfo) {
+        $this->reportInfo = $reportInfo;
+    }
+
+
     public function getAge(){
         return $this->age;
     }
@@ -81,5 +89,9 @@ class Report extends DataObject {
     
     private function getConfirmerID(){
         return $this->confirmerID;
+    }
+    
+    public function getReportInfo() {
+        return $this->reportInfo;
     }
 }

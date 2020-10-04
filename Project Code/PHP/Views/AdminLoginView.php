@@ -9,6 +9,7 @@
     </head>
     <body>
         <?php
+        require_once '../includes/autoload.php';
         ?>
     </body>
 </html>

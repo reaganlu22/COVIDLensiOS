@@ -8,17 +8,17 @@
  */
 class User extends DataObject{
     private $userID;
-    private $report;
+    //private $report;
     private $email;
     private $password;
     private $additionalData;
     
-    public function setUserID(string $userID) {
-        $this->userID = $userID;
+    public function __construct() {
+        $this->setTableName("User");
     }
     
-    public function setReport(Report $report){
-        $this->report = $report;
+    public function setUserID(string $userID) {
+        $this->userID = $userID;
     }
     
     public function setEmail(string $email) {
@@ -35,10 +35,6 @@ class User extends DataObject{
     
     public function getUserID() {
         return $this->additionalData;
-    }
-    
-    public function getReport(){
-        return $this->report;
     }
     
     public function getEmail() {

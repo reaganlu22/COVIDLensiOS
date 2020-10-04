@@ -1,20 +1,36 @@
 <?php
 
-
 /**
  * Description of DataObject
  *
  * @author isaactaylor
  */
-class DataObject {
-    private  $sql;
-    
+class DataObject implements DataObjectInterface {
 
-    public function getSql(){
+    private $sql;
+    private $request;
+    private $tableName;
+
+    public function getSql() {
         return $this->sql;
     }
-    
-    public function setSql(string $sql){
+
+    public function getTableName() {
+        return $this->tableName;
+    }
+    public function getRequest(){
+        return $this->request;
+    }
+    public function setSql(string $sql) {
         $this->sql = $sql;
     }
+
+    public function setRequest($request) {
+        $this->request = $request;
+    }
+
+    protected function setTableName(string $tableName) {
+        $this->tableName = $tableName;
+    }
+
 }

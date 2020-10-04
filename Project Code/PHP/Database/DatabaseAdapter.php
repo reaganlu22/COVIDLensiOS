@@ -1,12 +1,13 @@
 <?php
 
+require_once '../includes/autoload.php';
 
 /**
  * Description of DatabaseAdapter
  *
  * @author isaactaylor
  */
-class DatabaseAdapter implements DBAdapterInterface {
+class DatabaseAdapter implements DatabaseAdapterInterface {
 
     private $connection;
 
@@ -24,15 +25,15 @@ class DatabaseAdapter implements DBAdapterInterface {
     }
 
     public function read(DataObject $object) {
-       
+        
     }
 
     public function update(DataObject $object) {
-       
+        
     }
 
     public function delete(DataObject $object) {
-       
+        
     }
 
 }

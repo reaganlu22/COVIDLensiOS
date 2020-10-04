@@ -1,5 +1,7 @@
 <?php
 
+require_once '../includes/autoload.php';
+
 /**
  * Description of AlertController
  *
@@ -18,3 +20,5 @@ class AlertController {
     }
 
 }
+
+

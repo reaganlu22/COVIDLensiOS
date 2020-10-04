@@ -1,11 +1,13 @@
 <?php
 
+require_once '../includes/autoload.php';
+
 /**
  * Description of MapLocationsController
  *
  * @author isaactaylor
  */
-class MapLocationsController{
+class MapLocationsController {
 
     private $mapLocationsModel;
 
@@ -13,7 +15,7 @@ class MapLocationsController{
         $this->mapLocationsModel = new MapLocationsModel();
     }
 
-    public function invokeMapLocations(string $request, MapLocations $dataObj) {
+    public function invokeMapLocations(MapLocations $dataObj, string $request = null) {
         
     }
 

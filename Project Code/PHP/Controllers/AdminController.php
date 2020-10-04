@@ -1,5 +1,7 @@
 <?php
 
+require_once '../includes/autoload.php';
+
 /**
  * Description of AdminController
  *
@@ -13,8 +15,12 @@ class AdminController {
         $this->adminModel = new AdminModel();
     }
 
-    public function invokeAdmin(string $request, Admin $dataObj) {
-        
+    public function invokeAdmin(Admin $dataObj, string $request = null) {
+        if ($request === Requests::adminSignInRequest()) {
+            
+        } else if ($request === Requests::adminSignOutRequest()) {
+            
+        }
     }
 
 }

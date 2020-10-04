@@ -13,6 +13,10 @@ class MapLocations extends DataObject {
     private $latitude;
     private $longitude;
     
+    public function __construct() {
+        $this->setTableName("Map_Locations");
+    }
+    
     public function setLocationID(string $locationID) {
         $this->locationID = $locationID;
     }

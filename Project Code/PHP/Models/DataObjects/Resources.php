@@ -11,6 +11,10 @@ class Resources extends DataObject{
     private $categoryName;
     private $linkResource;
     
+    public function __construct() {
+        $this->setTableName("Resources");
+    }
+    
     public function setCategoryName(string $categoryName){
         $this->categoryName = $categoryName;
     }
