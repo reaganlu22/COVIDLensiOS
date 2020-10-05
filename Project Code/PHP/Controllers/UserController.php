@@ -23,6 +23,8 @@ class UserController {
         } else if ($dataObj->getRequest() === Requests::userSave() ||
                 $dataObj->getRequest() == Requests::userSignOutRequest()) {
             return $this->userModel->updateUser($dataObj);
+        } else if ($dataObj->getRequest() === Requests::userDeletion()) {
+            return $this->userModel->deleteUser($dataObj);
         }
     }
 

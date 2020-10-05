@@ -15,8 +15,18 @@ class ResourceController {
         $this->resourcesModel = new ResourceModel();
     }
 
-    public function invokeResource(Resource $dataObj, string $request = null) {
-        
+    public function invokeResource(Resource $dataObj) {
+        if ($dataObj->getRequest() === Requests::resourceCreation()) {
+            return $this->resourcesModel->createResource($dataObj);
+        } else if ($dataObj->getRequest() === Requests::resourceRequest()) {
+            return $this->resourcesModel->readResource($dataObj);
+        } else if ($dataObj->getRequest() === Requests::resourceUpdate()) {
+            return $this->resourcesModel->updateResource($dataObj);
+        } else if ($dataObj->getRequest() === Requests::resourceDeletion()) {
+            return $this->resourcesModel->deleteResource($dataObj);
+        } else if ($dataObj->getRequest() === Requests::resourceReadAll()) {
+            return $this->resourcesModel->getAllResource($dataObj);
+        }
     }
 
 }
