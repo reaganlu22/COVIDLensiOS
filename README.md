@@ -25,7 +25,6 @@
 
 ## Implementation & Features Checklist 
 ### This is a list of tasks/stages and features regarding this project.
-###### Please note that some features are beyond the scope of this project but may be implemented if time permits or in the future.
 
 #### Stages
 - [x] [Approach and System profile]()
