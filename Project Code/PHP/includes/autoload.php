@@ -36,6 +36,14 @@ spl_autoload_register(function($className) {
 });
 
 spl_autoload_register(function($className) {
+	$file = dirname(__DIR__) . '\\Models\\DataObjects\\' . $className . '.php';
+	$file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
+	if (file_exists($file)) {
+		include $file;
+	}
+});
+
+spl_autoload_register(function($className) {
 	$file = dirname(__DIR__) . '\\Views\\' . $className . '.php';
 	$file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
 	if (file_exists($file)) {

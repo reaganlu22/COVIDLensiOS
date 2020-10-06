@@ -29,7 +29,7 @@ class DataObject implements DataObjectInterface {
         $this->request = $request;
     }
 
-    protected function setTableName(string $tableName) {
+    public function setTableName(string $tableName) {
         $this->tableName = $tableName;
     }
 

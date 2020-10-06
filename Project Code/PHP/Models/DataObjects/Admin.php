@@ -16,7 +16,7 @@ class Admin extends DataObject {
     public function __construct() {
         $this->setTableName("Admin");
     }
-    public function setAdminId(string $id) {
+    public function setAdminID(string $id) {
         $this->adminId = $id;
     }
 
