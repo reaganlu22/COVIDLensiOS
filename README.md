@@ -24,7 +24,7 @@
 - [**Isaac Taylor**](https://github.com/iataylor15)
 
 ## Implementation & Features Checklist 
-### This is a list of completed tasks/stages and features regarding this project.
+### This is a list of tasks/stages and features regarding this project.
 ###### Please note that some features are beyond the scope of this project but may be implemented if time permits or in the future.
 
 #### Stages
