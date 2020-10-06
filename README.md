@@ -23,8 +23,8 @@
 - [**Mark He**](https://github.com/mhe98)
 - [**Isaac Taylor**](https://github.com/iataylor15)
 
-## Implementation & Features Checklist 
-### This is a list of tasks/stages and features regarding this project.
+## Stages & Features Checklist 
+
 
 #### Stages
 - [x] [Approach and System profile]()
