@@ -2,7 +2,6 @@
 
 require_once '../includes/autoload.php';
 
-
 /**
  * Description of ReportModel
  *
@@ -42,9 +41,8 @@ class ReportModel {
     }
 
     public function updateReport(Report $report) {
-        $preparedStmt = "UPDATE" . $report->getTableName() . " SET locationID=?, "
-                . "residenceHall=?, reportStatus=?, age=?, reportInfo=?, phoneNumber=?, "
-                . "situationDesc=?, affiliation=?, confirmerID=?)";
+        $preparedStmt = "UPDATE" . $report->getTableName() . " SET confirmerID=?, "
+                . "WHERE userID=?";
         $response = $this->connection->delete($report);
         // if report update was a success
         if ($response) {
