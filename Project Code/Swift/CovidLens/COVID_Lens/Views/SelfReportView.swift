@@ -1,0 +1,125 @@
+//
+//  SelfReportView.swift
+//  COVID Lens
+//
+//  Created by Seth Goodwin on 10/7/20.
+//
+
+import SwiftUI
+
+struct SelfReportView: View {
+    @State private var affilIsExpanded: Bool = false
+    @State private var selectedAffiliation: String = ""
+    @State private var date = Date()
+    @State private var hallIsExpanded: Bool = false
+    @State private var selectedHall: String = ""
+    
+    var affiliations: [String] = ["Student", "Faculty", "Staff", "Contractor"]
+    var resHall: [String] = ["Cone", "Grogan", "Guilford", "Mary Foust", "Moore/Strong", "North Spencer", "Phillips/Hawkins", "Ragsdale/Mendenhall", "Reynolds", "South Spencer", "Weil/Winfield"]
+    
+    @State private var phoneNumber: String = ""
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                
+                ScrollView {
+                    
+                    VStack {
+                        Text("University Affiliation")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.black)
+                        // dropdown menu for campus affiliation
+                        DisclosureGroup("\(selectedAffiliation)", isExpanded: $affilIsExpanded) {
+                            VStack {
+                                ForEach(affiliations) { affil in
+                                    Text("\(affil)")
+                                        .font(.body)
+                                        .padding(.all, 2)
+                                        .onTapGesture {
+                                            self.selectedAffiliation = affil
+                                            withAnimation {
+                                                self.affilIsExpanded.toggle()
+                                            }
+                                        }
+                                }
+                            }
+                        }.accentColor(.white)
+                        .foregroundColor(.white)
+                        .padding(.all, 12)
+                        .background(Color.black)
+                        .cornerRadius(10)
+                    }.padding(.all)
+                    
+                    // phone number field
+                    VStack {
+                        Text("Contact Phone Number")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.black)
+                        TextField("Phone Number", text: $phoneNumber)
+                            .font(Font.system(size: 20))
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    } .padding(.all)
+                    
+                    // dropdown menu for residence hall
+                    VStack {
+                        Text("Residence Hall")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.black)
+                        DisclosureGroup("\(selectedHall)", isExpanded: $hallIsExpanded) {
+                            VStack {
+                                ForEach(resHall) { hall in
+                                    Text("\(hall)")
+                                        .font(.body)
+                                        .padding(.all, 2)
+                                        .onTapGesture {
+                                            self.selectedHall = hall
+                                            withAnimation {
+                                                self.hallIsExpanded.toggle()
+                                            }
+                                        }
+                                }
+                            }
+                        }.accentColor(.white)
+                        .foregroundColor(.white)
+                        .padding(.all, 12)
+                        .background(Color.black)
+                        .cornerRadius(10)
+                    }.padding(.all)
+                    
+                    // select date form
+                    VStack {
+                        Text("Last Day On Campus")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.black)
+                        DatePicker("", selection: $date, displayedComponents: .date)
+                            .labelsHidden()
+                            .datePickerStyle(CompactDatePickerStyle())
+                    }.padding(.all)
+                    .padding(.bottom)
+                    
+                    HStack {
+                        PrimaryButton(label: "Submit a Positive Result") {
+                            // connect to database
+                            // send data to database
+                            print(self.selectedAffiliation)
+                            print(self.phoneNumber)
+                            print(self.selectedHall)
+                            print(self.date)
+                            //viewModel.post()
+                        }
+                    }
+                }
+                Spacer()
+                Divider()
+            }.background(Color.white.ignoresSafeArea(.all, edges: .all))
+            .navigationBarTitle("Self-Report", displayMode: .inline)
+        }
+    }
+}
+
+extension String: Identifiable {
+    public var id: String {
+        self
+    }
+}
