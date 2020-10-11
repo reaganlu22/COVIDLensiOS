@@ -26,12 +26,7 @@ class ReportModel {
                 . " VALUES (?,?,?,?,?,?,?,?,?,?)";
         $report->setSql($preparedStmt);
         $response = $this->connection->create($report);
-        // if report creation was a success
-        if ($response) {
-            
-        } else {
-            // if report creation failed
-        }
+        return $response;
     }
 
     public function readReport(Report $report) {
@@ -44,23 +39,13 @@ class ReportModel {
         $preparedStmt = "UPDATE" . $report->getTableName() . " SET confirmerID=?, "
                 . "WHERE userID=?";
         $response = $this->connection->delete($report);
-        // if report update was a success
-        if ($response) {
-            
-        } else {
-            // if report update failed
-        }
+        return $response;
     }
 
     public function deleteReport(Report $report) {
         $preparedStmt = "DELETE FROM " . $report->getTableName() . " WHERE userID=?";
         $response = $this->connection->delete($report);
-        // if report deletion was a success
-        if ($response) {
-            
-        } else {
-            // if report deletion failed
-        }
+        return $response;
     }
 
     public function getAllReport(Report $report) {

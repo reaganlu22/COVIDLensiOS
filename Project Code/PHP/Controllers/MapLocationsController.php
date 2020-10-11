@@ -1,6 +1,8 @@
 <?php
 
-require_once '../includes/autoload.php';
+if (file_exists('../includes/autoload.php')) {
+    require_once '../includes/autoload.php';
+}
 
 /**
  * Description of MapLocationsController
@@ -26,6 +28,8 @@ class MapLocationsController {
             return $this->mapLocationsModel->deleteMapLocations($dataObj);
         } else if ($dataObj->getRequest() === Requests::locationsReadAll()) {
             return $this->mapLocationsModel->getAllMapLocations($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 
+
 foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
     if (file_exists($file)) {
         require $file;
@@ -27,16 +28,16 @@ if (empty($files)) {
 }
 
 $lexer = new PhpParser\Lexer\Emulative(['usedAttributes' => [
-    'startLine', 'endLine', 'startFilePos', 'endFilePos', 'comments'
-]]);
+        'startLine', 'endLine', 'startFilePos', 'endFilePos', 'comments'
+        ]]);
 $parser = (new PhpParser\ParserFactory)->create(
-    PhpParser\ParserFactory::PREFER_PHP7,
-    $lexer
+        PhpParser\ParserFactory::PREFER_PHP7,
+        $lexer
 );
 $dumper = new PhpParser\NodeDumper([
     'dumpComments' => true,
     'dumpPositions' => $attributes['with-positions'],
-]);
+        ]);
 $prettyPrinter = new PhpParser\PrettyPrinter\Standard;
 
 $traverser = new PhpParser\NodeTraverser();

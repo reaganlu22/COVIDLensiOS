@@ -28,6 +28,13 @@ class Resources extends DataObject {
         $this->title = $title;
     }
 
+    public function setResourceID(string $resourceID) {
+        $this->resourceID = $resourceID;
+    }
+    
+    public function getResourceID(){
+        return $this->resourceID;
+    }
     public function getTitle() {
         return $this->title;
     }

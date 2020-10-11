@@ -214,17 +214,17 @@
     },
     {
         "name": "google/auth",
-        "version": "v1.14.0",
-        "version_normalized": "1.14.0.0",
+        "version": "v1.14.1",
+        "version_normalized": "1.14.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/googleapis/google-auth-library-php.git",
-            "reference": "95c23ebd89a0a4d1b511aed81426f57388ab7268"
+            "reference": "2df57c61c2fd739a15a81f792b1ccedc3e06d2b6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/95c23ebd89a0a4d1b511aed81426f57388ab7268",
-            "reference": "95c23ebd89a0a4d1b511aed81426f57388ab7268",
+            "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/2df57c61c2fd739a15a81f792b1ccedc3e06d2b6",
+            "reference": "2df57c61c2fd739a15a81f792b1ccedc3e06d2b6",
             "shasum": ""
         },
         "require": {
@@ -246,7 +246,7 @@
         "suggest": {
             "phpseclib/phpseclib": "May be used in place of OpenSSL for signing strings or for token management. Please require version ^2."
         },
-        "time": "2020-10-02T22:20:36+00:00",
+        "time": "2020-10-06T18:10:43+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -268,24 +268,24 @@
     },
     {
         "name": "guzzlehttp/guzzle",
-        "version": "7.1.1",
-        "version_normalized": "7.1.1.0",
+        "version": "7.2.0",
+        "version_normalized": "7.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "7427d6f99df41cc01f33cd59832f721c150ffdf3"
+            "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7427d6f99df41cc01f33cd59832f721c150ffdf3",
-            "reference": "7427d6f99df41cc01f33cd59832f721c150ffdf3",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0aa74dfb41ae110835923ef10a9d803a22d50e79",
+            "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79",
             "shasum": ""
         },
         "require": {
             "ext-json": "*",
-            "guzzlehttp/promises": "^1.0",
-            "guzzlehttp/psr7": "^1.6.1",
-            "php": "^7.2.5",
+            "guzzlehttp/promises": "^1.4",
+            "guzzlehttp/psr7": "^1.7",
+            "php": "^7.2.5 || ^8.0",
             "psr/http-client": "^1.0"
         },
         "provide": {
@@ -293,8 +293,8 @@
         },
         "require-dev": {
             "ext-curl": "*",
-            "php-http/client-integration-tests": "dev-phpunit8",
-            "phpunit/phpunit": "^8.5.5",
+            "php-http/client-integration-tests": "^3.0",
+            "phpunit/phpunit": "^8.5.5 || ^9.3.5",
             "psr/log": "^1.1"
         },
         "suggest": {
@@ -302,7 +302,7 @@
             "ext-intl": "Required for Internationalized Domain Name (IDN) support",
             "psr/log": "Required for using the Log middleware"
         },
-        "time": "2020-09-30T08:51:17+00:00",
+        "time": "2020-10-10T11:47:56+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2434,17 +2434,17 @@
     },
     {
         "name": "sebastian/type",
-        "version": "2.2.2",
-        "version_normalized": "2.2.2.0",
+        "version": "2.3.0",
+        "version_normalized": "2.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/type.git",
-            "reference": "e494dcaeb89d1458c9ccd8c819745245a1669aea"
+            "reference": "fa592377f3923946cb90bf1f6a71ba2e5f229909"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/e494dcaeb89d1458c9ccd8c819745245a1669aea",
-            "reference": "e494dcaeb89d1458c9ccd8c819745245a1669aea",
+            "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/fa592377f3923946cb90bf1f6a71ba2e5f229909",
+            "reference": "fa592377f3923946cb90bf1f6a71ba2e5f229909",
             "shasum": ""
         },
         "require": {
@@ -2453,11 +2453,11 @@
         "require-dev": {
             "phpunit/phpunit": "^9.3"
         },
-        "time": "2020-09-28T06:01:38+00:00",
+        "time": "2020-10-06T08:41:03+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.2-dev"
+                "dev-master": "2.3-dev"
             }
         },
         "installation-source": "dist",

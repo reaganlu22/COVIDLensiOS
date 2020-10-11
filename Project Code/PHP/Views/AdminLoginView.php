@@ -9,21 +9,17 @@
     </head>
     <body>
         <?php
-        require_once '../includes/autoload.php';
-
+        if (file_exists('../includes/autoload.php')) {
+            require_once '../includes/autoload.php';
+        }
         //should return failure message since not connected to db...
 
-        $db = new DatabaseAdapter(new MysqlConnector());
-        $object = new User();
+        $object = new Admin();
         $object->setEmail("abc@gmail.com");
         $object->setRequest(Requests::adminCreation());
-        $object2 = new MapLocations();
-        $object2->setLatitude("101");
-        $object2->setLocationID("1fhaj3434");
-        var_dump($db->create($object));
-        var_dump($db->read($object2));
-        $test = new GoogleAuthenticator();
-        var_dump($test->verify("sfsdfsfe388333"));
+        $controller = new AdminController();
+        echo json_encode($controller->invokeAdmin($object));
+        // if sign in is successful, then load the signed in view
         ?>
     </body>
 </html>

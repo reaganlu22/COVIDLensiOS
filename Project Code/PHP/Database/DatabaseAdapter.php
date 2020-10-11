@@ -1,6 +1,8 @@
 <?php
 
-require_once '../includes/autoload.php';
+if (file_exists('../includes/autoload.php')) {
+    require_once '../includes/autoload.php';
+}
 
 /**
  * Description of DatabaseAdapter
@@ -10,23 +12,23 @@ require_once '../includes/autoload.php';
 class DatabaseAdapter implements DatabaseAdapterInterface {
 
     private $connection;
-
-    private const SUCCESS = "SUCCESS";
-    private const FAILED = "FAILED";
+    private $connected;
 
     function __construct(MysqlConnector $connector) {
         $dbConnector = $connector;
         $this->connection = $dbConnector->getConnection();
         if (mysqli_connect_error()) {
-            echo 'DB Connection error';
+            $this->connected = false;
             exit();
+        } else {
+            $this->connected = true;
         }
     }
 
     //  REMEMBER TO ADD ERROR CHECKING AND TRY CATCH...
 
     public function create(DataObject $object) {
-        $result = array("status" => self::FAILED, "data" => null);
+        $result = FailOrPass::getFailureArray();
         try {
             $stmt = $this->connection->prepare($object->getSql());
             if ($stmt !== false) {// remember to check if user exists first...
@@ -78,7 +80,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 if ($this->connection->affected_rows == 0) {
                     return $result;
                 } else {
-                    $result["status"] = self::SUCCESS;
+                    $result["status"] = FailOrPass::getSuccess();
                 }
             }
         } catch (Exception $e) {
@@ -89,7 +91,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
     }
 
     public function read(DataObject $object) {
-        $result = array("status" => self::FAILED, "data" => null);
+        $result = FailOrPass::getFailureArray();
         try {
             $stmt = $this->connection->prepare($object->getSql());
             if ($stmt !== false) {
@@ -126,7 +128,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 while ($row = $result->fetch_assoc()) {
                     $data[] = $row;
                 }
-                $result["status"] = self::SUCCESS;
+                $result["status"] = FailOrPass::getSuccess();
                 $result["data"] = $data;
             }
         } catch (Exception $e) {
@@ -137,7 +139,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
     }
 
     public function update(DataObject $object) {
-        $result = array("status" => self::FAILED, "data" => null);
+        $result = FailOrPass::getFailureArray();
 
         try {
             $stmt = $this->connection->prepare($object->getSql());
@@ -162,7 +164,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $stmt->bind_param("s", $alertID);
                     $alertID = $object->getAlertID();
                 }
-                $result["status"] = self::SUCCESS;
+                $result["status"] = FailOrPass::getSuccess();
             }
         } catch (Exception $e) {
             
@@ -172,7 +174,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
     }
 
     public function delete(DataObject $object) {
-        $result = array("status" => self::FAILED, "data" => null);
+        $result = FailOrPass::getFailureArray();
 
         try {
             $stmt = $this->connection->prepare($object->getSql());
@@ -191,13 +193,17 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $stmt->bind_param("s", $aletID);
                 }
                 // if successful change status to SUCCESS
-                $result["status"] = self::SUCCESS;
+                $result["status"] = FailOrPass::getSuccess();
             }
         } catch (Exception $e) {
             
         }
 
         return $result;
+    }
+
+    public function isConnected() {
+        return $this->connected;
     }
 
 }

@@ -1,6 +1,8 @@
 <?php
 
-require_once '../includes/autoload.php';
+if (file_exists('../includes/autoload.php')) {
+    require_once '../includes/autoload.php';
+}
 
 /**
  * Description of ResourceController
@@ -26,6 +28,8 @@ class ResourceController {
             return $this->resourcesModel->deleteResource($dataObj);
         } else if ($dataObj->getRequest() === Requests::resourceReadAll()) {
             return $this->resourcesModel->getAllResource($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 

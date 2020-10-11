@@ -1,6 +1,8 @@
 <?php
 
-require_once '../includes/autoload.php';
+if (file_exists('../includes/autoload.php')) {
+    require_once '../includes/autoload.php';
+}
 
 /**
  * Description of APIAdapter
@@ -8,6 +10,7 @@ require_once '../includes/autoload.php';
  * @author isaactaylor
  */
 class APIAdapter implements APIAdapterInterface {
+
     /**
      * This function returns statistics and data that has been analyzed for a user
      * 

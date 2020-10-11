@@ -1,6 +1,8 @@
 <?php
 
-require_once '../includes/autoload.php';
+if (file_exists('../includes/autoload.php')) {
+    require_once '../includes/autoload.php';
+}
 
 /**
  * Description of ReportController
@@ -24,6 +26,8 @@ class ReportController {
             return $this->reportModel->updateReport($dataObj);
         } else if ($dataObj->getRequest() === Requests::reportReadAll()) {
             return $this->reportModel->getAllReport($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 

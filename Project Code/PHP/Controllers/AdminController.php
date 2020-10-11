@@ -1,6 +1,8 @@
 <?php
 
-require_once '../includes/autoload.php';
+if (file_exists('../includes/autoload.php')) {
+    require_once '../includes/autoload.php';
+}
 
 /**
  * Description of AdminController
@@ -24,6 +26,8 @@ class AdminController {
             return $this->adminModel->createAdmin($dataObj);
         } else if ($dataObj->getRequest() === Requests::adminDeletion()) {
             return $this->adminModel->deleteAdmin($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 

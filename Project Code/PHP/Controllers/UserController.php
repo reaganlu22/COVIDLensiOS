@@ -1,6 +1,8 @@
 <?php
 
-require_once '../includes/autoload.php';
+if (file_exists('../includes/autoload.php')) {
+    require_once '../includes/autoload.php';
+}
 
 /**
  * Description of UserController
@@ -25,6 +27,8 @@ class UserController {
             return $this->userModel->updateUser($dataObj);
         } else if ($dataObj->getRequest() === Requests::userDeletion()) {
             return $this->userModel->deleteUser($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 
