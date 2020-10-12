@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		471E3A72F62DF7AB515F4311 /* Pods_COVID_Lens_COVID_LensUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */; };
+		5D24F5BF25351EAD0081F030 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D24F5BE25351EAD0081F030 /* GoogleService-Info.plist */; };
 		5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */; };
 		5D5DB56D252E9539009FB2DE /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB56C252E9539009FB2DE /* Color+Extension.swift */; };
 		5D5DB593252EDC49009FB2DE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB592252EDC49009FB2DE /* HomeView.swift */; };
@@ -37,9 +38,6 @@
 		5DDA2030252A634100BC238D /* COVID_LensUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA202F252A634100BC238D /* COVID_LensUITests.swift */; };
 		5DDA205F252AC52900BC238D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA205E252AC52900BC238D /* User.swift */; };
 		5DDA2074252BD4BD00BC238D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA2073252BD4BC00BC238D /* UserData.swift */; };
-		5DDA20A7252CD99500BC238D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA20A6252CD99500BC238D /* GoogleService-Info.plist */; };
-		5DDA20A8252CD99500BC238D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA20A6252CD99500BC238D /* GoogleService-Info.plist */; };
-		5DDA20A9252CD99500BC238D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA20A6252CD99500BC238D /* GoogleService-Info.plist */; };
 		8DE782F62C78ACC6C9AF30CD /* Pods_COVID_Lens.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B798BE6F6BA64FC07C71E399 /* Pods_COVID_Lens.framework */; };
 		B730F79DD7B934BF0A34B8E9 /* Pods_COVID_LensTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +63,7 @@
 		144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_Lens_COVID_LensUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_LensTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID LensTests.release.xcconfig"; path = "Target Support Files/Pods-COVID LensTests/Pods-COVID LensTests.release.xcconfig"; sourceTree = "<group>"; };
+		5D24F5BE25351EAD0081F030 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		5D5DB56C252E9539009FB2DE /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5D5DB592252EDC49009FB2DE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 		5DDA2031252A634100BC238D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DDA205E252AC52900BC238D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5DDA2073252BD4BC00BC238D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		5DDA20A6252CD99500BC238D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		72545DCF507F967A0F33EF5F /* Pods-COVID Lens.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID Lens.release.xcconfig"; path = "Target Support Files/Pods-COVID Lens/Pods-COVID Lens.release.xcconfig"; sourceTree = "<group>"; };
 		799CE92FC7E58E33C2F0314A /* Pods-COVID Lens-COVID LensUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID Lens-COVID LensUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID Lens-COVID LensUITests/Pods-COVID Lens-COVID LensUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8DAC02AB783DAD2D7FA809F5 /* Pods-COVID Lens-COVID LensUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID Lens-COVID LensUITests.debug.xcconfig"; path = "Target Support Files/Pods-COVID Lens-COVID LensUITests/Pods-COVID Lens-COVID LensUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -235,7 +233,7 @@
 				5DDA2016252A634100BC238D /* Assets.xcassets */,
 				5DDA201B252A634100BC238D /* Info.plist */,
 				5DC8819E2532DEAB00135316 /* style.json */,
-				5DDA20A6252CD99500BC238D /* GoogleService-Info.plist */,
+				5D24F5BE25351EAD0081F030 /* GoogleService-Info.plist */,
 				5DDA2018252A634100BC238D /* Preview Content */,
 			);
 			path = "COVID Lens";
@@ -380,7 +378,7 @@
 			files = (
 				5DDA201A252A634100BC238D /* Preview Assets.xcassets in Resources */,
 				5DDA2017252A634100BC238D /* Assets.xcassets in Resources */,
-				5DDA20A7252CD99500BC238D /* GoogleService-Info.plist in Resources */,
+				5D24F5BF25351EAD0081F030 /* GoogleService-Info.plist in Resources */,
 				5DC8819F2532DEAB00135316 /* style.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +387,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DDA20A8252CD99500BC238D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +394,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DDA20A9252CD99500BC238D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
