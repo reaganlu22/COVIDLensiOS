@@ -1,5 +1,4 @@
 <?php
-
 require_once '../includes/autoload.php';
 
 /**
@@ -8,6 +7,7 @@ require_once '../includes/autoload.php';
  * @author isaactaylor
  */
 class APIAdapter implements APIAdapterInterface {
+
     /**
      * This function returns statistics and data that has been analyzed for a user
      * 

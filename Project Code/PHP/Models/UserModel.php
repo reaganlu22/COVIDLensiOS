@@ -1,5 +1,6 @@
 <?php
 
+
 require_once '../includes/autoload.php';
 
 /**
@@ -24,12 +25,7 @@ class UserModel {
                 . " email, password, userData) VALUES (?,?,?,?)";
         $user->setSql($preparedStmt);
         $response = $this->connection->create($user);
-        // if user creation was a success
-        if ($response) {
-            
-        } else {
-            // if user creation failed
-        }
+        return $response;
     }
 
     public function readUser(User $user) {
@@ -42,23 +38,13 @@ class UserModel {
         $preparedStmt = "UPDATE" . $user->getTableName() . " SET email=?,"
                 . " password=?, userData=? WHERE userID=?";
         $response = $this->connection->delete($user);
-        // if user update was a success
-        if ($response) {
-            
-        } else {
-            // if user update failed
-        }
+        return $response;
     }
 
     public function deleteUser(User $user) {
         $preparedStmt = "DELETE FROM " . $user->getTableName() . " WHERE userID=?";
         $response = $this->connection->delete($user);
-        // if user deletion was a success
-        if ($response) {
-            
-        } else {
-            // if user deletion failed
-        }
+        return $response;
     }
 
 }

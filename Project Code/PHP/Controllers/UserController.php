@@ -25,6 +25,8 @@ class UserController {
             return $this->userModel->updateUser($dataObj);
         } else if ($dataObj->getRequest() === Requests::userDeletion()) {
             return $this->userModel->deleteUser($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 

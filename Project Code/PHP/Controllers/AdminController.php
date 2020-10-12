@@ -24,7 +24,10 @@ class AdminController {
             return $this->adminModel->createAdmin($dataObj);
         } else if ($dataObj->getRequest() === Requests::adminDeletion()) {
             return $this->adminModel->deleteAdmin($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 
 }
+

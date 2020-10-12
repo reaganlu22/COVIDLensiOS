@@ -1,5 +1,4 @@
 <?php
-
 require_once '../includes/autoload.php';
 
 /**
@@ -26,6 +25,8 @@ class ResourceController {
             return $this->resourcesModel->deleteResource($dataObj);
         } else if ($dataObj->getRequest() === Requests::resourceReadAll()) {
             return $this->resourcesModel->getAllResource($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 
