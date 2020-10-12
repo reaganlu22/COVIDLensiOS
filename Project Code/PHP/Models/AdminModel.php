@@ -23,12 +23,7 @@ class AdminModel {
         $preparedStmt = "INSERT INTO " . $admin->getTableName() . " (adminID, email, password) VALUES (?,?,?)";
         $admin->setSql($preparedStmt);
         $response = $this->connection->create($admin);
-        // if admin creation was a success
-        if ($response) {
-            
-        } else {
-            // if admin creation failed
-        }
+        return $response;
     }
 
     public function readAdmin(Admin $admin) {
@@ -40,23 +35,13 @@ class AdminModel {
     public function updateAdmin(Admin $admin) {
         $preparedStmt = "UPDATE" . $admin->getTableName() . " SET email=?, password=? WHERE adminID=?";
         $response = $this->connection->delete($admin);
-        // if admin update was a success
-        if ($response) {
-            
-        } else {
-            // if admin update failed
-        }
+        return $response;
     }
 
     public function deleteAdmin(Admin $admin) {
         $preparedStmt = "DELETE FROM " . $admin->getTableName() . " WHERE adminID=?";
         $response = $this->connection->delete($admin);
-        // if admin deletion was a success
-        if ($response) {
-            
-        } else {
-            // if admin deletion failed
-        }
+        return $response;
     }
 
 }

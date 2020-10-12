@@ -1,6 +1,6 @@
 <?php
 
-
+require_once '../includes/autoload.php';
 
 /**
  * Description of Report
@@ -17,6 +17,7 @@ class Report extends DataObject {
     private $reportInfo;
     private $situationDescription;
     private $confirmerID;
+    private $userID;
     
     public function __construct() {
         $this->setTableName("Report");
@@ -26,68 +27,74 @@ class Report extends DataObject {
         $this->age = $age;
     }
     
-    private function setPhoneNumber(string $phoneNumber) {
+    public function setPhoneNumber(string $phoneNumber) {
         $this->phoneNumber = $phoneNumber;
     }
     
-    private function setResidenceHall(string $residenceHall){
+    public function setResidenceHall(string $residenceHall){
         $this->residenceHall = $residenceHall;
     }
     
-    private function setAffiliation(string $affiliation){
+    public function setAffiliation(string $affiliation){
         $this->affiliation = $affiliation;
     }
     
-    private function setLocationID(string $locationID){
+    public function setLocationID(string $locationID){
         $this->locationID = $locationID;
     }
     
-    private function setReportStatus(string $reportStatus) {
+    public function setReportStatus(string $reportStatus) {
         $this->reportStatus = $reportStatus;
     }
     
-    private function setSituationDescription(string $situationDescription) {
+    public function setSituationDescription(string $situationDescription) {
         $this->situationDescription = $situationDescription;
     }
     
-    private function setConfirmerID(string $confirmerID){
+    public function setConfirmerID(string $confirmerID){
         $this->confirmerID = $confirmerID;
     }
     
-    private function setReportInfo(string $reportInfo) {
+    public function setReportInfo(string $reportInfo) {
         $this->reportInfo = $reportInfo;
     }
+    public function setUserID(string $userID) {
+        $this->userID = $userID;
+    }
 
+    public function getUserID(){
+        return $this->userID;
+    }
 
     public function getAge(){
         return $this->age;
     }
     
-    private function getPhoneNumber() {
+    public function getPhoneNumber() {
         return $this->phoneNumber;
     }
     
-    private function getResidenceHall(){
+    public function getResidenceHall(){
         return $this->residenceHall;
     }
     
-    private function getAffiliation(){
+    public function getAffiliation(){
         return $this->affiliation;
     }
     
-    private function getLocationID(){
+    public function getLocationID(){
         return $this->locationID;
     }
     
-    private function getReportStatus() {
+    public function getReportStatus() {
         return $this->reportStatus;
     }
     
-    private function getSituationDescription() {
+    public function getSituationDescription() {
         return $this->situationDescription;
     }
     
-    private function getConfirmerID(){
+    public function getConfirmerID(){
         return $this->confirmerID;
     }
     

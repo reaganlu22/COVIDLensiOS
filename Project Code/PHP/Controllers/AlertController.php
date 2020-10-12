@@ -1,7 +1,5 @@
 <?php
-
 require_once '../includes/autoload.php';
-
 /**
  * Description of AlertController
  *
@@ -26,6 +24,8 @@ class AlertController {
             return $this->alertModel->deleteAlert($dataObj);
         } else if ($dataObj->getRequest() === Requests::alertReadAll()) {
             return $this->alertModel->getAllAlerts($dataObj);
+        } else {
+            return FailOrPass::getFailureArray();
         }
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+require_once '../includes/autoload.php';
 /**
  * Description of Resources
  *
@@ -26,6 +27,14 @@ class Resources extends DataObject {
 
     public function setTitle(string $title) {
         $this->title = $title;
+    }
+
+    public function setResourceID(string $resourceID) {
+        $this->resourceID = $resourceID;
+    }
+
+    public function getResourceID() {
+        return $this->resourceID;
     }
 
     public function getTitle() {
