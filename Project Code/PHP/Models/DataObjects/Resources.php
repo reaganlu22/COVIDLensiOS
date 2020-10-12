@@ -1,5 +1,7 @@
 <?php
 
+namespace Models\DataObjects;
+
 /**
  * Description of Resources
  *
@@ -31,10 +33,11 @@ class Resources extends DataObject {
     public function setResourceID(string $resourceID) {
         $this->resourceID = $resourceID;
     }
-    
-    public function getResourceID(){
+
+    public function getResourceID() {
         return $this->resourceID;
     }
+
     public function getTitle() {
         return $this->title;
     }

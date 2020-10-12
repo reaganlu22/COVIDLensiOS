@@ -5,6 +5,8 @@ if (file_exists('../includes/autoload.php')) {
 }
 
 use \PHPUnit\Framework\TestCase;
+use \Models\DataObjects\Admin;
+use \Controllers\AdminController;
 
 /**
  * Description of AdminTests
@@ -27,6 +29,7 @@ final class AdminTest extends TestCase {
         self::$admin->setPassword("12345ABC!");
         self::$adminController = new AdminController();
     }
+
 //
 //    public static function tearDownAfterClass(): void {
 //        self::$connection = null;

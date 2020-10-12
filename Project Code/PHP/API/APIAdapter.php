@@ -1,4 +1,5 @@
 <?php
+namespace API;
 
 if (file_exists('../includes/autoload.php')) {
     require_once '../includes/autoload.php';

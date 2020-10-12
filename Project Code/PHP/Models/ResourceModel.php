@@ -1,4 +1,5 @@
 <?php
+namespace Models;
 
 require_once '../includes/autoload.php';
 

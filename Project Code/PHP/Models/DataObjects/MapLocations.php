@@ -1,5 +1,7 @@
 <?php
 
+namespace Models\DataObjects;
+
 /**
  * Description of MapLocations
  *

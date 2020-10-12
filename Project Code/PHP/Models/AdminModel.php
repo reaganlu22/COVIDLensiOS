@@ -1,6 +1,13 @@
 <?php
 
-require_once '../includes/autoload.php';
+namespace Models;
+
+use Database\DatabaseAdapter;
+use Database\MysqlConnector;
+
+if (file_exists('../includes/autoload.php')) {
+    require_once '../includes/autoload.php';
+}
 
 /**
  * Description of AdminModel

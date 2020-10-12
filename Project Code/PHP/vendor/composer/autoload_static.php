@@ -11,9 +11,9 @@ class ComposerStaticInit4138fd7d88e42a7998293e24e8a2fa63
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     );
 
@@ -26,6 +26,10 @@ class ComposerStaticInit4138fd7d88e42a7998293e24e8a2fa63
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
+        ),
+        'V' => 
+        array (
+            'Views\\' => 6,
         ),
         'S' => 
         array (
@@ -43,6 +47,7 @@ class ComposerStaticInit4138fd7d88e42a7998293e24e8a2fa63
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Models\\' => 7,
         ),
         'G' => 
         array (
@@ -57,8 +62,18 @@ class ComposerStaticInit4138fd7d88e42a7998293e24e8a2fa63
         ),
         'D' => 
         array (
+            'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
+            'Database\\' => 9,
+        ),
+        'C' => 
+        array (
+            'Controllers\\' => 12,
+        ),
+        'A' => 
+        array (
+            'API\\' => 4,
         ),
     );
 
@@ -76,6 +91,10 @@ class ComposerStaticInit4138fd7d88e42a7998293e24e8a2fa63
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Views\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/views',
         ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
@@ -109,6 +128,10 @@ class ComposerStaticInit4138fd7d88e42a7998293e24e8a2fa63
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -129,6 +152,10 @@ class ComposerStaticInit4138fd7d88e42a7998293e24e8a2fa63
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
+        'Dotenv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
@@ -136,6 +163,18 @@ class ComposerStaticInit4138fd7d88e42a7998293e24e8a2fa63
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/database',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers',
+        ),
+        'API\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/api',
         ),
     );
 
