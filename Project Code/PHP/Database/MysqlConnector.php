@@ -1,7 +1,5 @@
 <?php
 
-namespace Database;
-
 /**
  * Description of MysqlConnector
  *

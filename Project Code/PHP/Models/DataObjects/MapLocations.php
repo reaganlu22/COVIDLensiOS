@@ -1,7 +1,6 @@
 <?php
 
-namespace Models\DataObjects;
-
+require_once '../includes/autoload.php';
 /**
  * Description of MapLocations
  *

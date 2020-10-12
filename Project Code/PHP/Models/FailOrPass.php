@@ -1,5 +1,4 @@
 <?php
-namespace Models;
 
 /**
  * Description of Failures

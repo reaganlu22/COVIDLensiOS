@@ -1,6 +1,5 @@
 <?php
 
-namespace API;
 
 /**
  * Description of PythonScriptCallerAPI

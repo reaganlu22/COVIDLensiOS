@@ -1,1 +1,0 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":276:{a:2:{s:7:"defects";a:1:{s:19:"AdminTest::testPass";i:4;}s:5:"times";a:6:{s:19:"AdminTest::testPass";d:0;s:19:"AlertTest::testPass";d:0.013;s:26:"MapLocationsTest::testPass";d:0;s:20:"ReportTest::testPass";d:0;s:23:"ResourcesTest::testPass";d:0;s:18:"UserTest::testPass";d:0;}}}
