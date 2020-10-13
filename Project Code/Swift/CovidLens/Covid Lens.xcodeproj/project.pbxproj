@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02EE152525351E6500A5A568 /* Default-568h@2x.png */; };
 		471E3A72F62DF7AB515F4311 /* Pods_COVID_Lens_COVID_LensUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */; };
 		5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */; };
 		5D5DB56D252E9539009FB2DE /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB56C252E9539009FB2DE /* Color+Extension.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02EE152525351E6500A5A568 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_Lens_COVID_LensUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_LensTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID LensTests.release.xcconfig"; path = "Target Support Files/Pods-COVID LensTests/Pods-COVID LensTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		5DDA2006252A633C00BC238D = {
 			isa = PBXGroup;
 			children = (
+				02EE152525351E6500A5A568 /* Default-568h@2x.png */,
 				5DDA2011252A633C00BC238D /* COVID Lens */,
 				5DDA2023252A634100BC238D /* COVID LensTests */,
 				5DDA202E252A634100BC238D /* COVID LensUITests */,
@@ -276,6 +279,7 @@
 			buildConfigurationList = 5DDA2034252A634100BC238D /* Build configuration list for PBXNativeTarget "COVID Lens" */;
 			buildPhases = (
 				4E618B5C74A352704D99023E /* [CP] Check Pods Manifest.lock */,
+				6F298DEF5BFACBB3E81DD3AA /* [CP] Prepare Artifacts */,
 				5DDA200B252A633C00BC238D /* Sources */,
 				5DDA200C252A633C00BC238D /* Frameworks */,
 				5DDA200D252A633C00BC238D /* Resources */,
@@ -315,6 +319,7 @@
 			buildConfigurationList = 5DDA203A252A634100BC238D /* Build configuration list for PBXNativeTarget "COVID LensUITests" */;
 			buildPhases = (
 				6F53C5B17293D40486AD5211 /* [CP] Check Pods Manifest.lock */,
+				ECBBC257BD70C52E5D5FA219 /* [CP] Prepare Artifacts */,
 				5DDA2027252A634100BC238D /* Sources */,
 				5DDA2028252A634100BC238D /* Frameworks */,
 				5DDA2029252A634100BC238D /* Resources */,
@@ -353,7 +358,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5DDA200A252A633C00BC238D /* Build configuration list for PBXProject "COVID Lens" */;
+			buildConfigurationList = 5DDA200A252A633C00BC238D /* Build configuration list for PBXProject "Covid Lens" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -381,6 +386,7 @@
 				5DDA201A252A634100BC238D /* Preview Assets.xcassets in Resources */,
 				5DDA2017252A634100BC238D /* Assets.xcassets in Resources */,
 				5DDA20A7252CD99500BC238D /* GoogleService-Info.plist in Resources */,
+				02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */,
 				5DC8819F2532DEAB00135316 /* style.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +447,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F298DEF5BFACBB3E81DD3AA /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6F53C5B17293D40486AD5211 /* [CP] Check Pods Manifest.lock */ = {
@@ -536,6 +559,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECBBC257BD70C52E5D5FA219 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens-COVID LensUITests/Pods-COVID Lens-COVID LensUITests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens-COVID LensUITests/Pods-COVID Lens-COVID LensUITests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVID Lens-COVID LensUITests/Pods-COVID Lens-COVID LensUITests-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -637,8 +677,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "M89WSFD858 ";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -655,7 +697,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -698,8 +740,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "M89WSFD858 ";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -710,7 +754,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -728,15 +772,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"COVID Lens/Preview Content\"";
-				DEVELOPMENT_TEAM = M89WSFD858;
+				DEVELOPMENT_TEAM = 3ATGG4WZKD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "COVID Lens/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Capstone2020.COVID-Lens";
+				PRODUCT_BUNDLE_IDENTIFIER = Senior2020Capstone.covid19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -751,15 +795,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"COVID Lens/Preview Content\"";
-				DEVELOPMENT_TEAM = M89WSFD858;
+				DEVELOPMENT_TEAM = 3ATGG4WZKD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "COVID Lens/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Capstone2020.COVID-Lens";
+				PRODUCT_BUNDLE_IDENTIFIER = Senior2020Capstone.covid19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -775,7 +819,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M89WSFD858;
 				INFOPLIST_FILE = "COVID LensTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -798,7 +842,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M89WSFD858;
 				INFOPLIST_FILE = "COVID LensTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -817,16 +861,21 @@
 			baseConfigurationReference = 8DAC02AB783DAD2D7FA809F5 /* Pods-COVID Lens-COVID LensUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M89WSFD858;
+				DEVELOPMENT_TEAM = LDU85459F2;
 				INFOPLIST_FILE = "COVID LensUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Capstone2020.COVID-LensUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Capstone2020.COVID-Lens";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "COVID Lens";
@@ -838,15 +887,17 @@
 			baseConfigurationReference = 799CE92FC7E58E33C2F0314A /* Pods-COVID Lens-COVID LensUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M89WSFD858;
+				DEVELOPMENT_TEAM = 3ATGG4WZKD;
 				INFOPLIST_FILE = "COVID LensUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Capstone2020.COVID-LensUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Capstone2020.COVID-Lens";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -857,7 +908,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5DDA200A252A633C00BC238D /* Build configuration list for PBXProject "COVID Lens" */ = {
+		5DDA200A252A633C00BC238D /* Build configuration list for PBXProject "Covid Lens" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DDA2032252A634100BC238D /* Debug */,
