@@ -50,11 +50,9 @@ $sameConfirmer = uniqid();
 //        "Map_Locations" => array())
 //);
 
-//Easier method ... Run Python and let it Query From the database itself on map data
+//Easier method ... Run Python and let it Query From the database itself on Map_Locations and Report
 
 $expected = array("Students" => 2, "Faculty" => 1, "Staff" => 1, "Contractors" => 0, "Total" => 4,
     "map_data" => array("Jefferson Suites" => 2, "Mendenhall Residence Hall" => 0));//... all other locations
-    //and there counts
-//$tester2->testScript("python", $testData, $expected, "PythonScriptCaller Test 1");
 
 
