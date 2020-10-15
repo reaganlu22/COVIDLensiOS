@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14.0, *)
 struct TabContainterView: View {
     @StateObject private var tabContainerViewModel = TabContainterViewModel()
     

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Applications/XAMPP/xamppfiles/htdocs/COVID-Lens-App/Project Code/Swift/CovidLens/Covid Lens.xcodeproj">
    </FileRef>
 </Workspace>

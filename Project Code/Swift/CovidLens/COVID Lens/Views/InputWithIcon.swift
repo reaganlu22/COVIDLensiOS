@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14.0, *)
 struct InputWithIcon: View {
     var placeholder: String = ""
     var value: Binding<String>

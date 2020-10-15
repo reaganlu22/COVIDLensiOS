@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14.0, *)
 struct HomeView: View {
     private var viewModel = HomeVM()
     // string array from database of of form: <affiliation> : <number of cases>

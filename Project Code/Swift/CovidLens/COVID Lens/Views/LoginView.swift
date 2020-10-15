@@ -13,16 +13,17 @@
 import SwiftUI
 import GoogleSignIn
 
+@available(iOS 14.0, *)
+
 struct LoginView : View {
     @ObservedObject var info: AppDelegate
-    
     @StateObject private var viewModel = LoginVM()
     
     @EnvironmentObject var authVM: AuthVM
     
-    //@State private var email: String = ""
-    //@State private var password: String = ""
-    
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var displaySignupView: Bool = false
     
     var title: some View {
         VStack(spacing: 15) {
@@ -47,21 +48,16 @@ struct LoginView : View {
                 .foregroundColor(Color.black.opacity(0.65))
                 .padding(.bottom, 3)
             // email field
-            InputWithIcon(placeholder: viewModel.email, value: $viewModel.emailInput, icon: viewModel.emailIcon)
+            InputWithIcon(placeholder: viewModel.email, value: $email, icon: viewModel.emailIcon)
             // password field
-            InputWithIcon(placeholder: viewModel.password, value: $viewModel.passwordInput, icon: viewModel.passwordIcon, secure: true)
+            InputWithIcon(placeholder: viewModel.password, value: $password, icon: viewModel.passwordIcon, secure: true)
         }
     }
     
     // sign in button
     var signInButton: some View {
         PrimaryButton(label: viewModel.signInButtonText) {
-            // viewModel function to verify credentials
-            // something with authVM?
-            // return login state of user?
-            
-            print(viewModel.emailInput)
-            print(viewModel.passwordInput)
+            // action goes here
             authVM.login()
         }
         
@@ -74,6 +70,7 @@ struct LoginView : View {
             GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
             GIDSignIn.sharedInstance()?.signIn()
         }
+        
     }
     
     // sign up button
@@ -82,20 +79,18 @@ struct LoginView : View {
             Text(viewModel.noAccountText)
                 .foregroundColor(Color.black.opacity(0.7))
             Button(action: {
-                viewModel.displaySignupView.toggle()
+                self.displaySignupView.toggle()
             }) {
                 Text(viewModel.signUpButtonText)
                     .fontWeight(.heavy)
                     .foregroundColor(Color.black)
-            }.sheet(isPresented: $viewModel.displaySignupView) {
+            }.sheet(isPresented: self.$displaySignupView) {
                 SignupView()
             }
-            
         }
     }
     
     var body: some View {
-        
         GeometryReader { G in
             VStack {
                 Spacer()
@@ -111,72 +106,22 @@ struct LoginView : View {
                 signUpButton
                     .offset(y: -20)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.white.ignoresSafeArea(.all, edges: .all))
+            .background(Color.white.ignoresSafeArea(.all, edges: .all)).onTapGesture {
+                self.hideKeyboard()
+            }
         }
         
-        //        VStack {
-        //            VStack(spacing: 15) {
-        //                // logo
-        //                Image(viewModel.logo)
-        //                    .resizable()
-        //                    .aspectRatio(contentMode: .fit)
-        //                    .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        //
-        //                // title
-        //                Text(viewModel.title)
-        //                    .fontWeight(.bold)
-        //                    .font(.system(size: 50.0))
-        //                    .foregroundColor(Color.black)
-        //            }.padding(.bottom, 35)
-        //            .padding(.top, 50)
-        //
-        //            VStack(spacing: 15) {
-        //                Text("Please sign in to continue")
-        //                    .font(.system(size: 18.0))
-        //                    .foregroundColor(Color.black.opacity(0.65))
-        //                    .padding(.bottom, 3)
-        //                // email field
-        //                InputWithIcon(placeholder: "Email", value: $email, icon: "envelope")
-        //                // password field
-        //                InputWithIcon(placeholder: "Password", value: $password, icon: "lock", secure: true)
-        //
-        //                VStack(spacing: 15) {
-        //                    // login button
-        //                    HStack {
-        //                        PrimaryButton(label: "Sign in") {
-        //                            // action goes here
-        //                            authVM.login()
-        //                            print("login button clicked")
-        //                        }
-        //                    }
-        //                    // sign in with Google button
-        //                    HStack {
-        //                        PrimaryButton(label: "Sign in with Google", icon: "google") {
-        //                            // Google signin
-        //                            GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
-        //                            GIDSignIn.sharedInstance()?.signIn()
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //            Spacer()
-        //            // sign up button
-        //            HStack {
-        //                Text("Don't have an account? ")
-        //                    .foregroundColor(Color.black.opacity(0.7))
-        //                Button(action: {
-        //                    self.displaySignupView.toggle()
-        //                }) {
-        //                    Text("Sign up")
-        //                        .fontWeight(.heavy)
-        //                        .foregroundColor(Color.black)
-        //                }.sheet(isPresented: self.$displaySignupView) {
-        //                    //.fullScreenCover(isPresented: $displaySignupView) {
-        //                    SignupView()
-        //                }
-        //            }.offset(y: -20)
-        //
-        //        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        //        .background(Color.white.ignoresSafeArea(.all, edges: .all))
+      
+    }
+    
+    
+}
+
+// used to hide the keyboard
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
+#endif

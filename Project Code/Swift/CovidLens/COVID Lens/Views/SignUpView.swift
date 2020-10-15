@@ -13,6 +13,11 @@ struct SignupView: View {
     
     @StateObject private var viewModel = SignupVM()
     
+    @State private var name: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var checkPassword: String = ""
+    
     var title: some View {
         VStack(spacing: 15) {
             // logo
@@ -28,34 +33,34 @@ struct SignupView: View {
                 .foregroundColor(Color.black)
                 .padding(.bottom)
             
-            // instructional text
-            Text(viewModel.signUpText)
-                .font(.system(size: 18.0))
-                .foregroundColor(Color.black.opacity(0.65))
-                .padding(.bottom, 2)
-                .padding(.horizontal, 50)
-                .multilineTextAlignment(.center)
+                // instructional text
+                Text(viewModel.signUpText)
+                    .font(.system(size: 18.0))
+                    .foregroundColor(Color.black.opacity(0.65))
+                    .padding(.bottom, 2)
+                    .padding(.horizontal, 50)
+                    .multilineTextAlignment(.center)
         }
     }
     
     var nameField: some View {
         // name field
-        InputWithIcon(placeholder: viewModel.name, value: $viewModel.nameInput, icon: viewModel.nameIcon)
+        InputWithIcon(placeholder: viewModel.name, value: $name, icon: viewModel.nameIcon)
     }
     
     var emailField: some View {
         // email field
-        InputWithIcon(placeholder: viewModel.email, value: $viewModel.emailInput, icon: viewModel.emailIcon)
+        InputWithIcon(placeholder: viewModel.email, value: $email, icon: viewModel.emailIcon)
     }
     
     var passwordField: some View {
         // password field
-        InputWithIcon(placeholder: viewModel.password, value: $viewModel.passwordInput, icon: viewModel.passwordIcon)
+        InputWithIcon(placeholder: viewModel.password, value: $password, icon: viewModel.passwordIcon)
     }
     
     var rePasswordField: some View {
         // re-enter password field
-        InputWithIcon(placeholder: viewModel.rePassword, value: $viewModel.rePasswordInput, icon: viewModel.passwordIcon)
+        InputWithIcon(placeholder: viewModel.rePassword, value: $checkPassword, icon: viewModel.passwordIcon)
     }
     
     var signUpFields: some View {
@@ -70,13 +75,13 @@ struct SignupView: View {
             }
                 //.multilineTextAlignment(.center)
             // name field
-            InputWithIcon(placeholder: viewModel.name, value: $viewModel.nameInput, icon: viewModel.nameIcon)
+            InputWithIcon(placeholder: viewModel.name, value: $name, icon: viewModel.nameIcon)
             // email field
-            InputWithIcon(placeholder: viewModel.email, value: $viewModel.emailInput, icon: viewModel.emailIcon)
+            InputWithIcon(placeholder: viewModel.email, value: $email, icon: viewModel.emailIcon)
             // password field
-            InputWithIcon(placeholder: viewModel.password, value: $viewModel.passwordInput, icon: viewModel.passwordIcon)
+            InputWithIcon(placeholder: viewModel.password, value: $password, icon: viewModel.passwordIcon)
             // re-enter password field
-            InputWithIcon(placeholder: viewModel.rePassword, value: $viewModel.rePasswordInput, icon: viewModel.passwordIcon)
+            InputWithIcon(placeholder: viewModel.rePassword, value: $checkPassword, icon: viewModel.passwordIcon)
         }
     }
     
@@ -84,18 +89,11 @@ struct SignupView: View {
         HStack {
             PrimaryButton(label: viewModel.buttonText) {
                 // action goes here
-                
-                // logic :
-                // - make sure user hasn;t already signed up; no matching email in database
-                // - make sure passwords match
-                // if never signed up before, instantiate user? send info to database
-                var user1: User = User(name: viewModel.nameInput, email: viewModel.emailInput)
-                
-                user1.getInfo()
-                //print(self.name)
-                //print(self.email)
-                //print(self.password)
-                //print(self.checkPassword)
+                // send info to databse
+                print(self.name)
+                print(self.email)
+                print(self.password)
+                print(self.checkPassword)
                 self.presentationMode.wrappedValue.dismiss()
             }
         }

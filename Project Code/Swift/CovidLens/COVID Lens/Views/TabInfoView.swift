@@ -19,10 +19,14 @@ struct TabInfoView: View {
                 Image(systemName: icon)
                     .imageScale(.large)
                     .foregroundColor(.black)
-                Text(title)
-                    .font(.title3)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.black)
+                if #available(iOS 14.0, *) {
+                    Text(title)
+                        .font(.title3)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.black)
+                } else {
+                    // Fallback on earlier versions
+                }
             }.padding(.top, 10)
             .padding(.horizontal, 12)
             Text(info)
