@@ -30,22 +30,22 @@ final class AdminTest extends TestCase {
 
     public function testAdminCreation() {
         $this->admin->setRequest(Requests::adminCreation());
-        $this->admin->setTableName("Admin");
+        $this->admin->setTableName("admin_account");
         $expected1 = array("status" => FailOrPass::getSuccess(), "data" => null);
         $expected2 = FailOrPass::getFailureArray();
         //checking to see if we get the correct response when connected or disconnected to the database
         if ($this->connection->isConnected()) {
-            $this->assertEquals($expected1, json_encode($this->adminController->invokeAdmin($this->admin)),
+            $this->assertEquals(json_encode($expected1), json_encode($this->adminController->invokeAdmin($this->admin)),
                     "testAdminCreation");
         } else {
-            $this->assertEquals($expected2, json_encode($this->adminController->invokeAdmin($this->admin)),
+            $this->assertEquals(json_encode($expected2), json_encode($this->adminController->invokeAdmin($this->admin)),
                    "testAdminCreation" );
         }
     }
 
     public function testAdminDeletion() {
         $this->admin->setRequest(Requests::adminDeletion());
-        $this->admin->setTableName("Admin");
+        $this->admin->setTableName("admin_account");
         $expected1 = array("status" => FailOrPass::getSuccess(), "data" => null);
         $expected2 = FailOrPass::getFailureArray();
         //checking to see if we get the correct response when connected or disconnected to the database
@@ -60,7 +60,8 @@ final class AdminTest extends TestCase {
 
     public function testAdminSignInRequest() {
         $this->admin->setRequest(Requests::adminSignInRequest());
-        $this->admin->setTableName("Admin");
+        $this->admin->setTableName("admin_account");
+	
         $expected1 = array("status" => FailOrPass::getSuccess(), "data" => null);
         $expected2 = FailOrPass::getFailureArray();
         //checking to see if we get the correct response when connected or disconnected to the database
@@ -75,8 +76,8 @@ final class AdminTest extends TestCase {
 
     public function testAdminSignOutRequest() {
         $this->admin->setRequest(Requests::adminSignOutRequest());
-        $this->admin->setTableName("Admin");
-        $expected1 = array("status" => FailOrPass::getSuccess(), "data" => null);
+        $this->admin->setTableName("admin_account");
+        $expected1 = array("status" => FailOrPass::getSuccess(), "data" => []);
         $expected2 = FailOrPass::getFailureArray();
         //checking to see if we get the correct response when connected or disconnected to the database
         if ($this->connection->isConnected()) {
