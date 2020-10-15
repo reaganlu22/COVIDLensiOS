@@ -8,6 +8,7 @@
 import SwiftUI
 import GoogleSignIn
 
+@available(iOS 14.0, *)
 struct SettingsView: View {
     @EnvironmentObject var authVM: AuthVM
     @StateObject private var viewModel = SettingsVM()

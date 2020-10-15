@@ -129,7 +129,7 @@ struct GoogleMapsView: UIViewRepresentable {
     
     
     func makeUIView(context: Self.Context) -> GMSMapView {
-        // focus map on UNCG campus upon loading
+
         let camera = GMSCameraPosition.camera(withLatitude: 36.0679, longitude: -79.810463, zoom: 15.5)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         

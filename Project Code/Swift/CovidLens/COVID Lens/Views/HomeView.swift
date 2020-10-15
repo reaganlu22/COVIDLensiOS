@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14.0, *)
 struct HomeView: View {
     // string array from database of of form: <affiliation> : <number of cases>
     let data = ["Student", "13", "Faculty", "4", "Staff", "12", "Contractor", "1"]

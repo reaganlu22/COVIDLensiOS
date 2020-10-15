@@ -13,6 +13,8 @@
 import SwiftUI
 import GoogleSignIn
 
+@available(iOS 14.0, *)
+
 struct LoginView : View {
     @ObservedObject var info: AppDelegate
     @StateObject private var viewModel = LoginVM()
@@ -104,72 +106,22 @@ struct LoginView : View {
                 signUpButton
                     .offset(y: -20)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.white.ignoresSafeArea(.all, edges: .all))
+            .background(Color.white.ignoresSafeArea(.all, edges: .all)).onTapGesture {
+                self.hideKeyboard()
+            }
         }
         
-        //        VStack {
-        //            VStack(spacing: 15) {
-        //                // logo
-        //                Image(viewModel.logo)
-        //                    .resizable()
-        //                    .aspectRatio(contentMode: .fit)
-        //                    .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        //
-        //                // title
-        //                Text(viewModel.title)
-        //                    .fontWeight(.bold)
-        //                    .font(.system(size: 50.0))
-        //                    .foregroundColor(Color.black)
-        //            }.padding(.bottom, 35)
-        //            .padding(.top, 50)
-        //
-        //            VStack(spacing: 15) {
-        //                Text("Please sign in to continue")
-        //                    .font(.system(size: 18.0))
-        //                    .foregroundColor(Color.black.opacity(0.65))
-        //                    .padding(.bottom, 3)
-        //                // email field
-        //                InputWithIcon(placeholder: "Email", value: $email, icon: "envelope")
-        //                // password field
-        //                InputWithIcon(placeholder: "Password", value: $password, icon: "lock", secure: true)
-        //
-        //                VStack(spacing: 15) {
-        //                    // login button
-        //                    HStack {
-        //                        PrimaryButton(label: "Sign in") {
-        //                            // action goes here
-        //                            authVM.login()
-        //                            print("login button clicked")
-        //                        }
-        //                    }
-        //                    // sign in with Google button
-        //                    HStack {
-        //                        PrimaryButton(label: "Sign in with Google", icon: "google") {
-        //                            // Google signin
-        //                            GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
-        //                            GIDSignIn.sharedInstance()?.signIn()
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //            Spacer()
-        //            // sign up button
-        //            HStack {
-        //                Text("Don't have an account? ")
-        //                    .foregroundColor(Color.black.opacity(0.7))
-        //                Button(action: {
-        //                    self.displaySignupView.toggle()
-        //                }) {
-        //                    Text("Sign up")
-        //                        .fontWeight(.heavy)
-        //                        .foregroundColor(Color.black)
-        //                }.sheet(isPresented: self.$displaySignupView) {
-        //                    //.fullScreenCover(isPresented: $displaySignupView) {
-        //                    SignupView()
-        //                }
-        //            }.offset(y: -20)
-        //
-        //        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        //        .background(Color.white.ignoresSafeArea(.all, edges: .all))
+      
+    }
+    
+    
+}
+
+// used to hide the keyboard
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
+#endif

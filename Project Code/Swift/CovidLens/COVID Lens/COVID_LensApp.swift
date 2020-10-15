@@ -12,6 +12,9 @@ import FirebaseFirestoreSwift
 import GoogleSignIn
 import GoogleMaps
 import GooglePlaces
+import Combine
+
+@available(iOS 14.0, *)
 
 @main
 struct COVID_LensApp: App {
@@ -19,8 +22,8 @@ struct COVID_LensApp: App {
     @StateObject var authVM = AuthVM()
     
     // attach App Delegate to SwiftUI
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             if (authVM.isLoggedIn) {
@@ -32,115 +35,96 @@ struct COVID_LensApp: App {
             }
         }
     }
+    
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, ObservableObject{
     
-    @Published var email: String = ""
+    var window: UIWindow?
     
-    // API key for Google
-    var API_KEY = "AIzaSyBaBhLg6ULvTIXOsXZ7sU9GBQ1flu7H9O0"
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        // NavigationBar customization
-        UINavigationBar.appearance().barTintColor = UIColor(Color(red: 0/255, green: 193/255, blue: 203/255))
-        
-        // TabBar color customization
-        UITabBar.appearance().barTintColor = UIColor(Color(red: 240/255, green: 240/255, blue: 240/255))
-        
-        
-        // initialize Firebase
-        FirebaseApp.configure()
-        
-        // initialize GoogleSignIn
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+  
+    @Published var userId:String?
+    @Published var idToken:String?
+    @Published var fullName:String?
+    @Published var email:String?
+    @Published var googleProfilePicURL:String?
+    var apiKey = "AIzaSyBTOYwfO5V6sRC2z3QpxklUjizntrNnpd8"
+     // [START didfinishlaunching]
+     func application(_ application: UIApplication,
+                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+       // Initialize sign-in
+       GIDSignIn.sharedInstance().clientID = "429712041183-baisri01foho74au10khrorhs157khn6.apps.googleusercontent.com"
+        GMSServices.provideAPIKey(apiKey)
+        GMSPlacesClient.provideAPIKey(apiKey)
+    
         GIDSignIn.sharedInstance().delegate = self
-        
-        // initialize Google sign-in
-        //        GIDSignIn.sharedInstance().clientID = "179846355573-6ikclf9armsnfd1eajs50t7hnqnv39r6.apps.googleusercontent.com"
-        //        GIDSignIn.sharedInstance().delegate = self
-        // if user already sign in, restore sign-in state.
-        // if user closes app, keep them signed in
-        //GIDSignIn.sharedInstance()?.restorePreviousSignIn()
-        
-        // API keys for GoogleMaps
-        GMSServices.provideAPIKey(API_KEY)
-        GMSPlacesClient.provideAPIKey(API_KEY)
-        
-        return true
-    }
+
+       return true
+     }
+     // [END didfinishlaunching]
+     // [START openurl]
+     func application(_ application: UIApplication,
+                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+       return GIDSignIn.sharedInstance().handle(url)
+     }
+     // [END openurl]
+     // [START openurl_new]
+     @available(iOS 9.0, *)
+     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+       return GIDSignIn.sharedInstance().handle(url)
+     }
+     // [END openurl_new]
     
-    @available(iOS 9.0, *)
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url)
-    }
-    
-    // called after user has interacted with Google Authentication page
-    // retrieves user info from Google
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+     // [START signin_handler]
+     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+               withError error: Error!) {
+       if let error = error {
+         if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+           print("The user has not signed in before or they have since signed out.")
+         } else {
+           print("\(error.localizedDescription)")
+         }
+         // [START_EXCLUDE silent]
+         NotificationCenter.default.post(
+           name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
+         // [END_EXCLUDE]
+         return
+       }
+       // Perform any operations on signed in user here.
+        self.userId = user.userID                  // For client-side use only!
+        self.idToken = user.authentication.idToken // Safe to send to the server
+        self.fullName = user.profile.name
+        self.email = user.profile.email
+        self.googleProfilePicURL = user.profile.imageURL(withDimension: 150)?.absoluteString ?? ""
         
-        if let error = error {
-            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
-                print("The user has not signed in before or they have since signed out.")
-            } else {
-                print("\(error.localizedDescription)")
-            }
-            return
-        }
-        
-        
-        
-        //        let credentials = GoogleAuthProvider.credential(withIDToken: user.authentication.idToken, accessToken: user.authentication.accessToken)
-        //
-        //        // sign into Firebase
-        //        Auth.auth().signIn(with: credentials) { (result, err) in
-        //            if err != nil {
-        //                print((err?.localizedDescription)!)
-        //                return
-        //            }
-        //            self.email = (result?.user.email)!
-        //            // display email to view
-        //            print((result?.user.email)!)
-        //        }
-        //        print(error?.localizedDescription ?? "")
-        
-        
-        // get user info from Google
-        guard let user = user else {
-            print("Uh oh. The user cancelled the Google login.")
-            return
-        }
-        
-        let userId = user.userID ?? ""
-        print("Google User ID: \(userId)")
-        
-        let userIdToken = user.authentication.idToken ?? ""
-        print("Google ID Token: \(userIdToken)")
-        
-        let userFirstName = user.profile.givenName ?? ""
-        print("Google User First Name: \(userFirstName)")
-        
-        let userLastName = user.profile.familyName ?? ""
-        print("Google User Last Name: \(userLastName)")
-        
-        let userEmail = user.profile.email ?? ""
-        print("Google User Email: \(userEmail)")
-        
-        let googleProfilePicURL = user.profile.imageURL(withDimension: 150)?.absoluteString ?? ""
-        print("Google Profile Avatar URL: \(googleProfilePicURL)")
-        
-        
+       // [START_EXCLUDE]
+       NotificationCenter.default.post(
+         name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+         object: nil,
+         userInfo: ["statusText": "Signed in user:\n\(fullName!)"])
+       // [END_EXCLUDE]
+     }
+     // [END signin_handler]
+     // [START disconnect_handler]
+     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+               withError error: Error!) {
+       // Perform any operations when the user disconnects from app here.
+       // [START_EXCLUDE]
+       NotificationCenter.default.post(
+         name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+         object: nil,
+         userInfo: ["statusText": "User has disconnected."])
+       // [END_EXCLUDE]
+     }
+     // [END disconnect_handler]
+
         // conntect to database
-        // send user info to database
+         //send user info to database
         // instantiate User Struct
-        //@EnvironmentObject var user = User(name: userFirstName + " " + userLastName, email: userEmail, password: "Password", googleID: userId, profilePic: googleProfilePicURL)
-    }
+//    @EnvironmentObject var user = User(name: fullName, email: self.email, password: "", googleID: self.idToken, profilePic: self.googleProfilePicURL)
+
     
-    // perform actions on User signing out of application
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        //GIDSignIn.sharedInstance()?.signOut()
-        print("\(String(describing: user.profile.givenName)) has signed out")
-    }
     
 }
+
