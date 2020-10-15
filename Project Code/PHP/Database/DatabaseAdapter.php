@@ -1,6 +1,7 @@
 <?php
 
 require_once '../includes/autoload.php';
+
 /**
  * Description of DatabaseAdapter
  *
@@ -180,6 +181,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
 
                 if ($object->getRequest() === Requests::adminDeletion()) {
                     $stmt->bind_param("s", $adminID);
+                    $adminID = $object->getAdminID();
                 } else if ($object->getRequest() === Requests::userDeletion()) {
                     $stmt->bind_param("s", $userID);
                 } else if ($object->getRequest() === Requests::resourceDeletion()) {
@@ -187,7 +189,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 } else if ($object->getRequest() === Requests::locationDeletion()) {
                     $stmt->bind_param("s", $locationID);
                 } else if ($object->getRequest() === Requests::alertDeletion()) {
-                    $stmt->bind_param("s", $aletID);
+                    $stmt->bind_param("s", $alertID);
                 }
                 // if successful change status to SUCCESS
                 $result["status"] = FailOrPass::getSuccess();
