@@ -31,7 +31,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
             if ($stmt !== false) {// remember to check if user exists first...
                 if ($object->getRequest() === Requests::adminCreation()) {
                     $stmt->bind_param("sss", $adminID, $email, $password);
-                    $adminID = $object->getAdminID();
+                    $adminID = $object->getAdminId();
                     $email = $object->getEmail();
                     $password = $object->getPassword();
                 } else if ($object->getRequest() === Requests::alertCreation()) {
@@ -89,12 +89,16 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
 
     public function read(DataObject $object) {
         $result = FailOrPass::getFailureArray();
+        $result_temp = [];
         try {
             $stmt = $this->connection->prepare($object->getSql());
             if ($stmt !== false) {
                 if ($object->getRequest() === Requests::adminSignInRequest()) {
-                    // $stmt->bind_param("s", $adminID);
-                    //$adminID = $object->getAdminID();
+
+                    $stmt->bind_param("ss", $email, $password);
+                    $email = $object->getEmail();
+                    $password = $object->getPassword();
+                    
                 } else if ($object->getRequest() === Requests::userDataRequest()) {
                     $stmt->bind_param("s", $userID);
                     $userID = $object->getUserID();
@@ -120,19 +124,20 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $alertID = $object->getAlertID();
                 }
                 $stmt->execute();
-                $result = $stmt->get_result();
+		$result = $stmt->get_result();
                 $data = array();
                 while ($row = $result->fetch_assoc()) {
-                    $data[] = $row;
+                    $result_temp[] = $row;
                 }
-                $result["status"] = FailOrPass::getSuccess();
-                $result["data"] = $data;
+                $result_temp["status"] = FailOrPass::getSuccess();
+                $result_temp["data"] = $data;
+		# $result_temp["data"] = $row["adminID"];
             }
         } catch (Exception $e) {
             
         }
 
-        return $result;
+        return $result_temp;
     }
 
     public function update(DataObject $object) {
@@ -180,6 +185,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
 
                 if ($object->getRequest() === Requests::adminDeletion()) {
                     $stmt->bind_param("s", $adminID);
+		    $adminID = $object->getAdminId();
                 } else if ($object->getRequest() === Requests::userDeletion()) {
                     $stmt->bind_param("s", $userID);
                 } else if ($object->getRequest() === Requests::resourceDeletion()) {
@@ -189,6 +195,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 } else if ($object->getRequest() === Requests::alertDeletion()) {
                     $stmt->bind_param("s", $aletID);
                 }
+		$stmt->execute();
                 // if successful change status to SUCCESS
                 $result["status"] = FailOrPass::getSuccess();
             }

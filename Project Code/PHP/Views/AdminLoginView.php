@@ -16,7 +16,9 @@
 
         $object = new Admin();
         $object->setEmail("abc@gmail.com");
-        $object->setRequest(Requests::adminCreation());
+        $object->setPassword("12345ABC!");
+	$object->setRequest(Requests::adminSignInRequest());
+# $object->setRequest(Requests::adminCreation());
         $controller = new AdminController();
         echo json_encode($controller->invokeAdmin($object));
         // if sign in is successful, then load the signed in view
