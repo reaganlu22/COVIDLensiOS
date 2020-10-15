@@ -8,6 +8,11 @@
 import Foundation
 
 final class SignupVM: ObservableObject {
+    var nameInput: String = ""
+    var emailInput: String = ""
+    var passwordInput: String = ""
+    var rePasswordInput: String = ""
+    
     let logo = "logo"
     let title = "Create an Account"
     let signUpText = "Please enter the required info to create your account"

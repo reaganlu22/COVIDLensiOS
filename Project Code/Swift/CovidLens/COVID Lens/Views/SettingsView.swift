@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleSignIn
 
 struct SettingsView: View {
+    @EnvironmentObject var userStore: UserStore
     @EnvironmentObject var authVM: AuthVM
     @StateObject private var viewModel = SettingsVM()
     
@@ -75,8 +76,8 @@ struct SettingsView: View {
                         // sign out button
                         SettingsButton(iconName: "square.and.arrow.up.fill", text: "Sign Out") {
                             // handle log out authorization here
-                            authVM.logOut()
                             GIDSignIn.sharedInstance()?.signOut()
+                            authVM.logOut()
                         }
                         Divider()
                     }

@@ -15,13 +15,14 @@ import GoogleSignIn
 
 struct LoginView : View {
     @ObservedObject var info: AppDelegate
+    
     @StateObject private var viewModel = LoginVM()
     
     @EnvironmentObject var authVM: AuthVM
     
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var displaySignupView: Bool = false
+    //@State private var email: String = ""
+    //@State private var password: String = ""
+    
     
     var title: some View {
         VStack(spacing: 15) {
@@ -46,16 +47,21 @@ struct LoginView : View {
                 .foregroundColor(Color.black.opacity(0.65))
                 .padding(.bottom, 3)
             // email field
-            InputWithIcon(placeholder: viewModel.email, value: $email, icon: viewModel.emailIcon)
+            InputWithIcon(placeholder: viewModel.email, value: $viewModel.emailInput, icon: viewModel.emailIcon)
             // password field
-            InputWithIcon(placeholder: viewModel.password, value: $password, icon: viewModel.passwordIcon, secure: true)
+            InputWithIcon(placeholder: viewModel.password, value: $viewModel.passwordInput, icon: viewModel.passwordIcon, secure: true)
         }
     }
     
     // sign in button
     var signInButton: some View {
         PrimaryButton(label: viewModel.signInButtonText) {
-            // action goes here
+            // viewModel function to verify credentials
+            // something with authVM?
+            // return login state of user?
+            
+            print(viewModel.emailInput)
+            print(viewModel.passwordInput)
             authVM.login()
         }
         
@@ -76,18 +82,20 @@ struct LoginView : View {
             Text(viewModel.noAccountText)
                 .foregroundColor(Color.black.opacity(0.7))
             Button(action: {
-                self.displaySignupView.toggle()
+                viewModel.displaySignupView.toggle()
             }) {
                 Text(viewModel.signUpButtonText)
                     .fontWeight(.heavy)
                     .foregroundColor(Color.black)
-            }.sheet(isPresented: self.$displaySignupView) {
+            }.sheet(isPresented: $viewModel.displaySignupView) {
                 SignupView()
             }
+            
         }
     }
     
     var body: some View {
+        
         GeometryReader { G in
             VStack {
                 Spacer()

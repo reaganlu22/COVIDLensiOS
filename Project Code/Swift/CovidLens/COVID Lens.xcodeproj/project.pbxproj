@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		471E3A72F62DF7AB515F4311 /* Pods_COVID_Lens_COVID_LensUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */; };
 		5D1949FD253776D50054CD15 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1949FC253776D50054CD15 /* HomeVM.swift */; };
+		5D194A02253792480054CD15 /* GoogleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194A01253792480054CD15 /* GoogleUser.swift */; };
+		5D194A072537B6C80054CD15 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194A062537B6C80054CD15 /* UserStore.swift */; };
 		5D24F5BF25351EAD0081F030 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D24F5BE25351EAD0081F030 /* GoogleService-Info.plist */; };
 		5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */; };
 		5D5DB56D252E9539009FB2DE /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB56C252E9539009FB2DE /* Color+Extension.swift */; };
@@ -65,6 +67,8 @@
 		2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_LensTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID LensTests.release.xcconfig"; path = "Target Support Files/Pods-COVID LensTests/Pods-COVID LensTests.release.xcconfig"; sourceTree = "<group>"; };
 		5D1949FC253776D50054CD15 /* HomeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		5D194A01253792480054CD15 /* GoogleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleUser.swift; sourceTree = "<group>"; };
+		5D194A062537B6C80054CD15 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		5D24F5BE25351EAD0081F030 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		5D5DB56C252E9539009FB2DE /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				5DC8817C2531220100135316 /* Report.swift */,
 				5DDA205E252AC52900BC238D /* User.swift */,
 				5DDA2073252BD4BC00BC238D /* UserData.swift */,
+				5D194A01253792480054CD15 /* GoogleUser.swift */,
+				5D194A062537B6C80054CD15 /* UserStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -547,6 +553,7 @@
 				5DC881692530DDD600135316 /* GoogleMapsView.swift in Sources */,
 				5D5DB5E82530B56C009FB2DE /* SettingsView.swift in Sources */,
 				5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */,
+				5D194A02253792480054CD15 /* GoogleUser.swift in Sources */,
 				5DC8818F25312FD500135316 /* SignupVM.swift in Sources */,
 				5D5DB593252EDC49009FB2DE /* HomeView.swift in Sources */,
 				5D815CAC2535076E00508556 /* SelfReportView.swift in Sources */,
@@ -558,6 +565,7 @@
 				5DC8817D2531220100135316 /* Report.swift in Sources */,
 				5D5DB59B252EDD4B009FB2DE /* MapView.swift in Sources */,
 				5D5DB5A0252EDD77009FB2DE /* ResourcesView.swift in Sources */,
+				5D194A072537B6C80054CD15 /* UserStore.swift in Sources */,
 				5D815C9F253506F700508556 /* SelfReportVM.swift in Sources */,
 				5D5DB5B7252F6D46009FB2DE /* SignupView.swift in Sources */,
 				5DDA205F252AC52900BC238D /* User.swift in Sources */,

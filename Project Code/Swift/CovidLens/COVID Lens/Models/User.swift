@@ -3,31 +3,40 @@
 //  COVID Lens
 //
 
+import SwiftUI
+
 // user struct
 struct User {
+    private var id: String = ""
     private var name: String = ""
     private var email: String = ""
-    //private var password: String
-    private var googleID: String = ""
-    private var profilePic: String = ""
     
     // initializer
-    init(name: String, email: String, password: String, googleID: String, profilePic: String) {
+    init(name: String, email: String) {
+        self.id = UUID().uuidString
         self.name = name
         self.email = email
-        //self.password = password
-        self.googleID = googleID
-        self.profilePic = profilePic
        }
     
-    // update the user's name
-    mutating func updateName(name: String) {
-        self.name = name
+    // get user's id
+    func getID() -> String {
+        return id
     }
     
     // get user's name
     func getName() -> String {
         return name
+    }
+    
+    // get user's email
+    func getEmail() -> String {
+        return email
+    }
+    
+    func getInfo() {
+        print(self.id)
+        print(self.name)
+        print(self.email)
     }
 }
 
