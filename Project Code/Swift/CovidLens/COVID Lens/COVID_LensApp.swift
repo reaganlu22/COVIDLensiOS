@@ -6,9 +6,7 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
+
 import GoogleSignIn
 import GoogleMaps
 import GooglePlaces

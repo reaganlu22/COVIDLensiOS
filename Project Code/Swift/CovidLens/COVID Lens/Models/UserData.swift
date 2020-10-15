@@ -105,6 +105,15 @@ class UserData {
         return false
     }
     
+    func save() -> Bool{
+        
+        return false
+    }
+    
+    func logout() -> Bool{
+      return false
+    }
+    
     /**
      This function is used for updated the apps data
      - Returns:true if update was successful and false if not
