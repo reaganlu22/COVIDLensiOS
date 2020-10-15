@@ -1,18 +1,5 @@
 <?php
 
-require_once '../includes/autoload.php'; ?>
-<html>
-<h2> Add A User </h2>
-
-<form method="post">
-    	<label for="$email">Email Address</label>
-    	<input type="text" name="email" id="email">
-    	<label for="$password">Password</label>
-    	<input type="password" name="password" id="password">
-    	<input type="Submit" name="Log In" value="Submit">
-    </form>
-</html>
-</php> 
 /**
  * Description of UserTests
  *
@@ -20,5 +7,23 @@ require_once '../includes/autoload.php'; ?>
  */
 class UserTest extends TestCase {
 
+    private $user;
+    private $connection;
+    private $userController;
+
+    public function __construct() {
+        // building an user 
+        $this->user = new User();
+        $this->user->setUserID(uniqid());
+        $this->user->setEmail("testUser@covidlens.com");
+        $this->user->setPassword("12345ABC!");
+        $this->userController = new UserController();
+        //starting a connection
+        $this->connection = new DatabaseAdapter(new MysqlConnector());
+    }
+
+    public function __destruct() {
+        $this->connection = null;
+    }
 
 }
