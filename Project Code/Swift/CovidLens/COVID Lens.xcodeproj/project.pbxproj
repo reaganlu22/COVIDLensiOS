@@ -11,6 +11,7 @@
 		5D1949FD253776D50054CD15 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1949FC253776D50054CD15 /* HomeVM.swift */; };
 		5D194A02253792480054CD15 /* GoogleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194A01253792480054CD15 /* GoogleUser.swift */; };
 		5D194A072537B6C80054CD15 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194A062537B6C80054CD15 /* UserStore.swift */; };
+		5D194A3B2538A5360054CD15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D194A3A2538A5360054CD15 /* GoogleService-Info.plist */; };
 		5D24F5BF25351EAD0081F030 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D24F5BE25351EAD0081F030 /* GoogleService-Info.plist */; };
 		5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */; };
 		5D5DB56D252E9539009FB2DE /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB56C252E9539009FB2DE /* Color+Extension.swift */; };
@@ -69,6 +70,7 @@
 		5D1949FC253776D50054CD15 /* HomeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		5D194A01253792480054CD15 /* GoogleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleUser.swift; sourceTree = "<group>"; };
 		5D194A062537B6C80054CD15 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		5D194A3A2538A5360054CD15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D24F5BE25351EAD0081F030 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		5D5DB56C252E9539009FB2DE /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				5DDA201B252A634100BC238D /* Info.plist */,
 				5DC8819E2532DEAB00135316 /* style.json */,
 				5D24F5BE25351EAD0081F030 /* GoogleService-Info.plist */,
+				5D194A3A2538A5360054CD15 /* GoogleService-Info.plist */,
 				5DDA2018252A634100BC238D /* Preview Content */,
 			);
 			path = "COVID Lens";
@@ -387,6 +390,7 @@
 			files = (
 				5DDA201A252A634100BC238D /* Preview Assets.xcassets in Resources */,
 				5DDA2017252A634100BC238D /* Assets.xcassets in Resources */,
+				5D194A3B2538A5360054CD15 /* GoogleService-Info.plist in Resources */,
 				5D24F5BF25351EAD0081F030 /* GoogleService-Info.plist in Resources */,
 				5DC8819F2532DEAB00135316 /* style.json in Resources */,
 			);
