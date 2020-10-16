@@ -19,28 +19,37 @@ import Combine
 @main
 struct COVID_LensApp: App {
     
-    @StateObject var authVM = AuthVM()
+    @StateObject var userLoginState = AuthVM()
     
     // attach App Delegate to SwiftUI
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
+        
+        
         WindowGroup {
-            if (authVM.isLoggedIn) {
+            
+            if (userLoginState.isLoggedIn) {
                 TabContainterView()
-                    .environmentObject(authVM)
+                    .environmentObject(userLoginState)
             } else {
                 LoginView(info: self.appDelegate)
-                    .environmentObject(authVM)
+                    .environmentObject(userLoginState)
             }
+            
+//            if (authVM.isLoggedIn) {
+//                TabContainterView()
+//                    .environmentObject(authVM)
+//            } else {
+//                LoginView(info: self.appDelegate)
+//                    .environmentObject(authVM)
+//            }
         }
     }
     
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, ObservableObject{
-    
-    var window: UIWindow?
     
     // APIKEY and clientID (Seth)
     var apiKey = "AIzaSyBaBhLg6ULvTIXOsXZ7sU9GBQ1flu7H9O0"

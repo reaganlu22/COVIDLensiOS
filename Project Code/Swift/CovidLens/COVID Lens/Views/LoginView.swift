@@ -19,7 +19,9 @@ struct LoginView : View {
     @ObservedObject var info: AppDelegate
     @StateObject private var viewModel = LoginVM()
     
-    @EnvironmentObject var authVM: AuthVM
+    @EnvironmentObject var userLoginState: AuthVM
+    
+    //@EnvironmentObject var authVM: AuthVM
     
     @State private var email: String = ""
     @State private var password: String = ""
@@ -58,7 +60,8 @@ struct LoginView : View {
     var signInButton: some View {
         PrimaryButton(label: viewModel.signInButtonText) {
             // action goes here
-            authVM.login()
+            self.userLoginState.isLoggedIn.toggle()
+            //authVM.login()
         }
         
     }
