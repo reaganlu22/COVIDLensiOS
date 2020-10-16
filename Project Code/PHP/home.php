@@ -40,11 +40,10 @@
                 <!-- /.navbar-collapse --> 
             </div>
             <!-- /.container-fluid -->
-
             <div class="main app form" id="main"><!-- Main Section-->
                 <div class="hero-section">
                     <div class="container nopadding">
-                        <div class="col-md-5"> <img class="img-responsive wow fadeInUp" data-wow-delay="0.1s" src="images/logo.png" width="400" height="30" alt="App" /> </div>
+                        <div class="col-md-5"> <img class="img-responsive wow fadeInUp" data-wow-delay="0.1s" src="images/logo.png" width="325" height="30" alt="App" /> </div>
                         <div class="col-md-7">
                             <div class="hero-content">
                                 <h1 class="wow fadeInUp" data-wow-delay="0.1s"> A viable countermeasure to the current safety and social threats posed by COVID-19</h1>
@@ -54,10 +53,9 @@
                     </div>
                 </div>
 
-               
                 <div class="app-features text-center" id="features">
                     <div class="container">
-                        <h1 class="wow fadeInDown" data-wow-delay="0.1s">About - Goal & Features </h1>
+                        <h1 class="wow fadeInDown" data-wow-delay="0.1s">About COVID Lens </h1>
                         <p class="wow fadeInDown" data-wow-delay="0.2s"> The global COVID-19 pandemic 
                             was declared on March 11, 2020 by the World Health Organization and, as the 
                             new year is slowly approaching, the virus shows no apparent signs of disappearing soon. 
@@ -120,49 +118,39 @@
                         <div class="pitch-intro">
                             <h1 class="wow fadeInDown" data-wow-delay="0.2s">Privacy</h1>
                             <p class="wow fadeInDown" data-wow-delay="0.2s">We value your privacy. All collected data is used for maintaining user profiles and app personalization as
-                            well as confirming self-report forms. More specific details regarding privacy are given in our Privacy Policy.</p>
+                                well as confirming self-report forms. More specific details regarding privacy are given in our Privacy Policy.</p>
                         </div>
-                        
+
                         <a href="privacy-policy.php" class="btn btn-action wow fadeInUp">Privacy Policy</a> </div>
-
-                    </div>
-                </div>
-            </div>
-
-        
-  
-            <div class="footer">
-                <div class="container">
-                    <div class="col-md-7"> <img src="images/logo.png" width="90" height="80" alt="Image" />
-                        <p> Senior Capstone Project</p>
-                        <div class="footer-text">
-                            <p> Copyright © 2020 COVID Lens. All Rights Reserved.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-5" id='contact-us'>
-                        <h1>Contact Us</h1>
-                        <p> Contact us for support or any questions. A member of our project team will assist you. <br class="hidden-xs">
-                        </p>
-                        <a href="mailto:covidlen@covidlensapp.com">covidlen@covidlensapp.com</a> </div>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll To Top --> 
 
-        <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a> 
-
-        <!-- Scroll To Top Ends--> 
-
-    </div>
-    <!-- Main Section --> 
-</div>
+        <div class="footer">
+            <div class="container">
+                <div class="col-md-7"> <img src="images/logo.png" width="90" height="80" alt="Image" />
+                    <p> Senior Capstone Project</p>
+                    <div class="footer-text">
+                        <p> Copyright © 2020 COVID Lens. All Rights Reserved.</p>
+                    </div>
+                </div>
+                <div class="col-md-5" id='contact-us'>
+                    <h1>Contact Us</h1>
+                    <p> Contact us for support or any questions. A member of our project team will assist you. <br class="hidden-xs">
+                    </p>
+                    <a href="mailto:covidlen@covidlensapp.com">covidlen@covidlensapp.com</a> 
+                </div>
+            </div>
+        </div>
+    <!-- Scroll To Top --> 
+    <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a> 
+    <!-- Scroll To Top Ends--> 
+<!-- Main Section --> 
 <!-- Wrapper--> 
-
 <!-- Jquery and Js Plugins --> 
 <script type="text/javascript" src="js/jquery-2.1.1.js"></script> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
 <script type="text/javascript" src="js/plugins.js"></script> 
 <script type="text/javascript" src="js/menu.js"></script> 
 <script type="text/javascript" src="js/custom.js"></script>

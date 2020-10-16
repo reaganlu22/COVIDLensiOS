@@ -22,16 +22,16 @@ Privacy Policy for covidlensapp.com</h1>
 <p>We use the information we collect in various ways, including to:</p>
 
 <ul>
-<li>Provide, operate, and maintain our webste</li>
-<li>Improve, personalize, and expand our webste</li>
-<li>Understand and analyze how you use our webste</li>
+<li>Provide, operate, and maintain our website</li>
+<li>Improve, personalize, and expand our website</li>
+<li>Understand and analyze how you use our website</li>
 <li>Develop new products, services, features, and functionality</li>
 <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the webste, and for marketing and promotional purposes</li>
 <li>Send you emails</li>
 <li>Find and prevent fraud</li>
 </ul>
 
-<h2>Limited Use requirments</h2>
+<h2>Limited Use requirements</h2>
 
 <p>COVID Lens use of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements.</p>
 
