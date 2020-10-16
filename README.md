@@ -43,7 +43,7 @@
 - [ ] [Final Report]()
 
 #### Features
-- [ ] [Interactive COVID-19 Case Map]()
+- [x] [Interactive COVID-19 Case Map]()
 - [ ] [Self Report Form]()
 - [ ] [Statisic Summary Table]()
 - [ ] [Helpful Resources List]()
