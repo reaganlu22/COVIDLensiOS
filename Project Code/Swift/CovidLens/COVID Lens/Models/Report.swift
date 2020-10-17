@@ -12,4 +12,6 @@ struct Report: Codable {
     let phoneNumber: String
     let residenceHall: String
     let lastOnCampus: Date
+    let age: Int
+    let status: String
 }

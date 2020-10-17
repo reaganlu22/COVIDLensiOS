@@ -15,7 +15,7 @@ class UserData {
     static let SIGNED_OUT = "SIGNED_OUT"
     static let EMAIL = "EMAIL"
     static let NO_USER = "NO_USER"
-    private let REQUEST_CATCHER_URL = "https://www.covidlensapp.com/request_catcher"
+    private let REQUEST_CATCHER_URL = "https://www.covidlensapp.com/request-catcher"
     private var dataResponse: [String: Any]!
     private let submissionSemaphore = DispatchSemaphore(value: 0)
     
@@ -145,6 +145,18 @@ class UserData {
             
         }
         return false
+    }
+    
+    /**
+        This function returns the data received from the most recent request
+        - Returns: [String:Any]
+     */
+    func getResponse() -> [String:Any]{
+        var dict: [String:Any] = [:]
+        for (key, value) in self.dataResponse{
+            dict[key] = value is NSNull ? "": value
+        }
+        return dict
     }
     
 
