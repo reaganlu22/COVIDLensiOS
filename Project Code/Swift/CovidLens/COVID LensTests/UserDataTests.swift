@@ -9,10 +9,10 @@ import XCTest
 @testable import COVID_Lens
 class UserDataTests: XCTestCase {
 
-    let TEST_EMAIL = ""
-    let TEST_PASSWORD = ""
-    let TEST_BASIC_ID = ""
-    let TEST_NAME = ""
+    let TEST_EMAIL:String = ""
+    let TEST_PASSWORD:String = ""
+    let TEST_BASIC_ID:String = ""
+    let TEST_NAME:String = ""
     
     private var connection = UserData()
     
@@ -25,7 +25,7 @@ class UserDataTests: XCTestCase {
     }
     
     /**
-        This function tests to see if a default failure message is returned from the server when user trying to load a with out sufficent credentials
+        This function tests to see if a default failure message is returned from the server when trying to perform a data request.
      */
     func testFailSafe(){
         var user = User()
