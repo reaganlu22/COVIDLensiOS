@@ -23,9 +23,8 @@
 - [**Mark He**](https://github.com/mhe98)
 - [**Isaac Taylor**](https://github.com/iataylor15)
 
-## Implementation & Features Checklist 
-### This is a list of completed tasks/stages and features regarding this project.
-###### Please note that some features are beyond the scope of this project but may be implemented if time permits or in the future.
+## Stages & Features Checklist 
+
 
 #### Stages
 - [x] [Approach and System profile]()
@@ -44,7 +43,7 @@
 - [ ] [Final Report]()
 
 #### Features
-- [ ] [Interactive COVID-19 Case Map]()
+- [x] [Interactive COVID-19 Case Map]()
 - [ ] [Self Report Form]()
 - [ ] [Statisic Summary Table]()
 - [ ] [Helpful Resources List]()
