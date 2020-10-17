@@ -8,15 +8,19 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-if (isset($request)) {
+if (isset($_POST['request'])) {
     $request = $_POST['request'];
 } else {
     $request = null;
 }
 
-
 // verify user's or admin's trying to access data
 $verified = false;
+//Just for testing... remove afterwards
+if (isset($_POST['testing']) && strtolower($_POST['testing']) === 'true') {
+    $verified = true;
+}
+
 if ($request !== Requests::adminCreation() || $request !== Requests::userCreationRequest()) {
     $authenticator = new GoogleAuthenticator();
     if (isset($_POST['userID']) && $authenticator->verify($_POST['userID'])) {
