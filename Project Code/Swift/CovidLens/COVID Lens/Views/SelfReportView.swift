@@ -18,7 +18,7 @@ struct SelfReportView: View {
     @State private var date = Date()
     @State private var hallIsExpanded: Bool = false
     @State private var selectedHall: String = ""
-    
+    @State private var reportSubmitedAlert = false
     @State private var selectedFrameworkIndex = 0
     
     var affiliations: [String] = ["Student", "Faculty", "Staff", "Contractor"]
@@ -118,6 +118,7 @@ struct SelfReportView: View {
                             print(self.phoneNumber)
                             print(self.selectedHall)
                             print(self.date)
+                            self.reportSubmitedAlert.toggle()
                             //viewModel.post()
                         }
                     }
@@ -126,6 +127,11 @@ struct SelfReportView: View {
                 Divider()
             }.background(Color.white.ignoresSafeArea(.all, edges: .all))
             .navigationBarTitle("Self-Report", displayMode: .inline)
+            .alert(isPresented: $reportSubmitedAlert){
+                Alert(title: Text("Your Report Has Been Submitted."),
+                      message: Text("we will notify once your report has been confirmed. Thank you!"),
+                      dismissButton: .default(Text("OK")))
+            }
         }
     }
 }
