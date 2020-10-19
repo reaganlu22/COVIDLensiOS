@@ -19,7 +19,7 @@ struct LoginView : View {
     @ObservedObject var info: AppDelegate
     @StateObject private var viewModel = LoginVM()
     @EnvironmentObject var userLoginState: AuthVM
-    
+
     var title: some View {
         VStack(spacing: 15) {
             // logo
@@ -27,7 +27,7 @@ struct LoginView : View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
+
             // title
             Text(viewModel.title)
                 .fontWeight(.bold)
@@ -35,7 +35,7 @@ struct LoginView : View {
                 .foregroundColor(Color.black)
         }
     }
-    
+
     var credentialsFeild: some View {
         VStack(spacing: 15) {
             Text(viewModel.signInText)
@@ -48,7 +48,7 @@ struct LoginView : View {
             InputWithIcon(placeholder: viewModel.password, value: $viewModel.passwordText, icon: viewModel.passwordIcon, secure: true)
         }
     }
-    
+
     // sign in button
     var signInButton: some View {
         PrimaryButton(label: viewModel.signInButtonText) {
@@ -56,9 +56,9 @@ struct LoginView : View {
             userLoginState.login()
             //authVM.login()
         }
-        
+
     }
-    
+
     // Google sign in button
     var googleSignInButton: some View {
         PrimaryButton(label: viewModel.googleButtonText, icon: viewModel.googleButtonIcon) {
@@ -66,9 +66,9 @@ struct LoginView : View {
             GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
             GIDSignIn.sharedInstance()?.signIn()
         }
-        
+
     }
-    
+
     // sign up button
     var signUpButton: some View {
         HStack {
@@ -85,7 +85,7 @@ struct LoginView : View {
             }
         }
     }
-    
+
     var body: some View {
         GeometryReader { G in
             VStack {
@@ -106,7 +106,11 @@ struct LoginView : View {
                 self.hideKeyboard()
             }
         }
+
+
     }
+
+
 }
 
 // used to hide the keyboard

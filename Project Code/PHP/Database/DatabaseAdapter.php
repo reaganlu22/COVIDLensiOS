@@ -11,6 +11,12 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
     private $connection;
     private $connected;
 
+    /**
+     * Constructs a Database adapter
+     *
+     * @param MysqlConnector $connector - the connector to the service of data storage
+     * being used
+     */
     function __construct(MysqlConnector $connector) {
         $dbConnector = $connector;
         $this->connection = $dbConnector->getConnection();
@@ -22,8 +28,13 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
         }
     }
 
-    //  REMEMBER TO ADD ERROR CHECKING AND TRY CATCH...
-
+    /**
+     * This function creates a DataObject in the database
+     *
+     * @param DataObject $object - an object with properties that can be stored
+     * in the database
+     * @return array
+     */
     public function create(DataObject $object) {
         $result = FailOrPass::getFailureArray();
         try {
@@ -81,12 +92,20 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 }
             }
         } catch (Exception $e) {
-            
+
         }
 
         return $result;
     }
 
+    /**
+     * This function retrieves data stored in the database based on the properties
+     * of a DataObject
+     *
+     * @param DataObject $object - an object with properties that can be stored
+     * in the database
+     * @return array
+     */
     public function read(DataObject $object) {
         $result = FailOrPass::getFailureArray();
         $result_temp = [];
@@ -98,7 +117,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $stmt->bind_param("ss", $email, $password);
                     $email = $object->getEmail();
                     $password = $object->getPassword();
-                    
+
                 } else if ($object->getRequest() === Requests::userDataRequest()) {
                     $stmt->bind_param("s", $userID);
                     $userID = $object->getUserID();
@@ -131,15 +150,22 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 }
                 $result_temp["status"] = FailOrPass::getSuccess();
                 $result_temp["data"] = $data;
-		# $result_temp["data"] = $row["adminID"];
             }
         } catch (Exception $e) {
-            
+
         }
 
         return $result_temp;
     }
 
+    /**
+     * This function updates a record in the database based on the properties of a
+     * DataObject
+     *
+     * @param DataObject $object - an object with properties that can be stored
+     * in the database
+     * @return array
+     */
     public function update(DataObject $object) {
         $result = FailOrPass::getFailureArray();
 
@@ -169,12 +195,19 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 $result["status"] = FailOrPass::getSuccess();
             }
         } catch (Exception $e) {
-            
+
         }
 
         return $result;
     }
-
+    /**
+     * This function removes a record in the database based on the properties of a
+     * DataObject
+     *
+     * @param DataObject $object - an object with properties that can be stored
+     * in the database
+     * @return array
+     */
     public function delete(DataObject $object) {
         $result = FailOrPass::getFailureArray();
 
@@ -200,12 +233,18 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 $result["status"] = FailOrPass::getSuccess();
             }
         } catch (Exception $e) {
-            
+
         }
 
         return $result;
     }
 
+    /**
+     * This function returns true if a connection to the database exists,
+     * otherwise it returns false
+     *
+     * @return Boolean
+     */
     public function isConnected() {
         return $this->connected;
     }
