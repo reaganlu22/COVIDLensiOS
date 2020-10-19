@@ -5,11 +5,11 @@
     <img src="https://user-images.githubusercontent.com/32807934/94518504-0c9c0200-01f8-11eb-8883-667876b9d639.png">
 </a>
 
-<h3 align="center">COVID Lens - A viable countermeasure to the current safety and social threats posed by COVID-19. </h3> <p>
+<h3 align="center">COVID Lens - A viable countermeasure to the current safety and social threats posed by COVID-19. </h3> <p> 
 
 [Motivation and Goals](https://github.com/iataylor15/COVID-Lens-App#motivation-and-goals) | [Project Team](https://github.com/iataylor15/COVID-Lens-App#project-team) | [Stages](https://github.com/iataylor15/COVID-Lens-App#stages) | [Feautures](https://github.com/iataylor15/COVID-Lens-App#features) | [Architecture](https://github.com/iataylor15/COVID-Lens-App#architecture) | [Installation](https://github.com/iataylor15/COVID-Lens-App#installation) | [Documentation](https://github.com/iataylor15/COVID-Lens-App/tree/master/Documentation)
------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
-
+------------ | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- 
+    
 <p align="center"> Senior Capstone Project 🎓 </p>
 <br>
 
@@ -23,7 +23,7 @@
 - [**Mark He**](https://github.com/mhe98)
 - [**Isaac Taylor**](https://github.com/iataylor15)
 
-## Stages & Features Checklist
+## Stages & Features Checklist 
 
 
 #### Stages
@@ -50,7 +50,7 @@
 - [ ] [Admin Backend]()
 - [ ] [Contact Tracing]()
 
-
+ 
 ## Architecture
  <!-- Architecture -->
  <br />
@@ -58,22 +58,25 @@
  <a href="#">
    <img src="https://user-images.githubusercontent.com/32807934/94518395-d65e8280-01f7-11eb-9bdf-f39db702939d.png">
  </a>
-
+   
 ## Installation  
 
 - The following preliminary steps are recommended  to begin working with this project:
   - Install Xcode, the main development tool used for creating this project [Xcode](https://developer.apple.com/xcode/)
   - Install Xampp, a server tool used for hosting PHP files locally [Xampp](https://www.apachefriends.org/index.html)
   - Install Python, used in this project for data analysis  [Python](https://www.python.org/downloads/)
-
+  
 ### Project Installation Steps
-
-1. Clone this repo
+  
+1. Clone this repo 
   ```console
   $ git clone https://github.com/iataylor15/COVID-Lens-App.git
   ```
 2. Start the Xampp servers
 3. Open the Xcode project and get started!
-
-## License
+  
+## License 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/iataylor15/COVID-Lens-App/blob/master/LICENSE)
+
+
+
