@@ -8,10 +8,11 @@
 import Foundation
 
 struct Report: Codable {
-    let affiliation: String
-    let phoneNumber: String
-    let residenceHall: String
-    let lastOnCampus: Date
-    let age: Int
-    let status: String
+    var id = UUID()
+    var affiliation: String
+    var phoneNumber: String
+    var residenceHall: String
+    var lastOnCampus: Date
+    var age: Int
+    var status: String
 }
