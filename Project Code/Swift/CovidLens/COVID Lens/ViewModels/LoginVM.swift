@@ -8,10 +8,6 @@
 import Foundation
 
 final class LoginVM: ObservableObject {
-    @Published var emailText: String = ""
-    @Published var passwordText: String = ""
-    @Published var displaySignupView: Bool = false
-    
     let logo = "logo"
     let title = "COVID Lens"
     let signInText = "Please sign in to continue"

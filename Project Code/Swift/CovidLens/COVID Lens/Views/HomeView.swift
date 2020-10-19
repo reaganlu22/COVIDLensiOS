@@ -9,7 +9,6 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct HomeView: View {
-    private var viewModel = HomeVM()
     // string array from database of of form: <affiliation> : <number of cases>
     let data = ["Student", "13", "Faculty", "4", "Staff", "12", "Contractor", "1"]
     
@@ -20,8 +19,13 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 //ScrollView {
-                TabInfoView(icon: viewModel.icon, title: viewModel.title, info: viewModel.info, disclaimer: viewModel.disclaimer)
                 Spacer()
+                    Text("Confirmed UNCG COVID-19 Cases")
+                        .font(.title)
+                        .foregroundColor(.black)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 5)
                     VStack {
                         LazyVGrid(columns: layout, spacing: 30) {
                             ForEach(data, id: \.self) { item in

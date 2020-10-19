@@ -18,8 +18,13 @@ import GoogleSignIn
 struct LoginView : View {
     @ObservedObject var info: AppDelegate
     @StateObject private var viewModel = LoginVM()
-    @EnvironmentObject var userLoginState: AuthVM
-
+    
+    @EnvironmentObject var authVM: AuthVM
+    
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var displaySignupView: Bool = false
+    
     var title: some View {
         VStack(spacing: 15) {
             // logo
@@ -27,7 +32,7 @@ struct LoginView : View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-
+            
             // title
             Text(viewModel.title)
                 .fontWeight(.bold)
@@ -35,7 +40,7 @@ struct LoginView : View {
                 .foregroundColor(Color.black)
         }
     }
-
+    
     var credentialsFeild: some View {
         VStack(spacing: 15) {
             Text(viewModel.signInText)
@@ -43,22 +48,21 @@ struct LoginView : View {
                 .foregroundColor(Color.black.opacity(0.65))
                 .padding(.bottom, 3)
             // email field
-            InputWithIcon(placeholder: viewModel.email, value: $viewModel.emailText, icon: viewModel.emailIcon)
+            InputWithIcon(placeholder: viewModel.email, value: $email, icon: viewModel.emailIcon)
             // password field
-            InputWithIcon(placeholder: viewModel.password, value: $viewModel.passwordText, icon: viewModel.passwordIcon, secure: true)
+            InputWithIcon(placeholder: viewModel.password, value: $password, icon: viewModel.passwordIcon, secure: true)
         }
     }
-
+    
     // sign in button
     var signInButton: some View {
         PrimaryButton(label: viewModel.signInButtonText) {
             // action goes here
-            userLoginState.login()
-            //authVM.login()
+            authVM.login()
         }
-
+        
     }
-
+    
     // Google sign in button
     var googleSignInButton: some View {
         PrimaryButton(label: viewModel.googleButtonText, icon: viewModel.googleButtonIcon) {
@@ -66,26 +70,26 @@ struct LoginView : View {
             GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
             GIDSignIn.sharedInstance()?.signIn()
         }
-
+        
     }
-
+    
     // sign up button
     var signUpButton: some View {
         HStack {
             Text(viewModel.noAccountText)
                 .foregroundColor(Color.black.opacity(0.7))
             Button(action: {
-                viewModel.displaySignupView.toggle()
+                self.displaySignupView.toggle()
             }) {
                 Text(viewModel.signUpButtonText)
                     .fontWeight(.heavy)
                     .foregroundColor(Color.black)
-            }.sheet(isPresented: $viewModel.displaySignupView) {
+            }.sheet(isPresented: self.$displaySignupView) {
                 SignupView()
             }
         }
     }
-
+    
     var body: some View {
         GeometryReader { G in
             VStack {
@@ -106,11 +110,11 @@ struct LoginView : View {
                 self.hideKeyboard()
             }
         }
-
-
+        
+      
     }
-
-
+    
+    
 }
 
 // used to hide the keyboard

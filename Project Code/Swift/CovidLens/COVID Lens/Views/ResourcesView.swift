@@ -17,7 +17,7 @@ struct ResourcesView: View {
                 ScrollView {
                     // info text
                     TabInfoView(icon: viewModel.icon, title: viewModel.title, info: viewModel.info)
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 8) {
                         ForEach(viewModel.links, id: \.self) { website in
                             HStack(spacing: 15) {
                                 Image(systemName: "circle.fill")
@@ -25,7 +25,7 @@ struct ResourcesView: View {
                                     .foregroundColor(.black)
                                 Link(destination: website.url, label: {
                                     Text(website.name)
-                                        .font(.system(size: 17.0))
+                                        .font(.system(size: 16.0))
                                         .foregroundColor(.blue)
                                         .fontWeight(.medium)
                                 })

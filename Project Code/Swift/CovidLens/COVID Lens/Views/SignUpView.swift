@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct SignupView: View {
+    
     @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
+    
     @StateObject private var viewModel = SignupVM()
+    
+    @State private var name: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var checkPassword: String = ""
     
     var title: some View {
         VStack(spacing: 15) {
@@ -38,48 +45,63 @@ struct SignupView: View {
     
     var nameField: some View {
         // name field
-        InputWithIcon(placeholder: viewModel.name, value: $viewModel.nameText, icon: viewModel.nameIcon)
+        InputWithIcon(placeholder: viewModel.name, value: $name, icon: viewModel.nameIcon)
     }
     
     var emailField: some View {
         // email field
-        InputWithIcon(placeholder: viewModel.email, value: $viewModel.emailText, icon: viewModel.emailIcon)
+        InputWithIcon(placeholder: viewModel.email, value: $email, icon: viewModel.emailIcon)
     }
     
     var passwordField: some View {
         // password field
-        InputWithIcon(placeholder: viewModel.password, value: $viewModel.passwordText, icon: viewModel.passwordIcon)
+        InputWithIcon(placeholder: viewModel.password, value: $password, icon: viewModel.passwordIcon)
     }
     
     var rePasswordField: some View {
         // re-enter password field
-        InputWithIcon(placeholder: viewModel.rePassword, value: $viewModel.checkPasswordText, icon: viewModel.passwordIcon)
+        InputWithIcon(placeholder: viewModel.rePassword, value: $checkPassword, icon: viewModel.passwordIcon)
+    }
+    
+    var signUpFields: some View {
+        VStack(spacing: 15) {
+            VStack(alignment: .leading) {
+                // instructional text
+                Text(viewModel.signUpText)
+                    .font(.system(size: 18.0))
+                    .foregroundColor(Color.black.opacity(0.65))
+                    .padding(.bottom, 3)
+                    .padding(.horizontal)
+            }
+                //.multilineTextAlignment(.center)
+            // name field
+            InputWithIcon(placeholder: viewModel.name, value: $name, icon: viewModel.nameIcon)
+            // email field
+            InputWithIcon(placeholder: viewModel.email, value: $email, icon: viewModel.emailIcon)
+            // password field
+            InputWithIcon(placeholder: viewModel.password, value: $password, icon: viewModel.passwordIcon)
+            // re-enter password field
+            InputWithIcon(placeholder: viewModel.rePassword, value: $checkPassword, icon: viewModel.passwordIcon)
+        }
     }
     
     var signUpButton: some View {
         HStack {
             PrimaryButton(label: viewModel.buttonText) {
-                // action goes here; database stuff
-                // verify all fields
-                // if textfields not empty, & user email not in database, & passwords match
-                // if passwords are equal
-                if (viewModel.verifyFields()) {
-                    // create user account
-                    viewModel.tappedSignupButton()
-                    self.presentationMode.wrappedValue.dismiss()
-                } else {
-                    viewModel.showingAlert.toggle()
-                }
-            }
-            .alert(isPresented: $viewModel.showingAlert) {
-                Alert(title: Text("Invalid field(s)"),
-                      message: Text("Please make sure no fields are empty and passwords are matching"),
-                      dismissButton: .default(Text("Close")))
+                // action goes here
+                // send info to databse
+                print(self.name)
+                print(self.email)
+                print(self.password)
+                print(self.checkPassword)
+                self.presentationMode.wrappedValue.dismiss()
             }
         }
     }
     
+    
     var body: some View {
+        
         GeometryReader { G in
             ScrollView{
                 VStack {
@@ -99,9 +121,7 @@ struct SignupView: View {
                     signUpButton
                 }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.white.ignoresSafeArea(.all, edges: .all)).onTapGesture {
-                self.hideKeyboard()
-            }
+            .background(Color.white.ignoresSafeArea(.all, edges: .all))
         }
     }
 }

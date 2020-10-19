@@ -10,19 +10,10 @@ class MapLocationsController {
 
     private $mapLocationsModel;
 
-    /**
-     * Constructs a MapLocationsModel
-     */
     public function __construct() {
         $this->mapLocationsModel = new MapLocationsModel();
     }
 
-    /**
-     * This function notifies an MapLocationsModel about a desired request
-     *
-     * @param MapLocations $dataObj - A DataObject that represents a MapLocations
-     * @return array
-     */
     public function invokeMapLocations(MapLocations $dataObj) {
         if ($dataObj->getRequest() === Requests::locationCreation()) {
             return $this->mapLocationsModel->createMapLocations($dataObj);

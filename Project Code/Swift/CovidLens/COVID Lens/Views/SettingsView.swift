@@ -10,7 +10,7 @@ import GoogleSignIn
 
 @available(iOS 14.0, *)
 struct SettingsView: View {
-    @EnvironmentObject private var userLoginState: AuthVM
+    @EnvironmentObject var authVM: AuthVM
     @StateObject private var viewModel = SettingsVM()
     
     struct SettingsButton: View {
@@ -69,26 +69,15 @@ struct SettingsView: View {
                         }
                         Divider()
                         // view report status button
-                        SettingsButton(iconName: "doc.text.below.ecg.fill", text: "View Self-Report Status") {
-                            viewModel.showReportStatusAlert = true
-                        }.alert(isPresented: $viewModel.showReportStatusAlert) {
-                            Alert(
-                                title: Text(viewModel.reportStatus),
-                                dismissButton: .default(Text("Close"))
-                            )
+                        SettingsButton(iconName: "doc.text.below.ecg.fill", text: "View Report Status") {
+                            // display report status view
                         }
                         Divider()
                         // sign out button
                         SettingsButton(iconName: "square.and.arrow.up.fill", text: "Sign Out") {
                             // handle log out authorization here
-                            viewModel.showSignoutAlert = true
+                            authVM.logOut()
                             GIDSignIn.sharedInstance()?.signOut()
-                        }.alert(isPresented: $viewModel.showSignoutAlert) {
-                            Alert(
-                                title: Text("Are you sure you want to Sign Out?"),
-                                primaryButton: .default(Text("No")),
-                                secondaryButton: .destructive(Text("Yes"), action: userLoginState.logOut)
-                            )
                         }
                         Divider()
                     }

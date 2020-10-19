@@ -14,19 +14,10 @@ class ReportController {
 
     private $reportModel;
 
-    /**
-     * This function constructs a ReportModel
-     */
     public function __construct() {
         $this->reportModel = new ReportModel();
     }
 
-    /**
-     * This function notifies an ReportModel about a desired request
-     *
-     * @param Report $dataObj - A DataObject that represents a Report
-     * @return array
-     */
     public function invokeReport(Report $dataObj) {
         if ($dataObj->getRequest() === Requests::reportCreationRequest()) {
             return $this->reportModel->createReport($dataObj);
