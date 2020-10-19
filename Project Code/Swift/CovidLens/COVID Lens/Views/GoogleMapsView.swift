@@ -9,7 +9,7 @@ import SwiftUI
 import GoogleMaps
 import CoreLocation
 
-struct GoogleMapsView: UIViewRepresentable, CLLocationManagerDelegate {
+struct GoogleMapsView: UIViewRepresentable {
     
     let resHalls = [
         // Tradtional Halls

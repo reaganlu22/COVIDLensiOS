@@ -9,9 +9,9 @@ import SwiftUI
 @available(iOS 14.0, *)
 
 struct SelfReportView: View {
-
+    
     @StateObject private var viewModel = SelfReportVM()
-
+    
     // assign to view model
     @State private var affilIsExpanded: Bool = false
     @State private var selectedAffiliation: String = ""
@@ -20,27 +20,27 @@ struct SelfReportView: View {
     @State private var selectedHall: String = ""
     @State private var reportSubmitedAlert = false
     @State private var selectedFrameworkIndex = 0
-
+    
     var affiliations: [String] = ["Student", "Faculty", "Staff", "Contractor"]
     var resHall: [String] = ["Cone", "Grogan", "Guilford", "Mary Foust", "Moore/Strong", "North Spencer", "Phillips/Hawkins", "Ragsdale/Mendenhall", "Reynolds", "South Spencer", "Weil/Winfield"]
-
+    
     @State private var phoneNumber: String = ""
-
-
-
+    
+    
+    
     var body: some View {
         NavigationView {
             VStack {
-
+                
                 ScrollView {
                     // self-report instructions
                     TabInfoView(icon: viewModel.icon, title: viewModel.title, info: viewModel.info)
-
+                    
                     VStack {
                         Text("University Affiliation")
                             .font(.system(size: 18.0))
                             .foregroundColor(.black)
-
+                        
                         // dropdown menu for campus affiliation
                         DisclosureGroup("\(selectedAffiliation)", isExpanded: $affilIsExpanded) {
                             VStack {
@@ -62,7 +62,7 @@ struct SelfReportView: View {
                         .background(Color(red: 0/255, green: 193/255, blue: 203/255))
                         .cornerRadius(10)
                     }.padding(.all)
-
+                    
                     // phone number field
                     VStack {
                         Text("Contact Phone Number")
@@ -72,7 +72,7 @@ struct SelfReportView: View {
                             .font(Font.system(size: 20))
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                     } .padding(.all)
-
+                    
                     // dropdown menu for residence hall
                     VStack {
                         Text("Residence Hall")
@@ -98,7 +98,7 @@ struct SelfReportView: View {
                         .background(Color(red: 0/255, green: 193/255, blue: 203/255))
                         .cornerRadius(10)
                     }.padding(.all)
-
+                    
                     // select date form
                     VStack {
                         Text("Last Day On Campus")
@@ -109,7 +109,7 @@ struct SelfReportView: View {
                             .datePickerStyle(CompactDatePickerStyle())
                     }.padding(.all)
                     .padding(.bottom)
-
+                    
                     HStack {
                         PrimaryButton(label: "Submit a Positive Result") {
                             // connect to database
@@ -135,9 +135,11 @@ struct SelfReportView: View {
             }.background(Color.white.ignoresSafeArea(.all, edges: .all))
             .navigationBarTitle("Self-Report", displayMode: .inline)
             .alert(isPresented: $reportSubmitedAlert){
-                Alert(title: Text("Your Report Has Been Submitted."),
-                      message: Text("we will notify once your report has been confirmed. Thank you!"),
-                      dismissButton: .default(Text("OK")))
+                Alert(
+                    title: Text("Your report has been submitted"),
+                    message: Text("You will be notified once your report has been confirmed"),
+                    dismissButton: .default(Text("OK"))
+                )
             }
         }
     }

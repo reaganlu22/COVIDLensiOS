@@ -2,7 +2,7 @@
 //  HomeVM.swift
 //  COVID Lens
 //
-//  Created by Seth Goodwin on 10/15/20.
+//  Created by Seth Goodwin on 10/19/20.
 //
 
 import Foundation
