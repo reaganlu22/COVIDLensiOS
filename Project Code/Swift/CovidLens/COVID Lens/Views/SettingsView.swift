@@ -48,7 +48,7 @@ struct SettingsView: View {
                             .clipShape(Circle())
                             .padding()
                         // user's name
-                        Text("Fistname Lastname")
+                        Text("Firstname Lastname")
                             .font(.title2)
                             .fontWeight(.heavy)
                             .foregroundColor(Color.black.opacity(0.8))
@@ -86,7 +86,8 @@ struct SettingsView: View {
                 Divider()
             }.background(Color.white.ignoresSafeArea(.all, edges: .all))
             .navigationBarTitle("Settings", displayMode: .inline)
+            }
         }
     }
-}
+
 
