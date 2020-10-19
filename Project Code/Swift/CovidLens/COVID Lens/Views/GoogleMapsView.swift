@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GoogleMaps
+import CoreLocation
 
 struct GoogleMapsView: UIViewRepresentable {
     
@@ -126,12 +127,13 @@ struct GoogleMapsView: UIViewRepresentable {
         ]
     ]
     
-    
-    
     func makeUIView(context: Self.Context) -> GMSMapView {
 
         let camera = GMSCameraPosition.camera(withLatitude: 36.0679, longitude: -79.810463, zoom: 15.5)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        // enable user location
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
         
         do {
           // set the Goole Map style with style.json
@@ -159,3 +161,4 @@ struct GoogleMapsView: UIViewRepresentable {
         }
     }
 }
+

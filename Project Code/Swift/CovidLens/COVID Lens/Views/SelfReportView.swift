@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SelfReportView: View {
     
-    private var viewModel = SelfReportVM()
+    @StateObject private var viewModel = SelfReportVM()
     
     // assign to view model
     @State private var affilIsExpanded: Bool = false
@@ -114,12 +114,19 @@ struct SelfReportView: View {
                         PrimaryButton(label: "Submit a Positive Result") {
                             // connect to database
                             // send data to database
+                            viewModel.showSubmittedAlert = true
                             print(self.selectedAffiliation)
                             print(self.phoneNumber)
                             print(self.selectedHall)
                             print(self.date)
                             self.reportSubmitedAlert.toggle()
                             //viewModel.post()
+                        }.alert(isPresented: $viewModel.showSubmittedAlert){
+                            Alert(
+                                title: Text("Your report has been submitted"),
+                                message: Text("You will be notified once your report has been confirmed"),
+                                dismissButton: .default(Text("Close"))
+                            )
                         }
                     }
                 }
@@ -128,9 +135,11 @@ struct SelfReportView: View {
             }.background(Color.white.ignoresSafeArea(.all, edges: .all))
             .navigationBarTitle("Self-Report", displayMode: .inline)
             .alert(isPresented: $reportSubmitedAlert){
-                Alert(title: Text("Your Report Has Been Submitted."),
-                      message: Text("we will notify once your report has been confirmed. Thank you!"),
-                      dismissButton: .default(Text("OK")))
+                Alert(
+                    title: Text("Your report has been submitted"),
+                    message: Text("You will be notified once your report has been confirmed"),
+                    dismissButton: .default(Text("OK"))
+                )
             }
         }
     }
