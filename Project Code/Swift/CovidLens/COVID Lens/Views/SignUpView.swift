@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct SignupView: View {
-    
     @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
-    
-    @ObservedObject private var viewModel = SignupVM()
+    @StateObject private var viewModel = SignupVM()
     
     var title: some View {
         VStack(spacing: 15) {
@@ -62,16 +60,26 @@ struct SignupView: View {
         HStack {
             PrimaryButton(label: viewModel.buttonText) {
                 // action goes here; database stuff
-                viewModel.tappedSignupButton()
-                
-                self.presentationMode.wrappedValue.dismiss()
+                // verify all fields
+                // if textfields not empty, & user email not in database, & passwords match
+                // if passwords are equal
+                if (viewModel.verifyFields()) {
+                    // create user account
+                    viewModel.tappedSignupButton()
+                    self.presentationMode.wrappedValue.dismiss()
+                } else {
+                    viewModel.showingAlert.toggle()
+                }
+            }
+            .alert(isPresented: $viewModel.showingAlert) {
+                Alert(title: Text("Invalid field(s)"),
+                      message: Text("Please make sure no fields are empty and passwords are matching"),
+                      dismissButton: .default(Text("Close")))
             }
         }
     }
     
-    
     var body: some View {
-        
         GeometryReader { G in
             ScrollView{
                 VStack {

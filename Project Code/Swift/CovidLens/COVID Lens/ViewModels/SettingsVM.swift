@@ -10,5 +10,5 @@ import SwiftUI
 final class SettingsVM: ObservableObject {
     @Published var showSignoutAlert: Bool = false
     @Published var showReportStatusAlert: Bool = false
-    var reportStatus = "Pending Verificattion"
+    var reportStatus = "Pending Verification"
 }

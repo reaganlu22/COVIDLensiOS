@@ -69,13 +69,11 @@ struct SettingsView: View {
                         }
                         Divider()
                         // view report status button
-                        SettingsButton(iconName: "doc.text.below.ecg.fill", text: "View Report Status") {
-                            // display report status view
+                        SettingsButton(iconName: "doc.text.below.ecg.fill", text: "View Self-Report Status") {
                             viewModel.showReportStatusAlert = true
                         }.alert(isPresented: $viewModel.showReportStatusAlert) {
                             Alert(
-                                title: Text("Report Status:"),
-                                message: Text(viewModel.reportStatus),
+                                title: Text(viewModel.reportStatus),
                                 dismissButton: .default(Text("Close"))
                             )
                         }
@@ -87,8 +85,7 @@ struct SettingsView: View {
                             GIDSignIn.sharedInstance()?.signOut()
                         }.alert(isPresented: $viewModel.showSignoutAlert) {
                             Alert(
-                                title: Text("Are you sure?"),
-                                message: Text("Do you want to Sign Out?"),
+                                title: Text("Are you sure you want to Sign Out?"),
                                 primaryButton: .default(Text("No")),
                                 secondaryButton: .destructive(Text("Yes"), action: userLoginState.logOut)
                             )

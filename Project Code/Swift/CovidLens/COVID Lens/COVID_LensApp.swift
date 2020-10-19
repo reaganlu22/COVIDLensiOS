@@ -22,11 +22,8 @@ struct COVID_LensApp: App {
     @StateObject var userLoginState = AuthVM()
     
     // attach App Delegate to SwiftUI
-    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
-        
-        
         WindowGroup {
             
             if (userLoginState.isLoggedIn) {
