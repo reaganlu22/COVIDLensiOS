@@ -20,7 +20,7 @@ class UserController {
 
     /**
      * This function notifies an UserModel about a desired request
-     * 
+     *
      * @param User $dataObj - A DataObject that represents a User
      * @return array
      */

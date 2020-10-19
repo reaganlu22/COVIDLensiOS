@@ -53,9 +53,8 @@ $testData = array("Report" => array(array("timeStamp" => "2020-10-12", "userID" 
 
 // not finshed...
 $expected = array("Students" => 2, "Faculty" => 1, "Staff" => 1, "Contractors" => 0, "Total" => 4,
-    "map_data" => array(array("locationID"=>"...","residenceHall"=>"Jefferson Suites","caseCount" => 2, 
+    "map_data" => array(array("locationID"=>"...","residenceHall"=>"Jefferson Suites","caseCount" => 2,
         "latitude"=>"...", "longitude"=>"..."),
         array("Mendenhall Residence Hall" => 0)));//... all other locations
 
 $tester2->testScript("script name here...", $testData, $expected, "PythonScriptCallerAPI Data Analysis test");
-

@@ -18,17 +18,17 @@ class UserModel {
     public function __construct() {
         $this->connection = new DatabaseAdapter(new MysqlConnector());
     }
-    
+
     /**
      * Terminates the connection started by the Constructor
      */
     function __destruct() {
         $this->connection = null;
     }
-    
+
     /**
-     * This function creates a user in the database 
-     * 
+     * This function creates a user in the database
+     *
      * @param User $user - A DataObject that represents a user
      * @return array
      */
@@ -39,10 +39,10 @@ class UserModel {
         $response = $this->connection->create($user);
         return $response;
     }
-    
+
     /**
      * This function retrieves a users info from the database
-     * 
+     *
      * @param User $user - A DataObject that represents a user
      * @return array
      */
@@ -51,10 +51,10 @@ class UserModel {
         $response = $this->connection->read($user);
         return $response;
     }
-    
+
      /**
      * This function updates a users info from the database
-     * 
+     *
      * @param User $user - A DataObject that represents a user
      * @return array
      */
@@ -64,10 +64,10 @@ class UserModel {
         $response = $this->connection->delete($user);
         return $response;
     }
-    
+
     /**
      * This function removes a users info from the database
-     * 
+     *
      * @param User $user - A DataObject that represents a user
      * @return array
      */

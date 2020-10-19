@@ -26,8 +26,8 @@ class AdminModel {
     }
 
     /**
-     * This function creates a admin in the database 
-     * 
+     * This function creates a admin in the database
+     *
      * @param Admin $admin - A DataObject that represents a admin
      * @return array
      */
@@ -40,7 +40,7 @@ class AdminModel {
 
     /**
      * This function retrieves a admins info from the database
-     * 
+     *
      * @param Admin $admin - A DataObject that represents a admin
      * @return array
      */
@@ -54,7 +54,7 @@ class AdminModel {
 
      /**
      * This function updates a admins info from the database
-     * 
+     *
      * @param Admin $admin - A DataObject that represents a admin
      * @return array
      */
@@ -67,7 +67,7 @@ class AdminModel {
 
       /**
      * This function removes an admins info from the database
-     * 
+     *
      * @param Admin $admin - A DataObject that represents a admin
      * @return array
      */

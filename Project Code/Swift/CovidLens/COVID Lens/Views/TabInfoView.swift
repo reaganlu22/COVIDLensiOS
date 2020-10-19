@@ -11,6 +11,7 @@ struct TabInfoView: View {
     var icon: String = ""
     var title: String = ""
     var info: String = ""
+    var disclaimer: String? = nil
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -32,6 +33,14 @@ struct TabInfoView: View {
                 .foregroundColor(.black)
                 .padding([.horizontal, .bottom], 12)
                 .font(.system(size: 16.0))
+            if let disclaimerMsg = disclaimer {
+                Text(disclaimerMsg)
+                    .italic()
+                    .foregroundColor(Color.black.opacity(0.6))
+                    .padding(.top, -12)
+                    .padding([.horizontal, .bottom], 12)
+                    .font(.system(size: 16.0))
+            }
         }.padding(.all, 12)
         .padding(.top, 8)
         .overlay(

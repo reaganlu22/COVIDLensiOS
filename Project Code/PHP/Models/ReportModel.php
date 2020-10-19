@@ -26,8 +26,8 @@ class ReportModel {
     }
 
     /**
-     * This function creates a report in the database 
-     * 
+     * This function creates a report in the database
+     *
      * @param Report $report - A DataObject that represents a report
      * @return array
      */
@@ -43,7 +43,7 @@ class ReportModel {
 
      /**
      * This function retrieves a reports info from the database
-     * 
+     *
      * @param Report $report - A DataObject that represents a report
      * @return array
      */
@@ -55,7 +55,7 @@ class ReportModel {
 
      /**
      * This function retrieves a reports info from the database
-     * 
+     *
      * @param Report $report - A DataObject that represents a report
      * @return array
      */
@@ -68,7 +68,7 @@ class ReportModel {
 
      /**
      * This function removes a reports info from the database
-     * 
+     *
      * @param Report $report - A DataObject that represents a report
      * @return array
      */
@@ -80,7 +80,7 @@ class ReportModel {
 
      /**
      * This function retrieves all reports from the database
-     * 
+     *
      * @param Report $report - A DataObject that represents a report
      * @return array
      */

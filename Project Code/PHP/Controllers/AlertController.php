@@ -8,18 +8,18 @@ require_once '../includes/autoload.php';
 class AlertController {
 
     private $alertModel;
-    
+
     /**
      * Constructs an AlertModel
      */
     public function __construct() {
         $this->alertModel = new AlertModel();
     }
-    
-    
+
+
     /**
      * This function notifies an AlertModel about a desired request
-     * 
+     *
      * @param Alert $dataObj - A DataObject that represents an Alert
      * @return array
      */

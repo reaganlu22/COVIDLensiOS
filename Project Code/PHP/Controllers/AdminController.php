@@ -10,17 +10,17 @@ require_once '../includes/autoload.php';
 class AdminController {
 
     private $adminModel;
-    
+
     /**
      * Construction an AdminModel
      */
     public function __construct() {
         $this->adminModel = new AdminModel();
     }
-    
+
     /**
      * This function notifies an AdminModel about a desired request
-     * 
+     *
      * @param Admin $dataObj - A DataObject that represents an Admin
      * @return array
      */
@@ -39,4 +39,3 @@ class AdminController {
     }
 
 }
-

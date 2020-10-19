@@ -25,8 +25,8 @@ class AlertModel {
     }
 
     /**
-     * This function creates a alert in the database 
-     * 
+     * This function creates a alert in the database
+     *
      * @param Alert $alert - A DataObject that represents an alert
      * @return array
      */
@@ -39,7 +39,7 @@ class AlertModel {
 
      /**
      * This function retrieves an alert's info from the database
-     * 
+     *
      * @param Alert $alert - A DataObject that represents a alert
      * @return array
      */
@@ -51,7 +51,7 @@ class AlertModel {
 
     /**
      * This function updates an alert's info from the database
-     * 
+     *
      * @param Alert $alert - A DataObject that represents a alert
      * @return array
      */
@@ -63,7 +63,7 @@ class AlertModel {
 
      /**
      * This function removes an alert's info from the database
-     * 
+     *
      * @param Alert $alert - A DataObject that represents a alert
      * @return array
      */
@@ -75,7 +75,7 @@ class AlertModel {
 
      /**
      * This function retrieves all alert's from the database
-     * 
+     *
      * @param Alert $alert - A DataObject that represents a alert
      * @return array
      */

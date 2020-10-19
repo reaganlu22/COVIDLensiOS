@@ -23,8 +23,8 @@ class ResourceModel {
     }
 
     /**
-     * This function creates a resource in the database 
-     * 
+     * This function creates a resource in the database
+     *
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
@@ -38,7 +38,7 @@ class ResourceModel {
 
     /**
      * This function retrieves a resources info from the database
-     * 
+     *
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
@@ -50,7 +50,7 @@ class ResourceModel {
 
     /**
      * This function updates a resources info from the database
-     * 
+     *
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
@@ -63,7 +63,7 @@ class ResourceModel {
 
     /**
      * This function removes a resources info from the database
-     * 
+     *
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
@@ -75,7 +75,7 @@ class ResourceModel {
 
      /**
      * This function retrieves all resources from the database
-     * 
+     *
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */

@@ -23,7 +23,7 @@ class ReportController {
 
     /**
      * This function notifies an ReportModel about a desired request
-     * 
+     *
      * @param Report $dataObj - A DataObject that represents a Report
      * @return array
      */

@@ -16,10 +16,10 @@ class MapLocationsController {
     public function __construct() {
         $this->mapLocationsModel = new MapLocationsModel();
     }
-    
+
     /**
      * This function notifies an MapLocationsModel about a desired request
-     * 
+     *
      * @param MapLocations $dataObj - A DataObject that represents a MapLocations
      * @return array
      */

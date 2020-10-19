@@ -26,8 +26,8 @@ class MapLocationsModel {
     }
 
     /**
-     * This function creates a mapLocation in the database 
-     * 
+     * This function creates a mapLocation in the database
+     *
      * @param MapLocation $mapLocation - A DataObject that represents a map location
      * @return array
      */
@@ -41,7 +41,7 @@ class MapLocationsModel {
 
      /**
      * This function retrieves a MapLocations info from the database
-     * 
+     *
      * @param MapLocation $mapLocation - A DataObject that represents a map location
      * @return array
      */
@@ -53,7 +53,7 @@ class MapLocationsModel {
 
     /**
      * This function updates a MapLocations info from the database
-     * 
+     *
      * @param MapLocation $mapLocation - A DataObject that represents a map location
      * @return array
      */
@@ -66,7 +66,7 @@ class MapLocationsModel {
 
      /**
      * This function removes a MapLocations info from the database
-     * 
+     *
      * @param MapLocation $mapLocation - A DataObject that represents a map location
      * @return array
      */
@@ -78,7 +78,7 @@ class MapLocationsModel {
 
      /**
      * This function retrieves all MapLocations from the database
-     * 
+     *
      * @param MapLocation $mapLocation - A DataObject that represents a map location
      * @return array
      */

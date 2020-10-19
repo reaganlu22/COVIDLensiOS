@@ -19,7 +19,7 @@ class ResourceController {
 
     /**
      * This function notifies an ResourceModelModel about a desired request
-     * 
+     *
      * @param ResourceModel $dataObj - A DataObject that represents a ResourceModel
      * @return array
      */

@@ -13,7 +13,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
 
     /**
      * Constructs a Database adapter
-     * 
+     *
      * @param MysqlConnector $connector - the connector to the service of data storage
      * being used
      */
@@ -30,7 +30,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
 
     /**
      * This function creates a DataObject in the database
-     * 
+     *
      * @param DataObject $object - an object with properties that can be stored
      * in the database
      * @return array
@@ -92,16 +92,16 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 }
             }
         } catch (Exception $e) {
-            
+
         }
 
         return $result;
     }
 
     /**
-     * This function retrieves data stored in the database based on the properties 
+     * This function retrieves data stored in the database based on the properties
      * of a DataObject
-     * 
+     *
      * @param DataObject $object - an object with properties that can be stored
      * in the database
      * @return array
@@ -117,7 +117,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $stmt->bind_param("ss", $email, $password);
                     $email = $object->getEmail();
                     $password = $object->getPassword();
-                    
+
                 } else if ($object->getRequest() === Requests::userDataRequest()) {
                     $stmt->bind_param("s", $userID);
                     $userID = $object->getUserID();
@@ -152,16 +152,16 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 $result_temp["data"] = $data;
             }
         } catch (Exception $e) {
-            
+
         }
 
         return $result_temp;
     }
 
     /**
-     * This function updates a record in the database based on the properties of a 
+     * This function updates a record in the database based on the properties of a
      * DataObject
-     * 
+     *
      * @param DataObject $object - an object with properties that can be stored
      * in the database
      * @return array
@@ -195,15 +195,15 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 $result["status"] = FailOrPass::getSuccess();
             }
         } catch (Exception $e) {
-            
+
         }
 
         return $result;
     }
     /**
-     * This function removes a record in the database based on the properties of a 
+     * This function removes a record in the database based on the properties of a
      * DataObject
-     * 
+     *
      * @param DataObject $object - an object with properties that can be stored
      * in the database
      * @return array
@@ -233,16 +233,16 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 $result["status"] = FailOrPass::getSuccess();
             }
         } catch (Exception $e) {
-            
+
         }
 
         return $result;
     }
 
     /**
-     * This function returns true if a connection to the database exists, 
+     * This function returns true if a connection to the database exists,
      * otherwise it returns false
-     * 
+     *
      * @return Boolean
      */
     public function isConnected() {
