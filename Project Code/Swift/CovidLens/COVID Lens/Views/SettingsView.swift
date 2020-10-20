@@ -12,6 +12,7 @@ import GoogleSignIn
 struct SettingsView: View {
     @EnvironmentObject var authVM: AuthVM
     @StateObject private var viewModel = SettingsVM()
+    @State var dark = false
     
     struct SettingsButton: View {
         var iconName: String
@@ -63,10 +64,14 @@ struct SettingsView: View {
                     
                     VStack(alignment: .leading) {
                         Divider()
+                        //dark light mode for a setting
+        
                         // account preferences button
-                        SettingsButton(iconName: "person.crop.square.fill", text: "Account Preferences") {
-                            // account preferences view
-                        }
+                        SettingsButton(iconName: "person.crop.square.fill",
+                                       text: "Account Preferences"){
+                                        
+                                       }
+                       
                         Divider()
                         // view report status button
                         SettingsButton(iconName: "doc.text.below.ecg.fill", text: "View Report Status") {
