@@ -10,10 +10,19 @@ class ResourceController {
 
     private $resourcesModel;
 
+    /**
+     * This function constructs a ResourceModel
+     */
     public function __construct() {
         $this->resourcesModel = new ResourceModel();
     }
 
+    /**
+     * This function notifies an ResourceModelModel about a desired request
+     *
+     * @param ResourceModel $dataObj - A DataObject that represents a ResourceModel
+     * @return array
+     */
     public function invokeResource(Resource $dataObj) {
         if ($dataObj->getRequest() === Requests::resourceCreation()) {
             return $this->resourcesModel->createResource($dataObj);
