@@ -10,6 +10,9 @@
 		02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02EE152525351E6500A5A568 /* Default-568h@2x.png */; };
 		02FD54A8253A724800A8255D /* UserDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD54A7253A724800A8255D /* UserDataTests.swift */; };
 		5D194AC8253E50010054CD15 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194AC7253E50010054CD15 /* HomeVM.swift */; };
+		5D194ADE253E6F780054CD15 /* residenceHalls.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D194ADD253E6F780054CD15 /* residenceHalls.json */; };
+		5D194AE8253E89090054CD15 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194AE7253E89090054CD15 /* DataLoader.swift */; };
+		5D194AEC253E89970054CD15 /* residenceHalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194AEB253E89970054CD15 /* residenceHalls.swift */; };
 		5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */; };
 		5D5DB56D252E9539009FB2DE /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB56C252E9539009FB2DE /* Color+Extension.swift */; };
 		5D5DB593252EDC49009FB2DE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB592252EDC49009FB2DE /* HomeView.swift */; };
@@ -60,6 +63,9 @@
 		4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID LensTests.release.xcconfig"; path = "Target Support Files/Pods-COVID LensTests/Pods-COVID LensTests.release.xcconfig"; sourceTree = "<group>"; };
 		5D194A692538FF990054CD15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D194AC7253E50010054CD15 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		5D194ADD253E6F780054CD15 /* residenceHalls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = residenceHalls.json; sourceTree = "<group>"; };
+		5D194AE7253E89090054CD15 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		5D194AEB253E89970054CD15 /* residenceHalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = residenceHalls.swift; sourceTree = "<group>"; };
 		5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		5D5DB56C252E9539009FB2DE /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5D5DB592252EDC49009FB2DE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 				5DC881762531182600135316 /* TabContainterView.swift */,
 				5D815C912534FA1900508556 /* TabInfoView.swift */,
 				5D815CAB2535076E00508556 /* SelfReportView.swift */,
+				5D194AE7253E89090054CD15 /* DataLoader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				5DC8817C2531220100135316 /* Report.swift */,
 				5DDA205E252AC52900BC238D /* User.swift */,
 				5DDA2073252BD4BC00BC238D /* UserData.swift */,
+				5D194AEB253E89970054CD15 /* residenceHalls.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 				5D194A692538FF990054CD15 /* GoogleService-Info.plist */,
 				5DDA201B252A634100BC238D /* Info.plist */,
 				5DC8819E2532DEAB00135316 /* style.json */,
+				5D194ADD253E6F780054CD15 /* residenceHalls.json */,
 				5DDA2018252A634100BC238D /* Preview Content */,
 			);
 			path = "COVID Lens";
@@ -344,6 +353,7 @@
 				5DDA2017252A634100BC238D /* Assets.xcassets in Resources */,
 				02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */,
 				5DC8819F2532DEAB00135316 /* style.json in Resources */,
+				5D194ADE253E6F780054CD15 /* residenceHalls.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,8 +491,10 @@
 				5DDA2013252A633C00BC238D /* COVID_LensApp.swift in Sources */,
 				5D5DB5C7252F784F009FB2DE /* PrimaryButton.swift in Sources */,
 				5D194AC8253E50010054CD15 /* HomeVM.swift in Sources */,
+				5D194AE8253E89090054CD15 /* DataLoader.swift in Sources */,
 				5D5DB56D252E9539009FB2DE /* Color+Extension.swift in Sources */,
 				5D815C8D2534E9E600508556 /* ResourcesVM.swift in Sources */,
+				5D194AEC253E89970054CD15 /* residenceHalls.swift in Sources */,
 				5D5DB5E32530B01D009FB2DE /* InputWithIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -56,7 +56,10 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
     @Published var fullName:String?
     @Published var email:String?
     @Published var googleProfilePicURL:String?
-    var apiKey = "AIzaSyBTOYwfO5V6sRC2z3QpxklUjizntrNnpd8"
+    //var apiKey = "AIzaSyBTOYwfO5V6sRC2z3QpxklUjizntrNnpd8"
+    
+    //seth apikey
+    var apiKey = "AIzaSyBaBhLg6ULvTIXOsXZ7sU9GBQ1flu7H9O0"
     // [START didfinishlaunching]
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -67,7 +70,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
         UITabBar.appearance().barTintColor = UIColor(Color(red: 240/255, green: 240/255, blue: 240/255))
         
         // Initialize sign-in
-        GIDSignIn.sharedInstance().clientID = "429712041183-baisri01foho74au10khrorhs157khn6.apps.googleusercontent.com"
+        //GIDSignIn.sharedInstance().clientID = "429712041183-baisri01foho74au10khrorhs157khn6.apps.googleusercontent.com"
+        
+        // seth client id
+        GIDSignIn.sharedInstance().clientID = "179846355573-6ikclf9armsnfd1eajs50t7hnqnv39r6.apps.googleusercontent.com"
+    
         GMSServices.provideAPIKey(apiKey)
         GMSPlacesClient.provideAPIKey(apiKey)
         
