@@ -22,6 +22,40 @@ class ResourceModel {
         $this->connection = null;
     }
 
+<<<<<<< HEAD
+    public function createResource(Resources $resources) {
+        $preparedStmt = "INSERT INTO " . $resources->getTableName() . " (resourceID, title,categoryName, linkResource) VALUES (?,?,?,?)";
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->create($resources);
+        return $response;
+    }
+
+    public function readResource(Resources $resources) {
+        $preparedStmt = "SELECT * FROM " . $resources->getTableName() . " WHERE resourceID=?";
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->read($resources);
+        return $response;
+    }
+
+    public function updateResource(Resources $resources) {
+        $preparedStmt = "UPDATE" . $resources->getTableName() . " SET title=?, categoryName=?, linkResource=? WHERE resourceID=?";
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->delete($resources);
+        return $response;
+    }
+
+    public function deleteResource(Resources $resources) {
+        $preparedStmt = "DELETE FROM " . $resources->getTableName() . " WHERE resourceID=?";
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->delete($resources);
+        return $response;
+    }
+
+    public function getAllResource(Resources $resources) {
+        $preparedStmt = "SELECT * FROM " . $resources->getTableName();
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->read($resources);
+=======
     /**
      * This function creates a resource in the database
      *
@@ -82,6 +116,7 @@ class ResourceModel {
     public function getAllResource(Resource $resource) {
         $preparedStmt = "SELECT * FROM " . $resource->getTableName();
         $response = $this->connection->read($resource);
+>>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
         return $response;
     }
 

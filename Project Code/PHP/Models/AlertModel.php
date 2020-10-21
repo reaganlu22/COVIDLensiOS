@@ -45,6 +45,7 @@ class AlertModel {
      */
     public function readAlert(Alert $alert) {
         $preparedStmt = "SELECT * FROM " . $alert->getTableName() . " WHERE alertID=?";
+        $alert->setSql($preparedStmt);
         $response = $this->connection->read($alert);
         return $response;
     }
@@ -57,6 +58,7 @@ class AlertModel {
      */
     public function updateAlert(Alert $alert) {
         $preparedStmt = "UPDATE" . $alert->getTableName() . " SET email=?, password=? WHERE alertID=?";
+        $alert->setSql($preparedStmt);
         $response = $this->connection->delete($alert);
         return $response;
     }
@@ -69,6 +71,7 @@ class AlertModel {
      */
     public function deleteAlert(Alert $alert) {
         $preparedStmt = "DELETE FROM " . $alert->getTableName() . " WHERE alertID=?";
+        $alert->setSql($preparedStmt);
         $response = $this->connection->delete($alert);
         return $response;
     }
@@ -81,6 +84,7 @@ class AlertModel {
      */
     public function getAllAlert(Alert $alert) {
         $preparedStmt = "SELECT * FROM " . $alert->getTableName();
+        $alert->setSql($preparedStmt);
         $response = $this->connection->read($alert);
         return $response;
     }

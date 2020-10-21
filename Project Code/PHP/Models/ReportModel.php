@@ -8,7 +8,7 @@ require_once '../includes/autoload.php';
  * @author isaactaylor
  */
 class ReportModel {
-
+    
     private $connection;
 
     /**
@@ -25,6 +25,11 @@ class ReportModel {
         $this->connection = null;
     }
 
+<<<<<<< HEAD
+
+    public function createReport(Report $report) {
+        $preparedStmt = "INSERT INTO " . $report->getTableName() . " (timeSubmitted, residenceHall, age, phoneNumber, affiliation, locationID, reportStatus, reportInfo, situationDesc, submitterID, confirmerID) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+=======
     /**
      * This function creates a report in the database
      *
@@ -36,6 +41,7 @@ class ReportModel {
                 . " residenceHall, reportStatus, age, reportInfo, phoneNumber, "
                 . "situationDesc, affiliation, confirmerID)"
                 . " VALUES (?,?,?,?,?,?,?,?,?,?)";
+>>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
         $report->setSql($preparedStmt);
         $response = $this->connection->create($report);
         return $response;
@@ -48,7 +54,12 @@ class ReportModel {
      * @return array
      */
     public function readReport(Report $report) {
+<<<<<<< HEAD
+        $preparedStmt = "SELECT * FROM " . $report->getTableName() . " WHERE submitterID=?";
+        $report->setSql($preparedStmt);
+=======
         $preparedStmt = "SELECT * FROM " . $report->getTableName() . " WHERE reportID=?";
+>>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
         $response = $this->connection->read($report);
         return $response;
     }
@@ -61,7 +72,12 @@ class ReportModel {
      */
     public function updateReport(Report $report) {
         $preparedStmt = "UPDATE" . $report->getTableName() . " SET confirmerID=?, "
+<<<<<<< HEAD
+                . "WHERE submitterID=?";
+        $report->setSql($preparedStmt);
+=======
                 . "WHERE reportID=?";
+>>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
         $response = $this->connection->delete($report);
         return $response;
     }
@@ -73,7 +89,12 @@ class ReportModel {
      * @return array
      */
     public function deleteReport(Report $report) {
+<<<<<<< HEAD
+        $preparedStmt = "DELETE FROM " . $report->getTableName() . " WHERE submitterID=?";
+        $report->setSql($preparedStmt);
+=======
         $preparedStmt = "DELETE FROM " . $report->getTableName() . " WHERE reportID=?";
+>>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
         $response = $this->connection->delete($report);
         return $response;
     }
@@ -86,6 +107,7 @@ class ReportModel {
      */
     public function getAllReport(Report $report) {
         $preparedStmt = "SELECT * FROM " . $report->getTableName();
+        $report->setSql($preparedStmt);
         $response = $this->connection->read($report);
         return $response;
     }
