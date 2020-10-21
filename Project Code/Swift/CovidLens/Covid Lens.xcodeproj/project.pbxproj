@@ -1,0 +1,764 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02EE152525351E6500A5A568 /* Default-568h@2x.png */; };
+		02FD54A8253A724800A8255D /* UserDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD54A7253A724800A8255D /* UserDataTests.swift */; };
+		5D194AC8253E50010054CD15 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194AC7253E50010054CD15 /* HomeVM.swift */; };
+		5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */; };
+		5D5DB56D252E9539009FB2DE /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB56C252E9539009FB2DE /* Color+Extension.swift */; };
+		5D5DB593252EDC49009FB2DE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB592252EDC49009FB2DE /* HomeView.swift */; };
+		5D5DB59B252EDD4B009FB2DE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB59A252EDD4B009FB2DE /* MapView.swift */; };
+		5D5DB5A0252EDD77009FB2DE /* ResourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB59F252EDD77009FB2DE /* ResourcesView.swift */; };
+		5D5DB5B7252F6D46009FB2DE /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB5B6252F6D46009FB2DE /* SignupView.swift */; };
+		5D5DB5BC252F6D82009FB2DE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB5BB252F6D82009FB2DE /* LoginView.swift */; };
+		5D5DB5C7252F784F009FB2DE /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB5C6252F784F009FB2DE /* PrimaryButton.swift */; };
+		5D5DB5CC252F7A20009FB2DE /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB5CB252F7A20009FB2DE /* AuthVM.swift */; };
+		5D5DB5E32530B01D009FB2DE /* InputWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB5E22530B01C009FB2DE /* InputWithIcon.swift */; };
+		5D5DB5E82530B56C009FB2DE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DB5E72530B56C009FB2DE /* SettingsView.swift */; };
+		5D815C8D2534E9E600508556 /* ResourcesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D815C8C2534E9E600508556 /* ResourcesVM.swift */; };
+		5D815C922534FA1A00508556 /* TabInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D815C912534FA1900508556 /* TabInfoView.swift */; };
+		5D815C9F253506F700508556 /* SelfReportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D815C9E253506F700508556 /* SelfReportVM.swift */; };
+		5D815CAC2535076E00508556 /* SelfReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D815CAB2535076E00508556 /* SelfReportView.swift */; };
+		5DC881692530DDD600135316 /* GoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC881682530DDD600135316 /* GoogleMapsView.swift */; };
+		5DC881772531182600135316 /* TabContainterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC881762531182600135316 /* TabContainterView.swift */; };
+		5DC8817D2531220100135316 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8817C2531220100135316 /* Report.swift */; };
+		5DC88185253125B100135316 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC88184253125B100135316 /* LoginVM.swift */; };
+		5DC8818A25312FBB00135316 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8818925312FBB00135316 /* SettingsVM.swift */; };
+		5DC8818F25312FD500135316 /* SignupVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8818E25312FD500135316 /* SignupVM.swift */; };
+		5DC8819F2532DEAB00135316 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DC8819E2532DEAB00135316 /* style.json */; };
+		5DDA2013252A633C00BC238D /* COVID_LensApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA2012252A633C00BC238D /* COVID_LensApp.swift */; };
+		5DDA2017252A634100BC238D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA2016252A634100BC238D /* Assets.xcassets */; };
+		5DDA201A252A634100BC238D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA2019252A634100BC238D /* Preview Assets.xcassets */; };
+		5DDA2025252A634100BC238D /* COVID_LensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA2024252A634100BC238D /* COVID_LensTests.swift */; };
+		5DDA205F252AC52900BC238D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA205E252AC52900BC238D /* User.swift */; };
+		5DDA2074252BD4BD00BC238D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA2073252BD4BC00BC238D /* UserData.swift */; };
+		8DE782F62C78ACC6C9AF30CD /* Pods_COVID_Lens.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B798BE6F6BA64FC07C71E399 /* Pods_COVID_Lens.framework */; };
+		B730F79DD7B934BF0A34B8E9 /* Pods_COVID_LensTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5DDA2021252A634100BC238D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DDA2007252A633C00BC238D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DDA200E252A633C00BC238D;
+			remoteInfo = "COVID Lens";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02EE152525351E6500A5A568 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		02FD54A7253A724800A8255D /* UserDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataTests.swift; sourceTree = "<group>"; };
+		144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_Lens_COVID_LensUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_LensTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID LensTests.release.xcconfig"; path = "Target Support Files/Pods-COVID LensTests/Pods-COVID LensTests.release.xcconfig"; sourceTree = "<group>"; };
+		5D194A692538FF990054CD15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5D194AC7253E50010054CD15 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		5D5DB56C252E9539009FB2DE /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		5D5DB592252EDC49009FB2DE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5D5DB59A252EDD4B009FB2DE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		5D5DB59F252EDD77009FB2DE /* ResourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesView.swift; sourceTree = "<group>"; };
+		5D5DB5B6252F6D46009FB2DE /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		5D5DB5BB252F6D82009FB2DE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5D5DB5C6252F784F009FB2DE /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		5D5DB5CB252F7A20009FB2DE /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
+		5D5DB5E22530B01C009FB2DE /* InputWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWithIcon.swift; sourceTree = "<group>"; };
+		5D5DB5E72530B56C009FB2DE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5D815C8C2534E9E600508556 /* ResourcesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVM.swift; sourceTree = "<group>"; };
+		5D815C912534FA1900508556 /* TabInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabInfoView.swift; sourceTree = "<group>"; };
+		5D815C9E253506F700508556 /* SelfReportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfReportVM.swift; sourceTree = "<group>"; };
+		5D815CAB2535076E00508556 /* SelfReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfReportView.swift; sourceTree = "<group>"; };
+		5DC881682530DDD600135316 /* GoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsView.swift; sourceTree = "<group>"; };
+		5DC881762531182600135316 /* TabContainterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainterView.swift; sourceTree = "<group>"; };
+		5DC8817C2531220100135316 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		5DC88184253125B100135316 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		5DC8818925312FBB00135316 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
+		5DC8818E25312FD500135316 /* SignupVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVM.swift; sourceTree = "<group>"; };
+		5DC8819E2532DEAB00135316 /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
+		5DDA200F252A633C00BC238D /* COVID Lens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Lens.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DDA2012252A633C00BC238D /* COVID_LensApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_LensApp.swift; sourceTree = "<group>"; };
+		5DDA2016252A634100BC238D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5DDA2019252A634100BC238D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5DDA201B252A634100BC238D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DDA2020252A634100BC238D /* COVID LensTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVID LensTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DDA2024252A634100BC238D /* COVID_LensTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_LensTests.swift; sourceTree = "<group>"; };
+		5DDA2026252A634100BC238D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DDA202F252A634100BC238D /* COVID_LensUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_LensUITests.swift; sourceTree = "<group>"; };
+		5DDA2031252A634100BC238D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DDA205E252AC52900BC238D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5DDA2073252BD4BC00BC238D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		72545DCF507F967A0F33EF5F /* Pods-COVID Lens.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID Lens.release.xcconfig"; path = "Target Support Files/Pods-COVID Lens/Pods-COVID Lens.release.xcconfig"; sourceTree = "<group>"; };
+		799CE92FC7E58E33C2F0314A /* Pods-COVID Lens-COVID LensUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID Lens-COVID LensUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID Lens-COVID LensUITests/Pods-COVID Lens-COVID LensUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8DAC02AB783DAD2D7FA809F5 /* Pods-COVID Lens-COVID LensUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID Lens-COVID LensUITests.debug.xcconfig"; path = "Target Support Files/Pods-COVID Lens-COVID LensUITests/Pods-COVID Lens-COVID LensUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B798BE6F6BA64FC07C71E399 /* Pods_COVID_Lens.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_Lens.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCDFF48BA5D23BA0DA18526E /* Pods-COVID Lens.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID Lens.debug.xcconfig"; path = "Target Support Files/Pods-COVID Lens/Pods-COVID Lens.debug.xcconfig"; sourceTree = "<group>"; };
+		FD21EE9B0A832950DEA3B56C /* Pods-COVID LensTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID LensTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID LensTests/Pods-COVID LensTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DDA200C252A633C00BC238D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DE782F62C78ACC6C9AF30CD /* Pods_COVID_Lens.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DDA201D252A634100BC238D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B730F79DD7B934BF0A34B8E9 /* Pods_COVID_LensTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		171248384791866161BB3309 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCDFF48BA5D23BA0DA18526E /* Pods-COVID Lens.debug.xcconfig */,
+				72545DCF507F967A0F33EF5F /* Pods-COVID Lens.release.xcconfig */,
+				8DAC02AB783DAD2D7FA809F5 /* Pods-COVID Lens-COVID LensUITests.debug.xcconfig */,
+				799CE92FC7E58E33C2F0314A /* Pods-COVID Lens-COVID LensUITests.release.xcconfig */,
+				FD21EE9B0A832950DEA3B56C /* Pods-COVID LensTests.debug.xcconfig */,
+				4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		38F5781A3893ED7349728777 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B798BE6F6BA64FC07C71E399 /* Pods_COVID_Lens.framework */,
+				144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */,
+				2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D5DB552252E80BB009FB2DE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5D5DB5CB252F7A20009FB2DE /* AuthVM.swift */,
+				5DC88184253125B100135316 /* LoginVM.swift */,
+				5DC8818925312FBB00135316 /* SettingsVM.swift */,
+				5DC8818E25312FD500135316 /* SignupVM.swift */,
+				5D815C8C2534E9E600508556 /* ResourcesVM.swift */,
+				5D815C9E253506F700508556 /* SelfReportVM.swift */,
+				5D194AC7253E50010054CD15 /* HomeVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5D5DB55E252E8CFD009FB2DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D5DB5BB252F6D82009FB2DE /* LoginView.swift */,
+				5D5DB592252EDC49009FB2DE /* HomeView.swift */,
+				5D5DB59A252EDD4B009FB2DE /* MapView.swift */,
+				5DC881682530DDD600135316 /* GoogleMapsView.swift */,
+				5D5DB59F252EDD77009FB2DE /* ResourcesView.swift */,
+				5D5DB5E72530B56C009FB2DE /* SettingsView.swift */,
+				5D5DB5B6252F6D46009FB2DE /* SignupView.swift */,
+				5D5DB5C6252F784F009FB2DE /* PrimaryButton.swift */,
+				5D5DB567252E9337009FB2DE /* PrimaryButtonStyle.swift */,
+				5D5DB5E22530B01C009FB2DE /* InputWithIcon.swift */,
+				5DC881762531182600135316 /* TabContainterView.swift */,
+				5D815C912534FA1900508556 /* TabInfoView.swift */,
+				5D815CAB2535076E00508556 /* SelfReportView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5DC8817B253121ED00135316 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5DC8817C2531220100135316 /* Report.swift */,
+				5DDA205E252AC52900BC238D /* User.swift */,
+				5DDA2073252BD4BC00BC238D /* UserData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5DDA2006252A633C00BC238D = {
+			isa = PBXGroup;
+			children = (
+				02EE152525351E6500A5A568 /* Default-568h@2x.png */,
+				5DDA2011252A633C00BC238D /* COVID Lens */,
+				5DDA2023252A634100BC238D /* COVID LensTests */,
+				5DDA202E252A634100BC238D /* COVID LensUITests */,
+				5DDA2010252A633C00BC238D /* Products */,
+				171248384791866161BB3309 /* Pods */,
+				38F5781A3893ED7349728777 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5DDA2010252A633C00BC238D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA200F252A633C00BC238D /* COVID Lens.app */,
+				5DDA2020252A634100BC238D /* COVID LensTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5DDA2011252A633C00BC238D /* COVID Lens */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA2012252A633C00BC238D /* COVID_LensApp.swift */,
+				5DC8817B253121ED00135316 /* Models */,
+				5D5DB55E252E8CFD009FB2DE /* Views */,
+				5D5DB552252E80BB009FB2DE /* ViewModels */,
+				5DDA2016252A634100BC238D /* Assets.xcassets */,
+				5D194A692538FF990054CD15 /* GoogleService-Info.plist */,
+				5DDA201B252A634100BC238D /* Info.plist */,
+				5DC8819E2532DEAB00135316 /* style.json */,
+				5DDA2018252A634100BC238D /* Preview Content */,
+			);
+			path = "COVID Lens";
+			sourceTree = "<group>";
+		};
+		5DDA2018252A634100BC238D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5D5DB56C252E9539009FB2DE /* Color+Extension.swift */,
+				5DDA2019252A634100BC238D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5DDA2023252A634100BC238D /* COVID LensTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA2024252A634100BC238D /* COVID_LensTests.swift */,
+				5DDA2026252A634100BC238D /* Info.plist */,
+				02FD54A7253A724800A8255D /* UserDataTests.swift */,
+			);
+			path = "COVID LensTests";
+			sourceTree = "<group>";
+		};
+		5DDA202E252A634100BC238D /* COVID LensUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA202F252A634100BC238D /* COVID_LensUITests.swift */,
+				5DDA2031252A634100BC238D /* Info.plist */,
+			);
+			path = "COVID LensUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DDA200E252A633C00BC238D /* COVID Lens */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DDA2034252A634100BC238D /* Build configuration list for PBXNativeTarget "COVID Lens" */;
+			buildPhases = (
+				4E618B5C74A352704D99023E /* [CP] Check Pods Manifest.lock */,
+				6F298DEF5BFACBB3E81DD3AA /* [CP] Prepare Artifacts */,
+				5DDA200B252A633C00BC238D /* Sources */,
+				5DDA200C252A633C00BC238D /* Frameworks */,
+				5DDA200D252A633C00BC238D /* Resources */,
+				AC1D95F53C844394E71F4B7E /* [CP] Embed Pods Frameworks */,
+				4AF13E989703AFFA908136B4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "COVID Lens";
+			productName = "COVID Lens";
+			productReference = 5DDA200F252A633C00BC238D /* COVID Lens.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5DDA201F252A634100BC238D /* COVID LensTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DDA2037252A634100BC238D /* Build configuration list for PBXNativeTarget "COVID LensTests" */;
+			buildPhases = (
+				D9CD0971D3574B1084F9C2EF /* [CP] Check Pods Manifest.lock */,
+				5DDA201C252A634100BC238D /* Sources */,
+				5DDA201D252A634100BC238D /* Frameworks */,
+				5DDA201E252A634100BC238D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DDA2022252A634100BC238D /* PBXTargetDependency */,
+			);
+			name = "COVID LensTests";
+			productName = "COVID LensTests";
+			productReference = 5DDA2020252A634100BC238D /* COVID LensTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DDA2007252A633C00BC238D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					5DDA200E252A633C00BC238D = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					5DDA201F252A634100BC238D = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 5DDA200E252A633C00BC238D;
+					};
+				};
+			};
+			buildConfigurationList = 5DDA200A252A633C00BC238D /* Build configuration list for PBXProject "Covid Lens" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5DDA2006252A633C00BC238D;
+			productRefGroup = 5DDA2010252A633C00BC238D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DDA200E252A633C00BC238D /* COVID Lens */,
+				5DDA201F252A634100BC238D /* COVID LensTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5DDA200D252A633C00BC238D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DDA201A252A634100BC238D /* Preview Assets.xcassets in Resources */,
+				5DDA2017252A634100BC238D /* Assets.xcassets in Resources */,
+				02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */,
+				5DC8819F2532DEAB00135316 /* style.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DDA201E252A634100BC238D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AF13E989703AFFA908136B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E618B5C74A352704D99023E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-COVID Lens-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F298DEF5BFACBB3E81DD3AA /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC1D95F53C844394E71F4B7E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVID Lens/Pods-COVID Lens-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9CD0971D3574B1084F9C2EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-COVID LensTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5DDA200B252A633C00BC238D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DC881692530DDD600135316 /* GoogleMapsView.swift in Sources */,
+				5D5DB5E82530B56C009FB2DE /* SettingsView.swift in Sources */,
+				5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */,
+				5DC8818F25312FD500135316 /* SignupVM.swift in Sources */,
+				5D5DB593252EDC49009FB2DE /* HomeView.swift in Sources */,
+				5D815CAC2535076E00508556 /* SelfReportView.swift in Sources */,
+				5D5DB5BC252F6D82009FB2DE /* LoginView.swift in Sources */,
+				5DDA2074252BD4BD00BC238D /* UserData.swift in Sources */,
+				5DC88185253125B100135316 /* LoginVM.swift in Sources */,
+				5DC8818A25312FBB00135316 /* SettingsVM.swift in Sources */,
+				5D5DB5CC252F7A20009FB2DE /* AuthVM.swift in Sources */,
+				5DC8817D2531220100135316 /* Report.swift in Sources */,
+				5D5DB59B252EDD4B009FB2DE /* MapView.swift in Sources */,
+				5D5DB5A0252EDD77009FB2DE /* ResourcesView.swift in Sources */,
+				5D815C9F253506F700508556 /* SelfReportVM.swift in Sources */,
+				5D5DB5B7252F6D46009FB2DE /* SignupView.swift in Sources */,
+				5DDA205F252AC52900BC238D /* User.swift in Sources */,
+				5DC881772531182600135316 /* TabContainterView.swift in Sources */,
+				5D815C922534FA1A00508556 /* TabInfoView.swift in Sources */,
+				5DDA2013252A633C00BC238D /* COVID_LensApp.swift in Sources */,
+				5D5DB5C7252F784F009FB2DE /* PrimaryButton.swift in Sources */,
+				5D194AC8253E50010054CD15 /* HomeVM.swift in Sources */,
+				5D5DB56D252E9539009FB2DE /* Color+Extension.swift in Sources */,
+				5D815C8D2534E9E600508556 /* ResourcesVM.swift in Sources */,
+				5D5DB5E32530B01D009FB2DE /* InputWithIcon.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DDA201C252A634100BC238D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02FD54A8253A724800A8255D /* UserDataTests.swift in Sources */,
+				5DDA2025252A634100BC238D /* COVID_LensTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DDA2022252A634100BC238D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DDA200E252A633C00BC238D /* COVID Lens */;
+			targetProxy = 5DDA2021252A634100BC238D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5DDA2032252A634100BC238D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "M89WSFD858 ";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5DDA2033252A634100BC238D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "M89WSFD858 ";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5DDA2035252A634100BC238D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCDFF48BA5D23BA0DA18526E /* Pods-COVID Lens.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"COVID Lens/Preview Content\"";
+				DEVELOPMENT_TEAM = M89WSFD858;
+				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				INFOPLIST_FILE = "COVID Lens/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seniorCap2020.covidlens;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5DDA2036252A634100BC238D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72545DCF507F967A0F33EF5F /* Pods-COVID Lens.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"COVID Lens/Preview Content\"";
+				DEVELOPMENT_TEAM = M89WSFD858;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "COVID Lens/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seniorCap2020.covidlens;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		5DDA2038252A634100BC238D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD21EE9B0A832950DEA3B56C /* Pods-COVID LensTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M89WSFD858;
+				INFOPLIST_FILE = "COVID LensTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Capstone2020.COVID-LensTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COVID Lens.app/COVID Lens";
+			};
+			name = Debug;
+		};
+		5DDA2039252A634100BC238D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M89WSFD858;
+				INFOPLIST_FILE = "COVID LensTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Capstone2020.COVID-LensTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COVID Lens.app/COVID Lens";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5DDA200A252A633C00BC238D /* Build configuration list for PBXProject "Covid Lens" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DDA2032252A634100BC238D /* Debug */,
+				5DDA2033252A634100BC238D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DDA2034252A634100BC238D /* Build configuration list for PBXNativeTarget "COVID Lens" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DDA2035252A634100BC238D /* Debug */,
+				5DDA2036252A634100BC238D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DDA2037252A634100BC238D /* Build configuration list for PBXNativeTarget "COVID LensTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DDA2038252A634100BC238D /* Debug */,
+				5DDA2039252A634100BC238D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5DDA2007252A633C00BC238D /* Project object */;
+}

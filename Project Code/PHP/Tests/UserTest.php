@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 require_once '../includes/autoload.php';
 
+=======
+>>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
 /**
  * Description of UserTests
  *
@@ -82,6 +85,7 @@ final class UserTest extends TestCase {
         $expected1 = array("status" => FailOrPass::getSuccess(), "data" => []);
         $expected2 = FailOrPass::getFailureArray();
 
+<<<<<<< HEAD
         if ($this->connection->isConnected()) {
             $this->assertEquals($expected1, $this->userController->invokeUser($this->user)
                    , "testUserSignOutRequest");
@@ -89,6 +93,25 @@ final class UserTest extends TestCase {
             $this->assertEquals($expected2, $this->userController->invokeUser($this->user)
                    , "testUserSignOutRequest");
         }
+=======
+    private $user;
+    private $connection;
+    private $userController;
+
+    public function __construct() {
+        // building an user 
+        $this->user = new User();
+        $this->user->setUserID(uniqid());
+        $this->user->setEmail("testUser@covidlens.com");
+        $this->user->setPassword("12345ABC!");
+        $this->userController = new UserController();
+        //starting a connection
+        $this->connection = new DatabaseAdapter(new MysqlConnector());
+    }
+
+    public function __destruct() {
+        $this->connection = null;
+>>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
     }
 
 }
