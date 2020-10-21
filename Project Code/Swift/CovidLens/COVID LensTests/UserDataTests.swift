@@ -50,29 +50,53 @@ class UserDataTests: XCTestCase {
         let actual = connection.getResponse() as? [String:String] ?? [:]
         let expected = ["status": "FAILED", "data": ""]
         XCTAssert(actual == expected)
-        XCTAssert(1 == 0)
     }
     
     /**
         This function tests to see if an existing user can be loaded.
      */
     func testLoadUser() throws {
-        XCTAssert(1 == 0)
+        var user = User()
+        user.setName(name: TEST_NAME)
+        user.setEmail(email: TEST_EMAIL)
+        user.setPassword(password: TEST_PASSWORD)
+        user.setBasicID(basicID: TEST_BASIC_ID)
+        _ = connection.loadUser(user: user)
+        let actual = connection.getResponse() as? [String:String] ?? [:]
+        let expected = ["status": "FAILED", "data": ""]
+        XCTAssert(actual == expected)
     }
     
     /**
         This function tests to see if a users profile can be saved.
      */
     func testSave() throws {
-        XCTAssert(1 == 0)
+        var user = User()
+        user.setName(name: TEST_NAME)
+        user.setEmail(email: TEST_EMAIL)
+        user.setPassword(password: TEST_PASSWORD)
+        user.setBasicID(basicID: TEST_BASIC_ID)
+        _ = connection.save()
+        let actual = connection.getResponse() as? [String:String] ?? [:]
+        let expected = ["status": "FAILED", "data": ""]
+        XCTAssert(actual == expected)
     }
     
     /**
         This function tests to see if an existing user can be loaded.
      */
     func testLogout() throws {
-        XCTAssert(1 == 0)
+        var user = User()
+        user.setName(name: TEST_NAME)
+        user.setEmail(email: TEST_EMAIL)
+        user.setPassword(password: TEST_PASSWORD)
+        user.setBasicID(basicID: TEST_BASIC_ID)
+        _ = connection.DataRequest(user: user)
+        let actual = connection.getResponse() as? [String:String] ?? [:]
+        let expected = ["status": "FAILED", "data": ""]
+        XCTAssert(actual == expected)
     }
+    
 
 
 

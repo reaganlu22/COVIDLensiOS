@@ -19,7 +19,6 @@ class UserData {
     private var dataResponse: [String: Any]!
     private let submissionSemaphore = DispatchSemaphore(value: 0)
 
-
     /**
      This function creates a new user
      - Returns: true is returned if creation was successful otherwise false
@@ -51,7 +50,7 @@ class UserData {
                         UserDefaults.standard.set(newUser.getPassword(), forKey: UserData.PASSWORD)
                         UserDefaults.standard.set(true, forKey: UserData.SIGNED_IN)
                         UserDefaults.standard.set(uuid, forKey: UserData.ID_TOKEN)
-
+                            
                         return true
                     } else {
                         uuid = createUUID()
