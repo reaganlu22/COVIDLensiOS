@@ -29,6 +29,7 @@ class MapLocationsModel {
 
     public function readMapLocations(MapLocations $mapLocation) {
         $preparedStmt = "SELECT * FROM " . $mapLocation->getTableName() . " WHERE locationID=?";
+        $mapLocation->setSql($preparedStmt);
         $response = $this->connection->read($mapLocation);
         return $response;
     }
@@ -36,18 +37,21 @@ class MapLocationsModel {
     public function updateMapLocations(MapLocations $mapLocation) {
         $preparedStmt = "UPDATE" . $mapLocation->getTableName() . " SET residenceHall=?,"
                 . " latitude=?, longitude=? WHERE locationID=?";
+        $mapLocation->setSql($preparedStmt);
         $response = $this->connection->delete($mapLocation);
         return $response;
     }
 
     public function deleteMapLocations(MapLocations $mapLocation) {
         $preparedStmt = "DELETE FROM " . $mapLocation->getTableName() . " WHERE locationID=?";
+        $mapLocation->setSql($preparedStmt);
         $response = $this->connection->delete($mapLocation);
         return $response;
     }
 
     public function getAllMapLocations(MapLocations $mapLocation) {
         $preparedStmt = "SELECT * FROM " . $mapLocation->getTableName();
+        $mapLocation->setSql($preparedStmt);
         $response = $this->connection->read($mapLocation);
         return $response;
     }

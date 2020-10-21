@@ -40,10 +40,8 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $title = $object->getAlertTitle();
                     $message = $object->getAlertMessage();
                 } else if ($object->getRequest() === Requests::reportCreationRequest()) {
-                    $stmt->bind_param("sss", $userID, $locationID, $residenceHall,
-                            $reportStatus, $age, $reportInfo, $phoneNumber, $situationDesc,
-                            $affiliation, $confirmerID);
-                    $userID = $object->getUserID();
+                    $stmt->bind_param("sssssssssss", $timeSubmitted, $residenceHall, $age, $phoneNumber, $affiliation, $locationID, $reportStatus, $reportInfo, $situationDesc, $submitterID, $confirmerID);
+                    $timeSubmitted = $object->getTimeSubmitted();
                     $locationID = $object->getLocationID();
                     $residenceHall = $object->getResidenceHall();
                     $reportStatus = $object->getReportStatus();
@@ -53,12 +51,13 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $situationDesc = $object->getSituationDescription();
                     $affiliation = $object->getAffiliation();
                     $confirmerID = $object->getConfirmerID();
+                    $submitterID = $object->getSubmitterID();
                 } else if ($object->getRequest() === Requests::locationCreation()) {
                     $stmt->bind_param("ssss", $locationID, $residenceHall, $latitude, $longitude);
                     $locationID = $object->getLocationID();
                     $residenceHall = $object->getResidenceHall();
                     $latitude = $object->getLatitude();
-                    $longitude->getLongitutde();
+                    $longitude = $object->getLongitude();
                 } else if ($object->getRequest() === Requests::resourceCreation()) {
                     $stmt->bind_param("ssss", $resourceID, $title, $categoryName, $linkResource);
                     $resourceID = $object->getResourceID();
@@ -105,8 +104,8 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 } else if ($object->getRequest() === Requests::reportReadAll()) {
                     $stmt->query($object->getSql());
                 } else if ($object->getRequest() === Requests::reportRequest()) {
-                    $stmt->bind_param("s", $userID);
-                    $userID = $object->getUserID();
+                    $stmt->bind_param("s", $submitterID);
+                    $submitterID = $object->getSubmitterID();
                 } else if ($object->getRequest() === Requests::resourceReadAll()) {
                     $stmt->query($object->getSql());
                 } else if ($object->getRequest() === Requests::resourceRequest()) {
@@ -124,14 +123,13 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $alertID = $object->getAlertID();
                 }
                 $stmt->execute();
-		$result = $stmt->get_result();
+                $result = $stmt->get_result();
                 $data = array();
                 while ($row = $result->fetch_assoc()) {
                     $result_temp[] = $row;
                 }
                 $result_temp["status"] = FailOrPass::getSuccess();
                 $result_temp["data"] = $data;
-		# $result_temp["data"] = $row["adminID"];
             }
         } catch (Exception $e) {
             
@@ -154,8 +152,8 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $stmt->bind_param("s", $userID);
                     $userID = $object->getUserID();
                 } else if ($object->getRequest() === Requests::reportConfirmation()) {
-                    $stmt->bind_param("s", $userID);
-                    $userID = $object->getUserID();
+                    $stmt->bind_param("s", $submitterID);
+                    $submitterID = $object->getSubmitterID();
                 } else if ($object->getRequest() === Requests::resourceUpdate()) {
                     $stmt->bind_param("s", $resourceID);
                     $resourceID = $object->getResourceID();
@@ -185,15 +183,19 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
 
                 if ($object->getRequest() === Requests::adminDeletion()) {
                     $stmt->bind_param("s", $adminID);
-		    $adminID = $object->getAdminId();
+                    $adminID = $object->getAdminId();
                 } else if ($object->getRequest() === Requests::userDeletion()) {
                     $stmt->bind_param("s", $userID);
+                    $userID = $object->getUserID();
                 } else if ($object->getRequest() === Requests::resourceDeletion()) {
                     $stmt->bind_param("s", $resourceID);
+                    $resourceID = $object->getResourceID();
                 } else if ($object->getRequest() === Requests::locationDeletion()) {
                     $stmt->bind_param("s", $locationID);
+                    $locationID = $object->getLocationID();
                 } else if ($object->getRequest() === Requests::alertDeletion()) {
-                    $stmt->bind_param("s", $aletID);
+                    $stmt->bind_param("s", $alertID);
+                    $alertID = $object->getAlertID();
                 }
 		$stmt->execute();
                 // if successful change status to SUCCESS

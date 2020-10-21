@@ -1,6 +1,8 @@
 <?php
 
 require_once '../includes/autoload.php';
+
+
 /**
  * Description of User
  *
@@ -8,7 +10,6 @@ require_once '../includes/autoload.php';
  */
 class User extends DataObject{
     private $userID;
-    //private $report;
     private $email;
     private $password;
     private $additionalData;
@@ -34,7 +35,7 @@ class User extends DataObject{
     }
     
     public function getUserID() {
-        return $this->additionalData;
+        return $this->userID;
     }
     
     public function getEmail() {

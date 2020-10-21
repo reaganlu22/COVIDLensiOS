@@ -8,6 +8,8 @@ require_once '../includes/autoload.php';
  * @author isaactaylor
  */
 class Report extends DataObject {
+
+    private $timeSubmitted;
     private $age;
     private $phoneNumber;
     private $residenceHall;
@@ -17,10 +19,14 @@ class Report extends DataObject {
     private $reportInfo;
     private $situationDescription;
     private $confirmerID;
-    private $userID;
+    private $submitterID;
     
     public function __construct() {
-        $this->setTableName("Report");
+        $this->setTableName("report");
+    }
+
+    public function setTimeSubmitted(string $timeSubmitted) {
+        $this->timeSubmitted = $timeSubmitted;
     }
     
     public function setAge(int $age){
@@ -58,12 +64,16 @@ class Report extends DataObject {
     public function setReportInfo(string $reportInfo) {
         $this->reportInfo = $reportInfo;
     }
-    public function setUserID(string $userID) {
-        $this->userID = $userID;
+    public function setSubmitterID(string $submitterID) {
+        $this->submitterID = $submitterID;
     }
 
-    public function getUserID(){
-        return $this->userID;
+    public function getTimeSubmitted() {
+        return $this->timeSubmitted;
+    }
+
+    public function getSubmitterID(){
+        return $this->submitterID;
     }
 
     public function getAge(){

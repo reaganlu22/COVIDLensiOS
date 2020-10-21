@@ -29,6 +29,7 @@ final class AdminTest extends TestCase {
     }
 
     public function testAdminCreation() {
+
         $this->admin->setRequest(Requests::adminCreation());
         $this->admin->setTableName("admin_account");
         $expected1 = array("status" => FailOrPass::getSuccess(), "data" => null);
@@ -39,7 +40,7 @@ final class AdminTest extends TestCase {
                     "testAdminCreation");
         } else {
             $this->assertEquals(json_encode($expected2), json_encode($this->adminController->invokeAdmin($this->admin)),
-                   "testAdminCreation" );
+                   "testAdminCreation");
         }
     }
 
@@ -51,7 +52,7 @@ final class AdminTest extends TestCase {
         //checking to see if we get the correct response when connected or disconnected to the database
         if ($this->connection->isConnected()) {
             $this->assertEquals($expected1, $this->adminController->invokeAdmin($this->admin)
-                    , "testAdminDeletion");
+                , "testAdminDeletion");
         } else {
             $this->assertEquals($expected2, $this->adminController->invokeAdmin($this->admin)
                     , "testAdminDeletion");
