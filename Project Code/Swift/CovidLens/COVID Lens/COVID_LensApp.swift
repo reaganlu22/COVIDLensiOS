@@ -50,7 +50,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
     var window: UIWindow?
     
     
-    
     @Published var userId:String?
     @Published var idToken:String?
     @Published var fullName:String?
@@ -82,6 +81,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
         
         return true
     }
+    
     // [END didfinishlaunching]
     // [START openurl]
     func application(_ application: UIApplication,

@@ -15,19 +15,14 @@ struct SelfReportView: View {
     // assign to view model
     @State private var affilIsExpanded: Bool = false
     @State private var selectedAffiliation: String = ""
+    @State private var phoneNumber: String = ""
     @State private var date = Date()
     @State private var hallIsExpanded: Bool = false
     @State private var selectedHall: String = ""
     @State private var reportSubmitedAlert = false
-    @State private var selectedFrameworkIndex = 0
     
     var affiliations: [String] = ["Student", "Faculty", "Staff", "Contractor"]
     var resHall: [String] = ["Cone", "Grogan", "Guilford", "Mary Foust", "Moore/Strong", "North Spencer", "Phillips/Hawkins", "Ragsdale/Mendenhall", "Reynolds", "South Spencer", "Weil/Winfield", "Jefferson Suites", "Shaw", "Gray", "Hinshaw", "Bailey", "Cotten", "Coit", "Jamison", "Lee", "Haywood", "Union", "Highland", "Lexington", "McCormick", "Spring Garden Appartments", "Tower Village"].sorted()
-    
-    
-    @State private var phoneNumber: String = ""
-    
-    
     
     var body: some View {
         NavigationView {
