@@ -7,7 +7,6 @@
 
 import SwiftUI
 import GoogleMaps
-import CoreLocation
 
 struct GoogleMapsView: UIViewRepresentable {
     
@@ -178,7 +177,7 @@ struct GoogleMapsView: UIViewRepresentable {
             "cases": 0
         ]
     ]
-    
+        
     func makeUIView(context: Self.Context) -> GMSMapView {
 
         let camera = GMSCameraPosition.camera(withLatitude: 36.0679, longitude: -79.810463, zoom: 15.5)
@@ -199,14 +198,23 @@ struct GoogleMapsView: UIViewRepresentable {
     }
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
-        for hall in resHalls {
+        for hall in DataLoader().readJSON() {
             let marker : GMSMarker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: hall["lat"] as! CLLocationDegrees, longitude: hall["long"] as! CLLocationDegrees)
-            marker.title = hall["name"] as? String
-            marker.snippet = "Confirmed COVID-19 Cases: " + "\(hall["cases"] ?? "")"
+            marker.position = CLLocationCoordinate2D(latitude: hall.lat , longitude: hall.long )
+            marker.title = hall.name
+            marker.snippet = "Confirmed COVID-19 Cases: " + String(hall.cases)
             marker.icon = UIImage(named: "markerIcon")
             marker.map = mapView
         }
+        
+//        for hall in resHalls {
+//            let marker : GMSMarker = GMSMarker()
+//            marker.position = CLLocationCoordinate2D(latitude: hall["lat"] as! CLLocationDegrees, longitude: hall["long"] as! CLLocationDegrees)
+//            marker.title = hall["name"] as? String
+//            marker.snippet = "Confirmed COVID-19 Cases: " + "\(hall["cases"] ?? "")"
+//            marker.icon = UIImage(named: "markerIcon")
+//            marker.map = mapView
+//        }
     }
 }
 
