@@ -32,7 +32,12 @@ class ReportModel {
      * @return array
      */
     public function createReport(Report $report) {
-        $preparedStmt = "INSERT INTO " . $report->getTableName() . " (timeSubmitted, residenceHall, age, phoneNumber, affiliation, locationID, reportStatus, reportInfo, situationDesc, submitterID, confirmerID) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        $preparedStmt = "INSERT INTO " . $report->getTableName() . " (timeSubmitted, residenceHall, age, "
+                . "phoneNumber, affiliation, locationID, reportStatus, reportInfo, situationDesc, "
+                . "submitterID, confirmerID) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        $report->setSql($preparedStmt);
+        $response = $this->connection->create($report);
+        return $response;
     }
 
 
