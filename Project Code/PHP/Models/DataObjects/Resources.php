@@ -40,10 +40,6 @@ class Resources extends DataObject {
         return $this->title;
     }
 
-    // public function getResource(string $resourceID) {
-    //     return $this->resourceID;
-    // }
-
     public function getCategoryName() {
         return $this->categoryName;
     }

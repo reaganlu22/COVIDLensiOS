@@ -1,7 +1,7 @@
 <?php
 
+require 'PythonScriptCallerTest.php';
 require 'AdminTest.php';
-<<<<<<< HEAD
 require 'AlertTest.php';
 require 'MapLocationsTest.php';
 require 'ReportTest.php';
@@ -9,56 +9,44 @@ require 'ResourcesTest.php';
 require 'UserTest.php';
 
 //Admin Tests
-// $tester1 = new AdminTest();
-// $tester1->testAdminCreation();
-// $tester1->testAdminDeletion();
-// $tester1->testAdminSignInRequest();
-// $tester1->testAdminSignOutRequest();
-
-//Alert Tests
-// $tester2 = new AlertTest();
-// $tester2->testAlertCreation();
-// $tester2->testAlertUpdate();
-// $tester2->testAlertDeletion();
-// $tester2->testAlertReadAll();
-
-//MapLocations Tests
-
-// $tester3 = new MapLocationsTest();
-// $tester3->testMapLocationsCreation();
-// $tester3->testMapLocationsDeletion();
-
-//Report Tests
-
-$tester4 = new ReportTest();
-$tester4->testReportCreation();
-// $tester4->testReportDeletion(); (not allowed to delete)
-
-//Resources Tests
-
-// $tester5 = new ResourcesTest();
-// $tester5->testResourcesCreation();
-// $tester5->testResourcesDeletion();
-
-
-//User Tests
-
-// $tester6 = new UserTest();
-// $tester6->testUserCreation();
-// $tester6->testUserDeletion();
-// $tester6->testUserSignInRequest();
-// $tester6->testUserSignOutRequest();
-=======
-require 'PythonScriptCallerTest.php';
-//Admin Tests
 $tester1 = new AdminTest();
 $tester1->testAdminCreation();
 $tester1->testAdminDeletion();
 $tester1->testAdminSignInRequest();
 $tester1->testAdminSignOutRequest();
 
+//Alert Tests
+$tester2 = new AlertTest();
+$tester2->testAlertCreation();
+// $tester2->testAlertUpdate();
+$tester2->testAlertDeletion();
+// $tester2->testAlertReadAll();
+
+//MapLocations Tests
+$tester3 = new MapLocationsTest();
+$tester3->testMapLocationsCreation();
+$tester3->testMapLocationsDeletion();
+
+//Report Tests
+$tester4 = new ReportTest();
+$tester4->testReportCreation();
+// $tester4->testReportDeletion(); (not allowed to delete)
+
+//Resources Tests
+$tester5 = new ResourcesTest();
+$tester5->testResourcesCreation();
+$tester5->testResourcesDeletion();
+
+
+//User Tests
+$tester6 = new UserTest();
+$tester6->testUserCreation();
+$tester6->testUserDeletion();
+$tester6->testUserSignInRequest();
+$tester6->testUserSignOutRequest();
+
 //PythonScriptCallerAPI Tests
-$tester2 = new PythonScriptCallerTest();
+$tester7 = new PythonScriptCallerTest();
 // mocking some ID's
 $jID = uniqid();
 $mendID = uniqid();
@@ -105,5 +93,4 @@ $expected = array("Students" => 2, "Faculty" => 1, "Staff" => 1, "Contractors" =
         "latitude"=>"...", "longitude"=>"..."),
         array("Mendenhall Residence Hall" => 0)));//... all other locations
 
-$tester2->testScript("script name here...", $testData, $expected, "PythonScriptCallerAPI Data Analysis test");
->>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
+$tester7->testScript("script name here...", $testData, $expected, "PythonScriptCallerAPI Data Analysis test");

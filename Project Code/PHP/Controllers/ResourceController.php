@@ -17,9 +17,9 @@ class ResourceController {
         $this->resourcesModel = new ResourceModel();
     }
 
-<<<<<<< HEAD
+
     public function invokeResource(Resources $dataObj) {
-=======
+
     /**
      * This function notifies an ResourceModelModel about a desired request
      *
@@ -27,7 +27,7 @@ class ResourceController {
      * @return array
      */
     public function invokeResource(Resource $dataObj) {
->>>>>>> 03dd47a3c4cf84b93ad4a57ee80f74e158388523
+
         if ($dataObj->getRequest() === Requests::resourceCreation()) {
             return $this->resourcesModel->createResource($dataObj);
         } else if ($dataObj->getRequest() === Requests::resourceRequest()) {
