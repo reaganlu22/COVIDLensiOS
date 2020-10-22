@@ -33,7 +33,7 @@ class ReportModel {
      */
     public function createReport(Report $report) {
         $preparedStmt = "INSERT INTO " . $report->getTableName() . " (timeSubmitted, residenceHall, age, phoneNumber, affiliation, locationID, reportStatus, reportInfo, situationDesc, submitterID, confirmerID) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-
+    }
 
 
      /**
