@@ -18,9 +18,9 @@ $tester1->testAdminSignOutRequest();
 //Alert Tests
 $tester2 = new AlertTest();
 $tester2->testAlertCreation();
-// $tester2->testAlertUpdate();
+$tester2->testAlertUpdate();
 $tester2->testAlertDeletion();
-// $tester2->testAlertReadAll();
+$tester2->testAlertReadAll();
 
 //MapLocations Tests
 $tester3 = new MapLocationsTest();
@@ -30,7 +30,7 @@ $tester3->testMapLocationsDeletion();
 //Report Tests
 $tester4 = new ReportTest();
 $tester4->testReportCreation();
-// $tester4->testReportDeletion(); (not allowed to delete)
+//$tester4->testReportDeletion(); //(not allowed to delete)
 
 //Resources Tests
 $tester5 = new ResourcesTest();
