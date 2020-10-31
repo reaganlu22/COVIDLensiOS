@@ -14,7 +14,7 @@ CREATE TABLE `report` (
   `$confirmerID` varchar(32) NOT NULL,
   KEY `$submitterID` (`$submitterID`),
   KEY `$confirmerID` (`$confirmerID`),
-  CONSTRAINT `report_ibfk_1` FOREIGN KEY (`$submitterID`) REFERENCES `user_account` (`$userID`),
+  CONSTRAINT `report_ibfk_1` FOREIGN KEY (`$submitterID`) REFERENCES `user_account` (`$userID`) ON DELETE CASCADE,
   CONSTRAINT `report_ibfk_2` FOREIGN KEY (`$confirmerID`) REFERENCES `admin_account` (`$adminID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

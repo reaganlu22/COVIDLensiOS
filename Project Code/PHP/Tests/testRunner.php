@@ -11,16 +11,16 @@ require 'UserTest.php';
 //Admin Tests
 $tester1 = new AdminTest();
 $tester1->testAdminCreation();
-$tester1->testAdminDeletion();
 $tester1->testAdminSignInRequest();
 $tester1->testAdminSignOutRequest();
+$tester1->testAdminDeletion();
 
 //Alert Tests
 $tester2 = new AlertTest();
 $tester2->testAlertCreation();
 $tester2->testAlertUpdate();
-$tester2->testAlertDeletion();
 $tester2->testAlertReadAll();
+$tester2->testAlertDeletion();
 
 //MapLocations Tests
 $tester3 = new MapLocationsTest();
@@ -41,9 +41,9 @@ $tester5->testResourcesDeletion();
 //User Tests
 $tester6 = new UserTest();
 $tester6->testUserCreation();
-$tester6->testUserDeletion();
 $tester6->testUserSignInRequest();
 $tester6->testUserSignOutRequest();
+$tester6->testUserDeletion();
 
 //PythonScriptCallerAPI Tests
 $tester7 = new PythonScriptCallerTest();
@@ -84,8 +84,7 @@ $testData = array("Report" => array(array("timeStamp" => "2020-10-12", "userID" 
             "age" => 30, "phoneNumber" => "123-456-7490", "reportInfo" => "I have tested positive.",
             "situationDesc" => "My son came down with COVID-19, so I am waiting to get tested.",
             "affiliation" => "Staff", "confirmerID" => $sameConfirmer),
-        "Map_Locations" => array())
-);
+        "Map_Locations" => array()));
 
 // not finshed...
 $expected = array("Students" => 2, "Faculty" => 1, "Staff" => 1, "Contractors" => 0, "Total" => 4,
