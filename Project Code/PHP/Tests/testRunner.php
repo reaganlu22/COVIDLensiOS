@@ -14,37 +14,41 @@ $tester1->testAdminCreation();
 $tester1->testAdminSignInRequest();
 $tester1->testAdminSignOutRequest();
 $tester1->testAdminDeletion();
-
+//--------------------------------------
 //Alert Tests
 $tester2 = new AlertTest();
 $tester2->testAlertCreation();
 $tester2->testAlertUpdate();
-$tester2->testAlertReadAll();
+$tester2->testAlertRead();
 $tester2->testAlertDeletion();
-
-//MapLocations Tests
+//-------------------------------------
+////MapLocations Tests
 $tester3 = new MapLocationsTest();
 $tester3->testMapLocationsCreation();
+$tester3->testMapLocationsUpdate();
+$tester3->testMapLocationsRead();
 $tester3->testMapLocationsDeletion();
-
+//--------------------------------------
 //Report Tests
 $tester4 = new ReportTest();
 $tester4->testReportCreation();
-//$tester4->testReportDeletion(); //(not allowed to delete)
-
+$tester4->testReportUpdate();
+$tester4->testReportRead();
+//--------------------------------------
 //Resources Tests
 $tester5 = new ResourcesTest();
 $tester5->testResourcesCreation();
+$tester5->testResourcesUpdate();
+$tester5->testResourcesRead();
 $tester5->testResourcesDeletion();
-
-
+//--------------------------------------
 //User Tests
 $tester6 = new UserTest();
 $tester6->testUserCreation();
 $tester6->testUserSignInRequest();
 $tester6->testUserSignOutRequest();
 $tester6->testUserDeletion();
-
+//---------------------------------------
 //PythonScriptCallerAPI Tests
 $tester7 = new PythonScriptCallerTest();
 // mocking some ID's
@@ -54,7 +58,7 @@ $sameConfirmer = uniqid();
 
 // mock data that could be returned from the database to be analyzed
 
-$testData = array("Report" => array(array("timeStamp" => "2020-10-12", "userID" => uniqid(), "locationID" => $jID(),
+$testData = array("Report" => array(array("timeStamp" => "2020-10-12", "userID" => uniqid(), "locationID" => $jID,
             "residenceHall" => "Jefferson Suites", "reportStatus" => "Confirmed",
             "age" => 21, "phoneNumber" => "123-456-7890", "reportInfo" => "I have been identified "
             . "as a close contact of someone who tested positve.",
@@ -88,8 +92,8 @@ $testData = array("Report" => array(array("timeStamp" => "2020-10-12", "userID" 
 
 // not finshed...
 $expected = array("Students" => 2, "Faculty" => 1, "Staff" => 1, "Contractors" => 0, "Total" => 4,
-    "map_data" => array(array("locationID"=>"...","residenceHall"=>"Jefferson Suites","caseCount" => 2,
-        "latitude"=>"...", "longitude"=>"..."),
-        array("Mendenhall Residence Hall" => 0)));//... all other locations
+    "map_data" => array(array("locationID" => "...", "residenceHall" => "Jefferson Suites", "caseCount" => 2,
+            "latitude" => "...", "longitude" => "..."),
+        array("Mendenhall Residence Hall" => 0))); //... all other locations
 
-$tester7->testScript("script name here...", $testData, $expected, "PythonScriptCallerAPI Data Analysis test");
+//$tester7->testScript("script name here...", $testData, $expected, "PythonScriptCallerAPI Data Analysis test");
