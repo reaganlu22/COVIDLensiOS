@@ -57,9 +57,9 @@ class AlertModel {
      * @return array
      */
     public function updateAlert(Alert $alert) {
-        $preparedStmt = "UPDATE" . $alert->getTableName() . " SET email=?, password=? WHERE alertID=?";
+        $preparedStmt = "UPDATE " . $alert->getTableName() . " SET title=?, message=? WHERE alertID=?";
         $alert->setSql($preparedStmt);
-        $response = $this->connection->delete($alert);
+        $response = $this->connection->update($alert);
         return $response;
     }
 
@@ -82,7 +82,7 @@ class AlertModel {
      * @param Alert $alert - A DataObject that represents a alert
      * @return array
      */
-    public function getAllAlert(Alert $alert) {
+    public function readAllAlerts(Alert $alert) {
         $preparedStmt = "SELECT * FROM " . $alert->getTableName();
         $alert->setSql($preparedStmt);
         $response = $this->connection->read($alert);

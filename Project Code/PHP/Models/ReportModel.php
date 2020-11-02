@@ -8,7 +8,7 @@ require_once '../includes/autoload.php';
  * @author isaactaylor
  */
 class ReportModel {
-    
+
     private $connection;
 
     /**
@@ -18,30 +18,29 @@ class ReportModel {
         $this->connection = new DatabaseAdapter(new MysqlConnector());
     }
 
-     /**
+    /**
      * Terminates the connection started by the Constructor
      */
     function __destruct() {
         $this->connection = null;
     }
 
-        /**
+    /**
      * This function creates a report in the database
      *
      * @param Report $report - A DataObject that represents a report
      * @return array
      */
     public function createReport(Report $report) {
-        $preparedStmt = "INSERT INTO " . $report->getTableName() . " (timeSubmitted, residenceHall, age, "
+        $preparedStmt = "INSERT INTO " . $report->getTableName() . " (residenceHall, age, "
                 . "phoneNumber, affiliation, locationID, reportStatus, reportInfo, situationDesc, "
-                . "submitterID, confirmerID) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                . "submitterID, confirmerID, reportID) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         $report->setSql($preparedStmt);
         $response = $this->connection->create($report);
         return $response;
     }
 
-
-     /**
+    /**
      * This function retrieves a reports info from the database
      *
      * @param Report $report - A DataObject that represents a report
@@ -49,28 +48,29 @@ class ReportModel {
      */
     public function readReport(Report $report) {
 
-        $preparedStmt = "SELECT * FROM " . $report->getTableName() . " WHERE submitterID=?";
+        $preparedStmt = "SELECT * FROM " . $report->getTableName() . " WHERE submitterID=? AND reportID=?";
         $report->setSql($preparedStmt);
         $response = $this->connection->read($report);
         return $response;
     }
 
-     /**
-     * This function retrieves a reports info from the database
+    /**
+     * This function updates a reports info in the database
      *
      * @param Report $report - A DataObject that represents a report
      * @return array
      */
     public function updateReport(Report $report) {
-        $preparedStmt = "UPDATE" . $report->getTableName() . " SET confirmerID=?, ". "WHERE submitterID=?";
-        $report->setSql($preparedStmt); 
-        $response = $this->connection->delete($report);
+        $preparedStmt = "UPDATE " . $report->getTableName() . " SET confirmerID=? " . "WHERE submitterID=? "
+                . "AND reportID=?";
+        $report->setSql($preparedStmt);
+        $response = $this->connection->update($report);
         return $response;
     }
 
-     /**
+    /**
      * This function removes a reports info from the database
-     *
+     * IMPLEMENTED FOR COMPLETION ONLY
      * @param Report $report - A DataObject that represents a report
      * @return array
      */
@@ -82,7 +82,7 @@ class ReportModel {
         return $response;
     }
 
-     /**
+    /**
      * This function retrieves all reports from the database
      *
      * @param Report $report - A DataObject that represents a report

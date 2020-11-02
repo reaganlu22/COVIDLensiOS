@@ -15,26 +15,23 @@ if (isset($_POST['request'])) {
 }
 
 // verify user's or admin's trying to access data
-$verified = false;
-//Just for testing... remove afterwards
-if (isset($_POST['testing']) && strtolower($_POST['testing']) === 'true') {
-    $verified = true;
-}
+$accessGranted = false;
+
 
 if ($request !== Requests::adminCreation() || $request !== Requests::userCreationRequest()) {
     $authenticator = new GoogleAuthenticator();
-    if (isset($_POST['userID']) && $authenticator->verify($_POST['userID'])) {
-        $verified = true;
-    } else if (isset($_POST['adminID']) && isset($_POST['password'])) {
-        //Implement later...
-    } else if (isset($_POST['userID']) && isset($_POST['password'])) {
-        //Implement later...
+    if ($authenticator->verify($_POST['googleID'] ?? '')) {
+        $accessGranted = true;
+    } else if (isset($_POST['adminEmail']) && isset($_POST['adminPassword'])) {
+        $accessGranted = true;
+    } else if (isset($_POST['userEmail']) && isset($_POST['userPassword'])) {
+        $accessGranted = true;
     }
-} else {
-    $verified = true;
+} else if ($request !== Requests::adminCreation() || $request !== Requests::userCreationRequest()) {
+    $accessGranted = true;
 }
 // provide information/allow service access once verified with a valid request
-if ($verified && in_array($request, Requests::getRequests())) {
+if ($accessGranted && in_array($request, Requests::getRequests())) {
     try {
         switch ($request) {
             case Requests::adminCreation():
@@ -43,11 +40,12 @@ if ($verified && in_array($request, Requests::getRequests())) {
             case Requests::adminSignOutRequest():
                 $controller = new AdminController();
                 $admin = new Admin();
-                $admin->setAdminID($_POST['adminID']);
-                $admin->setEmail($_POST['email']);
-                $admin->setPassword($_POST['password']);
+                $admin->setAdminID($_POST['adminID'] ?? '');
+                $admin->setEmail($_POST['adminEmail'] ?? '');
+                $admin->setPassword($_POST['adminPassword']);
+                $admin->setSignedIn(strtolower($_POST['signedIn'] ?? ''));
                 $admin->setRequest($request);
-                $admin->setTableName("Admin");
+                $admin->setTableName("admin_account");
                 echo json_encode($controller->invokeAdmin($admin));
                 break;
 
@@ -58,11 +56,11 @@ if ($verified && in_array($request, Requests::getRequests())) {
             case Requests::alertUpdate():
                 $controller = new AlertController();
                 $alert = new Alert();
-                $alert->setAlertID($_POST['alertID']);
-                $alert->setAlertMessage($_POST['message']);
-                $alert->setAlertTitle($_POST['alertTitle']);
+                $alert->setAlertID($_POST['alertID'] ?? '');
+                $alert->setAlertMessage($_POST['message'] ?? '');
+                $alert->setAlertTitle($_POST['title'] ?? '');
                 $alert->setRequest($request);
-                $alert->setTableName("Alert");
+                $alert->setTableName("alert");
                 echo json_encode($controller->invokeAlert($alert));
                 break;
             case Requests::locationCreation():
@@ -72,12 +70,12 @@ if ($verified && in_array($request, Requests::getRequests())) {
             case Requests::locationsReadAll():
                 $controller = new MapLocationsController();
                 $location = new MapLocations();
-                $location->setLocationID($_POST['locationID']);
-                $location->setLatitude($_POST['latitude']);
-                $location->setLongitude($_POST['longitude']);
+                $location->setLocationID($_POST['locationID'] ?? '');
+                $location->setLatitude($_POST['latitude'] ?? '');
+                $location->setLongitude($_POST['longitude'] ?? '');
                 $location->setRequest($request);
-                $location->setResidenceHall($_POST['residenceHall']);
-                $location->setTableName('Map_Locations');
+                $location->setResidenceHall($_POST['residenceHall'] ?? '');
+                $location->setTableName('map_locations');
                 echo json_encode($controller->invokeMapLocations($location));
                 break;
             case Requests::reportConfirmation():
@@ -87,17 +85,19 @@ if ($verified && in_array($request, Requests::getRequests())) {
                 $controller = new ReportController();
                 $report = new Report();
 
-                $report->setAffiliation($_POST['affiliation']);
-                $report->setAge($_POST['$age']);
-                $report->setConfirmerID($_POST['confirmerID']);
-                $report->setLocationID($_POST['locationID']);
-                $report->setPhoneNumber($_POST['phoneNumber']);
-                $report->setReportInfo($_POST['reportInfo']);
-                $report->setReportStatus($_POST['reportStatus']);
+                $report->setAffiliation($_POST['affiliation'] ?? '');
+                $report->setAge($_POST['$age'] ?? '');
+                $report->setConfirmerID($_POST['confirmerID'] ?? '');
+                $report->setLocationID($_POST['locationID'] ?? '');
+                $report->setPhoneNumber($_POST['phoneNumber'] ?? '');
+                $report->setReportInfo($_POST['reportInfo'] ?? '');
+                $report->setReportStatus($_POST['reportStatus'] ?? '');
                 $report->setRequest($request);
-                $report->setResidenceHall($_POST['residenceHall']);
-                $report->setSituationDescription($_POST['situationDesc']);
-                $report->setTableName('Report');
+                $report->setReportID($_POST['reportID'] ?? '');
+                $report->setSubmitterID($_POST['submitterID'] ?? '');
+                $report->setResidenceHall($_POST['residenceHall'] ?? '');
+                $report->setSituationDescription($_POST['situationDesc'] ?? '');
+                $report->setTableName('report');
                 echo json_encode($controller->invokeReport($report));
                 break;
             case Requests::resourceCreation():
@@ -107,12 +107,12 @@ if ($verified && in_array($request, Requests::getRequests())) {
             case Requests::resourceUpdate():
                 $controller = new ResourceController();
                 $resource = new Resources();
-                $resource->setResourceID($_POST['resourceID']);
-                $resource->setCategoryName($_POST['categoryName']);
-                $resource->setLinkResource($_POST['linkResource']);
-                $resource->setTitle($_POST['title']);
+                $resource->setResourceID($_POST['resourceID'] ?? '');
+                $resource->setCategoryName($_POST['categoryName'] ?? '');
+                $resource->setLinkResource($_POST['linkResource'] ?? '');
+                $resource->setTitle($_POST['title'] ?? '');
                 $resource->setRequest($request);
-                $resource->setTableName('Resources');
+                $resource->setTableName('resources');
                 echo json_encode($controller->invokeResource($resource));
                 break;
             case Requests::userCreationRequest():
@@ -123,12 +123,14 @@ if ($verified && in_array($request, Requests::getRequests())) {
             case Requests::userSignOutRequest():
                 $controller = new UserController();
                 $user = new User();
-                $user->setUserID($_POST['userID']);
-                $user->setAdditionalData($_POST['additionalData']);
+                $user->setUserID($_POST['userID'] ?? '');
+                $user->setGoogleID($POST['googleID'] ?? '');
+                $user->setAdditionalData($_POST['userData'] ?? '');
                 $user->setRequest($request);
-                $user->setEmail($_POST['email']);
-                $user->setPassword($_POST['password']);
-                $user->setTableName('User');
+                $user->setEmail($_POST['userEmail'] ?? '');
+                $user->setPassword($_POST['userPassword'] ?? '');
+                $user->setSignedIn(strtolower($_POST['signedIn'] ?? ''));
+                $user->setTableName('user_account');
                 echo json_encode($controller->invokeUser($user));
                 break;
 

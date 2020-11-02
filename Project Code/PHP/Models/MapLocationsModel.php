@@ -59,10 +59,10 @@ class MapLocationsModel {
      * @return array
      */
     public function updateMapLocations(MapLocations $mapLocation) {
-        $preparedStmt = "UPDATE" . $mapLocation->getTableName() . " SET residenceHall=?,"
+        $preparedStmt = "UPDATE " . $mapLocation->getTableName() . " SET residenceHall=?,"
                 . " latitude=?, longitude=? WHERE locationID=?";
         $mapLocation->setSql($preparedStmt);
-        $response = $this->connection->delete($mapLocation);
+        $response = $this->connection->update($mapLocation);
         return $response;
     }
 

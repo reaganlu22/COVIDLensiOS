@@ -17,8 +17,10 @@ final class UserTest extends TestCase {
         // building an user 
         $this->user = new User();
         $this->user->setUserID(uniqid());
-        $this->user->setEmail("testUser@covidlens.com");
+        $this->user->setEmail("testUser" . uniqid() . "@covidlens.com");
         $this->user->setPassword("12345ABC!");
+        $this->user->setSignedIn("true");
+        $this->user->setUserData("user data, settings, etc");
         $this->userController = new UserController();
         //starting a connection
         $this->connection = new DatabaseAdapter(new MysqlConnector());
@@ -27,8 +29,8 @@ final class UserTest extends TestCase {
     public function __destruct() {
         $this->connection = null;
     }
-    
-     public function testUserCreation() {
+
+    public function testUserCreation($display = true) {
         $this->user->setRequest(Requests::userCreationRequest());
         $this->user->setTableName("user_account");
         $expected1 = array("status" => FailOrPass::getSuccess(), "data" => null);
@@ -36,14 +38,14 @@ final class UserTest extends TestCase {
         //checking to see if we get the correct response when connected or disconnected to the database
         if ($this->connection->isConnected()) {
             $this->assertEquals(json_encode($expected1), json_encode($this->userController->invokeUser($this->user)),
-                    "testUserCreation");
+                    "testUserCreation", $display);
         } else {
             $this->assertEquals(json_encode($expected2), json_encode($this->userController->invokeUser($this->user)),
-                   "testUserCreation" );
+                    "testUserCreation", $display);
         }
     }
 
-    public function testUserDeletion() {
+    public function testUserDeletion($display = true) {
         $this->user->setRequest(Requests::userDeletion());
         $this->user->setTableName("user_account");
         $expected1 = array("status" => FailOrPass::getSuccess(), "data" => null);
@@ -51,43 +53,46 @@ final class UserTest extends TestCase {
         //checking to see if we get the correct response when connected or disconnected to the database
         if ($this->connection->isConnected()) {
             $this->assertEquals($expected1, $this->userController->invokeUser($this->user)
-                    , "testUserDeletion");
+                    , "testUserDeletion", $display);
         } else {
-            $this->assertEquals($expected2, $this->userController->invokeUser($this->user)
-                    , "testUserDeletion");
+            $this->assertEquals(json_encode($expected2), json_encode($this->userController->invokeUser($this->user))
+                    , "testUserDeletion", $display);
         }
     }
 
-    public function testUserSignInRequest() {
+    public function testUserSignInRequest($display = true) {
         $this->user->setRequest(Requests::userSignInRequest());
         $this->user->setTableName("user_account");
-	
+
+        $expected1 = array("status" => FailOrPass::getSuccess(), "data" => array(
+                'userID' => $this->user->getUserID(),
+                'userData' => $this->user->getUserData()
+        ));
+        $expected2 = FailOrPass::getFailureArray();
+        //checking to see if we get the correct response when connected or disconnected to the database
+        if ($this->connection->isConnected()) {
+            $this->assertEquals($expected1, $this->userController->invokeUser($this->user)
+                    , "testUserSignInRequest", $display);
+        } else {
+            $this->assertEquals(json_encode($expected2), json_encode($this->userController->invokeUser($this->user))
+                    , "testUserSignInRequest", $display);
+        }
+    }
+
+    public function testUserSignOutRequest($display = true) {
+        $this->user->setRequest(Requests::userSignOutRequest());
+        $this->user->setSignedIn("false");
+        $this->user->setTableName("user_account");
         $expected1 = array("status" => FailOrPass::getSuccess(), "data" => null);
         $expected2 = FailOrPass::getFailureArray();
         //checking to see if we get the correct response when connected or disconnected to the database
         if ($this->connection->isConnected()) {
-            $this->assertEquals($expected1, $this->userController->invokeUser($this->user)
-                    , "testUserSignInRequest");
+            $this->assertEquals(json_encode($expected1), json_encode($this->userController->invokeUser($this->user))
+                    , "testUserSignOutRequest", $display);
         } else {
-            $this->assertEquals($expected2, $this->userController->invokeUser($this->user)
-                    , "testUserSignInRequest");
+            $this->assertEquals(json_encode($expected2), json_encode($this->userController->invokeUser($this->user))
+                    , "testUserSignOutRequest", $display);
         }
     }
-
-    public function testUserSignOutRequest() {
-        $this->user->setRequest(Requests::userSignOutRequest());
-        $this->user->setTableName("user_account");
-        $expected1 = array("status" => FailOrPass::getSuccess(), "data" => []);
-        $expected2 = FailOrPass::getFailureArray();
-        //checking to see if we get the correct response when connected or disconnected to the database
-        if ($this->connection->isConnected()) {
-            $this->assertEquals($expected1, $this->userController->invokeUser($this->user)
-                   , "testUserSignOutRequest");
-        } else {
-            $this->assertEquals($expected2, $this->userController->invokeUser($this->user)
-                   , "testUserSignOutRequest");
-        }
-    }
-    
 
 }

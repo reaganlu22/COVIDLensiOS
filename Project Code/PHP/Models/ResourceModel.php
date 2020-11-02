@@ -29,7 +29,7 @@ class ResourceModel {
      * @return array
      */
     public function createResource(Resources $resources) {
-        $preparedStmt = "INSERT INTO " . $resources->getTableName() . " (resourceID, title,categoryName, linkResource) VALUES (?,?,?,?)";
+        $preparedStmt = "INSERT INTO " . $resources->getTableName() . " (resourceID, title, categoryName, linkResource) VALUES (?,?,?,?)";
         $resources->setSql($preparedStmt);
         $response = $this->connection->create($resources);
         return $response;
@@ -54,9 +54,9 @@ class ResourceModel {
      * @return array
      */
     public function updateResource(Resources $resources) {
-        $preparedStmt = "UPDATE" . $resources->getTableName() . " SET title=?, categoryName=?, linkResource=? WHERE resourceID=?";
+        $preparedStmt = "UPDATE " . $resources->getTableName() . " SET title=?, categoryName=?, linkResource=? WHERE resourceID=?";
         $resources->setSql($preparedStmt);
-        $response = $this->connection->delete($resources);
+        $response = $this->connection->update($resources);
         return $response;
     }
     /**

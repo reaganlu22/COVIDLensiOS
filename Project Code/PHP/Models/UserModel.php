@@ -1,6 +1,5 @@
 <?php
 
-
 require_once '../includes/autoload.php';
 
 /**
@@ -33,7 +32,15 @@ class UserModel {
      * @return array
      */
     public function createUser(User $user) {
-        $preparedStmt = "INSERT INTO " . $user->getTableName() . " (userID, userEmail, userPassword, userData) VALUES (?,?,?,?)";
+        $preparedStmt;
+        if ($user->getGoogleID() !== '') {
+            $preparedStmt = $preparedStmt = "INSERT INTO " . $user->getTableName() . " (googleID, userID, userEmail,"
+                    . " userPassword, userData, signedIn) VALUES (?,?,?,?,?,?)";
+        } else {
+            $preparedStmt = "INSERT INTO " . $user->getTableName() . " (userID, userEmail,"
+                    . " userPassword, userData, signedIn) VALUES (?,?,?,?,?)";
+        }
+
         $user->setSql($preparedStmt);
         $response = $this->connection->create($user);
         return $response;
@@ -46,23 +53,25 @@ class UserModel {
      * @return array
      */
     public function readUser(User $user) {
-        $preparedStmt = "SELECT * FROM " . $user->getTableName() . " WHERE userID=?";
+        $preparedStmt = "SELECT userID, userData FROM " . $user->getTableName() . " WHERE userEmail=? "
+                . "AND userPassword=?";
+
         $user->setSql($preparedStmt);
         $response = $this->connection->read($user);
         return $response;
     }
 
-     /**
+    /**
      * This function updates a users info from the database
      *
      * @param User $user - A DataObject that represents a user
      * @return array
      */
     public function updateUser(User $user) {
-        $preparedStmt = "UPDATE" . $user->getTableName() . " SET userEmail=?,"
-                . " userPassword=?, userData=? WHERE userID=?";
+        $preparedStmt = "UPDATE " . $user->getTableName() . " SET userEmail=?,"
+                . " userPassword=?, userData=?, signedIn=? WHERE userID=?";
         $user->setSql($preparedStmt);
-        $response = $this->connection->delete($user);
+        $response = $this->connection->update($user);
         return $response;
     }
 

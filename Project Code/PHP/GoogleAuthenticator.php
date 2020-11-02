@@ -10,7 +10,7 @@ require_once 'vendor/autoload.php';
  */
 class GoogleAuthenticator {
 
-    //might need to make this id more inconspicuous
+    //need to make this id more inconspicuous
     private const CLIENT_ID = "COVID_Lens_APP_ID";
 
     private $userID;
