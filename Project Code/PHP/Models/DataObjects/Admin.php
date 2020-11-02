@@ -1,4 +1,5 @@
 <?php
+
 require_once '../includes/autoload.php';
 
 
@@ -14,7 +15,7 @@ class Admin extends DataObject {
     private $password;
     
     public function __construct() {
-        $this->setTableName("Admin");
+        $this->setTableName("admin_account");
     }
     public function setAdminID(string $id) {
         $this->adminId = $id;

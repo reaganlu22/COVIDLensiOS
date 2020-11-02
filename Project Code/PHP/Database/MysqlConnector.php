@@ -14,6 +14,8 @@ class MysqlConnector {
 
     private $connection;
 
+    // private $session = session_start();
+
     /**
      * This is the constructor for a DatabaseConnection. It attempts to create a database connection
      * and returns an error if the connection fails.
@@ -21,6 +23,7 @@ class MysqlConnector {
     function __construct() {
         // Create connection
         $this->connection = new mysqli(self::SERVERNAME, self::USERNAME, self::PASSWORD, self::DBNAME);
+
         if ($this->connection->connect_error) {
             die("Connection failed: " . $this->connection->connect_error);
         }

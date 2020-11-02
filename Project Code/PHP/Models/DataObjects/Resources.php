@@ -14,7 +14,14 @@ class Resources extends DataObject {
     private $title;
 
     public function __construct() {
-        $this->setTableName("Resources");
+        $this->setTableName("resources");
+    }
+
+    public function setResourceID(string $resourceID) {
+        $this->resourceID = $resourceID;
+    }
+    public function setTitle(string $title) {
+        $this->title = $title;
     }
 
     public function setCategoryName(string $categoryName) {
@@ -25,24 +32,12 @@ class Resources extends DataObject {
         $this->linkResource = $linkResource;
     }
 
-    public function setTitle(string $title) {
-        $this->title = $title;
-    }
-
-    public function setResourceID(string $resourceID) {
-        $this->resourceID = $resourceID;
-    }
-
     public function getResourceID() {
         return $this->resourceID;
     }
 
     public function getTitle() {
         return $this->title;
-    }
-
-    public function getResource(string $resourceID) {
-        return $this->resourceID;
     }
 
     public function getCategoryName() {

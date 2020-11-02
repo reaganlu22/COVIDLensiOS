@@ -1,16 +1,52 @@
 <?php
 
-require 'AdminTest.php';
 require 'PythonScriptCallerTest.php';
+require 'AdminTest.php';
+require 'AlertTest.php';
+require 'MapLocationsTest.php';
+require 'ReportTest.php';
+require 'ResourcesTest.php';
+require 'UserTest.php';
+
 //Admin Tests
 $tester1 = new AdminTest();
 $tester1->testAdminCreation();
-$tester1->testAdminDeletion();
 $tester1->testAdminSignInRequest();
 $tester1->testAdminSignOutRequest();
+$tester1->testAdminDeletion();
+
+//Alert Tests
+$tester2 = new AlertTest();
+$tester2->testAlertCreation();
+$tester2->testAlertUpdate();
+$tester2->testAlertReadAll();
+$tester2->testAlertDeletion();
+
+//MapLocations Tests
+$tester3 = new MapLocationsTest();
+$tester3->testMapLocationsCreation();
+$tester3->testMapLocationsDeletion();
+
+//Report Tests
+$tester4 = new ReportTest();
+$tester4->testReportCreation();
+//$tester4->testReportDeletion(); //(not allowed to delete)
+
+//Resources Tests
+$tester5 = new ResourcesTest();
+$tester5->testResourcesCreation();
+$tester5->testResourcesDeletion();
+
+
+//User Tests
+$tester6 = new UserTest();
+$tester6->testUserCreation();
+$tester6->testUserSignInRequest();
+$tester6->testUserSignOutRequest();
+$tester6->testUserDeletion();
 
 //PythonScriptCallerAPI Tests
-$tester2 = new PythonScriptCallerTest();
+$tester7 = new PythonScriptCallerTest();
 // mocking some ID's
 $jID = uniqid();
 $mendID = uniqid();
@@ -48,8 +84,7 @@ $testData = array("Report" => array(array("timeStamp" => "2020-10-12", "userID" 
             "age" => 30, "phoneNumber" => "123-456-7490", "reportInfo" => "I have tested positive.",
             "situationDesc" => "My son came down with COVID-19, so I am waiting to get tested.",
             "affiliation" => "Staff", "confirmerID" => $sameConfirmer),
-        "Map_Locations" => array())
-);
+        "Map_Locations" => array()));
 
 // not finshed...
 $expected = array("Students" => 2, "Faculty" => 1, "Staff" => 1, "Contractors" => 0, "Total" => 4,
@@ -57,4 +92,4 @@ $expected = array("Students" => 2, "Faculty" => 1, "Staff" => 1, "Contractors" =
         "latitude"=>"...", "longitude"=>"..."),
         array("Mendenhall Residence Hall" => 0)));//... all other locations
 
-$tester2->testScript("script name here...", $testData, $expected, "PythonScriptCallerAPI Data Analysis test");
+$tester7->testScript("script name here...", $testData, $expected, "PythonScriptCallerAPI Data Analysis test");

@@ -11,8 +11,8 @@ struct User: Codable {
     var googleID: String
     var basicID: String
     var profilePic: String
+    var loggedIn: Bool
     var report: Report?
-
     // initializer
     init() {
         self.name = ""
@@ -21,7 +21,7 @@ struct User: Codable {
         self.googleID =  ""
         self.profilePic = ""
         self.basicID = ""
-
+        self.loggedIn = true
        }
 
     // set the user's name
@@ -49,6 +49,14 @@ struct User: Codable {
         self.basicID = basicID
     }
 
+    mutating func setLoggedIn(status: Bool) {
+        self.loggedIn = status
+    }
+    
+    func getLoggedIn()->Bool{
+        return self.loggedIn
+    }
+    
     // get user's name
     func getName() -> String {
         return name

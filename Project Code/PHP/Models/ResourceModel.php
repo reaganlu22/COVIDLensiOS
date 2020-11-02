@@ -28,11 +28,10 @@ class ResourceModel {
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
-    public function createResource(Resource $resource) {
-        $preparedStmt = "INSERT INTO " . $resource->getTableName() . " (resourceID,"
-                . " title, categoryName, linkResource) VALUES (?,?,?,?)";
-        $resource->setSql($preparedStmt);
-        $response = $this->connection->create($resource);
+    public function createResource(Resources $resources) {
+        $preparedStmt = "INSERT INTO " . $resources->getTableName() . " (resourceID, title,categoryName, linkResource) VALUES (?,?,?,?)";
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->create($resources);
         return $response;
     }
 
@@ -42,47 +41,46 @@ class ResourceModel {
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
-    public function readResource(Resource $resource) {
-        $preparedStmt = "SELECT * FROM " . $resource->getTableName() . " WHERE resourceID=?";
-        $response = $this->connection->read($resource);
+    public function readResource(Resources $resources) {
+        $preparedStmt = "SELECT * FROM " . $resources->getTableName() . " WHERE resourceID=?";
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->read($resources);
         return $response;
     }
-
     /**
      * This function updates a resources info from the database
      *
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
-    public function updateResource(Resource $resource) {
-        $preparedStmt = "UPDATE" . $resource->getTableName() . " SET title=?,"
-                . " categoryName=?, linkResource=? WHERE resourceID=?";
-        $response = $this->connection->delete($resource);
+    public function updateResource(Resources $resources) {
+        $preparedStmt = "UPDATE" . $resources->getTableName() . " SET title=?, categoryName=?, linkResource=? WHERE resourceID=?";
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->delete($resources);
         return $response;
     }
-
     /**
      * This function removes a resources info from the database
      *
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
-    public function deleteResource(Resource $resource) {
-        $preparedStmt = "DELETE FROM " . $resource->getTableName() . " WHERE resourceID=?";
-        $response = $this->connection->delete($resource);
+    public function deleteResource(Resources $resources) {
+        $preparedStmt = "DELETE FROM " . $resources->getTableName() . " WHERE resourceID=?";
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->delete($resources);
         return $response;
     }
-
-     /**
+    /**
      * This function retrieves all resources from the database
      *
      * @param Resource $resource - A DataObject that represents a resource
      * @return array
      */
-    public function getAllResource(Resource $resource) {
-        $preparedStmt = "SELECT * FROM " . $resource->getTableName();
-        $response = $this->connection->read($resource);
-        return $response;
+    public function getAllResource(Resources $resources) {
+        $preparedStmt = "SELECT * FROM " . $resources->getTableName();
+        $resources->setSql($preparedStmt);
+        $response = $this->connection->read($resources);
     }
 
 }
