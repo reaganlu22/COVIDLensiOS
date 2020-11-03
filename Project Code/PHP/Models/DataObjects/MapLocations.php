@@ -14,7 +14,7 @@ class MapLocations extends DataObject {
     private $longitude;
 
     public function __construct() {
-        $this->setTableName("Map_Locations");
+        $this->setTableName("map_locations");
     }
 
     public function setLocationID(string $locationID) {

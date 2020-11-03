@@ -14,7 +14,7 @@ class PythonScriptCallerAPI {
      * @return string - the analyzed results as a serialized string 
      */
     public function getStats(string $pythonScript, $data) {
-        $analysis = exec($pythonScript . " .$data");
+        $analysis = shell_exec($pythonScript . escapeshellarg(json_encode($data)) . ' 2>&1');
         return $analysis;
     }
 

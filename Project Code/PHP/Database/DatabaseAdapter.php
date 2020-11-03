@@ -1,6 +1,7 @@
 <?php
 
 require_once '../includes/autoload.php';
+
 /**
  * Description of DatabaseAdapter
  *
@@ -37,32 +38,37 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
      */
     public function create(DataObject $object) {
         $result = FailOrPass::getFailureArray();
+
         try {
             $stmt = $this->connection->prepare($object->getSql());
-            if ($stmt !== false) {// remember to check if user exists first...
+            if ($stmt !== false) {
                 if ($object->getRequest() === Requests::adminCreation()) {
-                    $stmt->bind_param("sss", $adminID, $email, $password);
+                    $stmt->bind_param("ssss", $adminID, $email, $password, $signedIn);
                     $adminID = $object->getAdminId();
                     $email = $object->getEmail();
                     $password = $object->getPassword();
+                    $signedIn = $object->getSignedIn();
                 } else if ($object->getRequest() === Requests::alertCreation()) {
                     $stmt->bind_param("sss", $alertID, $title, $message);
                     $alertID = $object->getAlertID();
                     $title = $object->getAlertTitle();
                     $message = $object->getAlertMessage();
                 } else if ($object->getRequest() === Requests::reportCreationRequest()) {
-                    $stmt->bind_param("sssssssssss", $timeSubmitted, $residenceHall, $age, $phoneNumber, $affiliation, $locationID, $reportStatus, $reportInfo, $situationDesc, $submitterID, $confirmerID);
-                    $timeSubmitted = $object->getTimeSubmitted();
-                    $locationID = $object->getLocationID();
+                    $stmt->bind_param("sssssssssss", $residenceHall,
+                            $age, $phoneNumber, $affiliation, $locationID,
+                            $reportStatus, $reportInfo, $situationDesc,
+                            $submitterID, $confirmerID, $reportID);
                     $residenceHall = $object->getResidenceHall();
-                    $reportStatus = $object->getReportStatus();
                     $age = $object->getAge();
-                    $reportInfo = $object->getReportInfo();
                     $phoneNumber = $object->getPhoneNumber();
-                    $situationDesc = $object->getSituationDescription();
                     $affiliation = $object->getAffiliation();
-                    $confirmerID = $object->getConfirmerID();
+                    $locationID = $object->getLocationID();
+                    $reportStatus = $object->getReportStatus();
+                    $reportInfo = $object->getReportInfo();
+                    $situationDesc = $object->getSituationDescription();
                     $submitterID = $object->getSubmitterID();
+                    $confirmerID = $object->getConfirmerID();
+                    $reportID = $object->getReportID();
                 } else if ($object->getRequest() === Requests::locationCreation()) {
                     $stmt->bind_param("ssss", $locationID, $residenceHall, $latitude, $longitude);
                     $locationID = $object->getLocationID();
@@ -76,11 +82,18 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $categoryName = $object->getCategoryName();
                     $linkResource = $object->getLinkResource();
                 } else if ($object->getRequest() === Requests::userCreationRequest()) {
-                    $stmt->bind_param("ssss", $userID, $email, $password, $userData);
+                    if ($object->getGoogleID() !== '') {
+                        $stmt->bind_param("ssssss", $googleID, $userID, $email, $password, $userData, $signedIn);
+                    } else {
+                        $stmt->bind_param("sssss", $userID, $email, $password, $userData, $signedIn);
+                    }
+                    $userID = $object->getUserID();
+                    $googleID = $object->getGoogleID();
                     $userID = $object->getUserID();
                     $email = $object->getEmail();
                     $password = $object->getPassword();
-                    $userData = $object->getAdditionalData();
+                    $userData = $object->getUserData();
+                    $signedIn = $object->getSignedIn();
                 }
                 $stmt->execute();
 
@@ -91,7 +104,7 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 }
             }
         } catch (Exception $e) {
-
+            
         }
 
         return $result;
@@ -112,31 +125,29 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
             $stmt = $this->connection->prepare($object->getSql());
             if ($stmt !== false) {
                 if ($object->getRequest() === Requests::adminSignInRequest()) {
-
                     $stmt->bind_param("ss", $email, $password);
                     $email = $object->getEmail();
                     $password = $object->getPassword();
-
+                } else if ($object->getRequest() === Requests::userSignInRequest()) {
+                    $stmt->bind_param("ss", $email, $password);
+                    $email = $object->getEmail();
+                    $password = $object->getPassword();
                 } else if ($object->getRequest() === Requests::userDataRequest()) {
-                    $stmt->bind_param("s", $userID);
-                    $userID = $object->getUserID();
-                } else if ($object->getRequest() === Requests::reportReadAll()) {
-                    $stmt->query($object->getSql());
+                    //REMEMBER TO ADD THIS...
+//                    $stmt->bind_param("ss", $email, $password);
+//                    $userEmail = $object->getEmail();
+//                    $userPassword = $object->getPassword();
                 } else if ($object->getRequest() === Requests::reportRequest()) {
-                    $stmt->bind_param("s", $submitterID);
+                    $stmt->bind_param("ss", $submitterID, $reportID);
                     $submitterID = $object->getSubmitterID();
-                } else if ($object->getRequest() === Requests::resourceReadAll()) {
-                    $stmt->query($object->getSql());
+                    $reportID = $object->getReportID();
+                    echo $object->getSql();
                 } else if ($object->getRequest() === Requests::resourceRequest()) {
                     $stmt->bind_param("s", $resourceID);
                     $resourceID = $object->getResourceID();
-                } else if ($object->getRequest() === Requests::locationsReadAll()) {
-                    $stmt->query($object->getSql());
                 } else if ($object->getRequest() === Requests::locationRequest()) {
                     $stmt->bind_param("s", $locationID);
                     $locationID = $object->getLocationID();
-                } else if ($object->getRequest() === Requests::alertReadAll()) {
-                    $stmt->query($object->getSql());
                 } else if ($object->getRequest() === Requests::alertRequest()) {
                     $stmt->bind_param("s", $alertID);
                     $alertID = $object->getAlertID();
@@ -145,13 +156,19 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                 $result = $stmt->get_result();
                 $data = array();
                 while ($row = $result->fetch_assoc()) {
-                    $result_temp[] = $row;
+                    $data[] = $row;
                 }
                 $result_temp["status"] = FailOrPass::getSuccess();
-                $result_temp["data"] = $data;
+                if (sizeof($data) > 1) {
+                    $result_temp["data"] = $data;
+                } else if (array_key_exists(0, $data)) {
+                    $result_temp["data"] = $data[0];
+                } else {
+                    $result_temp = null;
+                }
             }
         } catch (Exception $e) {
-
+            
         }
 
         return $result_temp;
@@ -171,34 +188,57 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
         try {
             $stmt = $this->connection->prepare($object->getSql());
             if ($stmt !== false) {
-                $stmt = $this->connection->prepare($object->getSql());
 
-                if ($object->getRequest() === Requests::adminSignOutRequest()) {
-                    //not currently implemented
-                } else if ($object->getRequest() === Requests::userSave()) {
-                    $stmt->bind_param("s", $userID);
+                if ($object->getRequest() === Requests::adminSignInRequest() ||
+                        $object->getRequest() === Requests::adminSignOutRequest()) {
+                    $stmt->bind_param("ssss", $adminEmail, $adminPassword, $signedIn, $adminID);
+                    $adminEmail = $object->getEmail();
+                    $adminPassword = $object->getPassword();
+                    $signedIn = $object->getSignedIn();
+                    $adminID = $object->getAdminID();
+                } else if ($object->getRequest() === Requests::userSave() ||
+                        $object->getRequest() === Requests::userSignInRequest() ||
+                        $object->getRequest() === Requests::userSignOutRequest()) {
+                    $stmt->bind_param("sssss", $userEmail, $userPassword, $userData,
+                            $signedIn, $userID);
+                    $userEmail = $object->getEmail();
+                    $userPassword = $object->getPassword();
+                    $userData = $object->getUserData();
+                    $signedIn = $object->getSignedIn();
                     $userID = $object->getUserID();
                 } else if ($object->getRequest() === Requests::reportConfirmation()) {
-                    $stmt->bind_param("s", $submitterID);
+                    $stmt->bind_param("sss", $confirmerID, $submitterID, $reportID);
                     $submitterID = $object->getSubmitterID();
+                    $confirmerID = $object->getConfirmerID();
+                    $reportID = $object->getReportID();
                 } else if ($object->getRequest() === Requests::resourceUpdate()) {
-                    $stmt->bind_param("s", $resourceID);
+                    $stmt->bind_param("ssss", $title, $categoryName, $linkResource, $resourceID);
+                    $title = $object->getTitle();
+                    $categoryName = $object->getCategoryName();
+                    $linkResource = $object->getLinkResource();
                     $resourceID = $object->getResourceID();
                 } else if ($object->getRequest() === Requests::locationUpdate()) {
-                    $stmt->bind_param("s", $locationID);
+                    $stmt->bind_param("ssss", $residenceHall, $latitude, $longitude, $locationID);
+                    $residenceHall = $object->getResidenceHall();
+                    $latitude = $object->getLongitude();
+                    $longitude = $object->getLatitude();
                     $locationID = $object->getLocationID();
                 } else if ($object->getRequest() === Requests::alertUpdate()) {
-                    $stmt->bind_param("s", $alertID);
+                    $stmt->bind_param("sss", $title, $message, $alertID);
+                    $title = $object->getAlertTitle();
+                    $message = $object->getAlertMessage();
                     $alertID = $object->getAlertID();
                 }
+                $stmt->execute();
                 $result["status"] = FailOrPass::getSuccess();
             }
         } catch (Exception $e) {
-
+            
         }
 
         return $result;
     }
+
     /**
      * This function removes a record in the database based on the properties of a
      * DataObject
@@ -231,12 +271,12 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $stmt->bind_param("s", $alertID);
                     $alertID = $object->getAlertID();
                 }
-		$stmt->execute();
+                $stmt->execute();
                 // if successful change status to SUCCESS
                 $result["status"] = FailOrPass::getSuccess();
             }
         } catch (Exception $e) {
-
+            
         }
 
         return $result;
