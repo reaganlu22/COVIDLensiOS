@@ -12,7 +12,7 @@ class Alert extends DataObject{
     private $message;
     
     public function __construct() {
-        $this->setTableName("Alert");
+        $this->setTableName("alert");
     }
     
     public function setAlertID(string $alertID) {
