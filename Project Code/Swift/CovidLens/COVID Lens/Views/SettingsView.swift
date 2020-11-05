@@ -12,7 +12,6 @@ import GoogleSignIn
 struct SettingsView: View {
     @EnvironmentObject private var userLoginState: AuthVM
     @StateObject private var viewModel = SettingsVM()
-    @State var dark = false
     
     struct SettingsButton: View {
         var iconName: String
@@ -64,14 +63,30 @@ struct SettingsView: View {
                     
                     VStack(alignment: .leading) {
                         Divider()
-                        //dark light mode for a setting
-        
                         // account preferences button
-                        SettingsButton(iconName: "person.crop.square.fill",
-                                       text: "Account Preferences"){
-                                        
-                                       }
-                       
+                        SettingsButton(iconName: "person.crop.square.fill", text: "Allow Noftifications") {
+                            
+                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                                    if success {
+                                        print("All set!")
+                                    } else if let error = error {
+                                        print(error.localizedDescription)
+                                    }
+                                        }
+                            let content = UNMutableNotificationContent()
+                            content.title = "Self Report"
+                            content.subtitle = "Your Report Has Been Reviewed"
+                            content.sound = UNNotificationSound.default
+
+                            // show this notification five seconds from now
+                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+
+                            // choose a random identifier
+                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                            // add our notification request
+                            UNUserNotificationCenter.current().add(request)         
+                        }
                         Divider()
                         // view report status button
                         SettingsButton(iconName: "doc.text.below.ecg.fill", text: "View Self-Report Status") {
