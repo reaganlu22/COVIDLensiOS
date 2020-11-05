@@ -7,87 +7,155 @@
 		<key>AppAuth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>17</integer>
+=======
+			<integer>19</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>Firebase.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>4</integer>
+=======
+			<integer>22</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>FirebaseAnalytics.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>12</integer>
+=======
+			<integer>5</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>FirebaseAuth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>21</integer>
+=======
+			<integer>14</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>FirebaseCore.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>6</integer>
+=======
+			<integer>0</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>FirebaseCoreDiagnostics.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>0</integer>
+=======
+			<integer>1</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>FirebaseFirestore.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>14</integer>
+=======
+			<integer>21</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>FirebaseFirestoreSwift.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>5</integer>
+=======
+			<integer>2</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>FirebaseInstallations.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>11</integer>
+=======
+			<integer>10</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>GTMAppAuth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>9</integer>
+=======
+			<integer>6</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>GTMSessionFetcher.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>8</integer>
+=======
+			<integer>12</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>GoogleAppMeasurement.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>7</integer>
+=======
+			<integer>3</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>GoogleDataTransport.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>13</integer>
+=======
+			<integer>8</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>GoogleMaps.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>1</integer>
+=======
+			<integer>15</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>GooglePlaces.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>2</integer>
+=======
+			<integer>18</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>GoogleSignIn.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>15</integer>
+=======
+			<integer>4</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>GoogleUtilities.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>19</integer>
+=======
+			<integer>7</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>Pods-COVID Lens-COVID LensUITests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -97,22 +165,38 @@
 		<key>Pods-COVID Lens.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>3</integer>
+=======
+			<integer>16</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>Pods-COVID LensTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>16</integer>
+=======
+			<integer>11</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>PromisesObjC.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>10</integer>
+=======
+			<integer>17</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 		<key>nanopb.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>18</integer>
+=======
+			<integer>13</integer>
+>>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
 		</dict>
 	</dict>
 </dict>
