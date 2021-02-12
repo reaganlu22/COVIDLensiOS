@@ -33,6 +33,7 @@ struct TabInfoView: View {
                 .foregroundColor(.black)
                 .padding([.horizontal, .bottom], 12)
                 .font(.system(size: 16.0))
+                .fixedSize(horizontal: false, vertical: true)
             if let disclaimerMsg = disclaimer {
                 Text(disclaimerMsg)
                     .italic()

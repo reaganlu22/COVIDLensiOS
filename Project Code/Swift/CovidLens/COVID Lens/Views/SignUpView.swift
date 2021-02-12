@@ -10,6 +10,8 @@ import SwiftUI
 struct SignupView: View {
     @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
     @StateObject private var viewModel = SignupVM()
+    //@StateObject var user: User?
+    @State var userData: UserData?
     
     var title: some View {
         VStack(spacing: 15) {
@@ -26,13 +28,13 @@ struct SignupView: View {
                 .foregroundColor(Color.black)
                 .padding(.bottom)
             
-                // instructional text
-                Text(viewModel.signUpText)
-                    .font(.system(size: 18.0))
-                    .foregroundColor(Color.black.opacity(0.65))
-                    .padding(.bottom, 2)
-                    .padding(.horizontal, 50)
-                    .multilineTextAlignment(.center)
+            // instructional text
+            Text(viewModel.signUpText)
+                .font(.system(size: 18.0))
+                .foregroundColor(Color.black.opacity(0.65))
+                .padding(.bottom, 2)
+                .padding(.horizontal, 50)
+                .multilineTextAlignment(.center)
         }
     }
     
@@ -59,12 +61,9 @@ struct SignupView: View {
     var signUpButton: some View {
         HStack {
             PrimaryButton(label: viewModel.buttonText) {
-                // action goes here; database stuff
-                // verify all fields
-                // if textfields not empty, & user email not in database, & passwords match
-                // if passwords are equal
                 if (viewModel.verifyFields()) {
                     // create user account
+                    // database post user info
                     viewModel.tappedSignupButton()
                     self.presentationMode.wrappedValue.dismiss()
                 } else {

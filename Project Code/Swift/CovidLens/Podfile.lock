@@ -100,6 +100,7 @@ PODS:
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.11)
+  - SwiftKeychainWrapper (4.0.1)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -110,6 +111,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - GoogleSignIn
+  - SwiftKeychainWrapper (~> 4.0)
 
 SPEC REPOS:
   trunk:
@@ -131,6 +133,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
+    - SwiftKeychainWrapper
 
 EXTERNAL SOURCES:
   FirebaseFirestore:
@@ -162,7 +165,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: bdafd416e2454bc694193ea8c9075686e5d13e5d
+PODFILE CHECKSUM: 87c8134d5a5332a6bbdba81560159f8050b650ba
 
 COCOAPODS: 1.9.3

@@ -7,15 +7,22 @@ import SwiftUI
 
 import CoreLocation
 import Foundation
-
+import SwiftKeychainWrapper
+import CommonCrypto
 class UserData {
-    static let ID_TOKEN = "USER_ID"
+    static let USER_ID = "USER_ID"
     static let PASSWORD = "PASSWORD"
     static let SIGNED_IN = "SIGNED_IN"
-    static let SIGNED_OUT = "SIGNED_OUT"
-    static let EMAIL = "EMAIL"
+    static let GOOGLE_ID = "GOOGLE_ID"
+    static let USER_EMAIL = "EMAIL"
     static let NO_USER = "NO_USER"
+    static let USER_STORE = "USER_STORE"
     private let REQUEST_CATCHER_URL = "https://www.covidlensapp.com/request-catcher"
+    private let USER_CREATION = "USER_CREATION"
+    private let USER_SIGN_IN = "USER_SIGN_IN"
+    private let USER_SIGN_OUT = "USER_SIGN_OUT"
+    private let USER_DATA_REQUEST = "USER_DATA_REQUEST"
+    private let USER_SAVE = "USER_SAVE"
     private var dataResponse: [String: Any]!
     private let submissionSemaphore = DispatchSemaphore(value: 0)
 
@@ -24,34 +31,46 @@ class UserData {
      - Returns: true is returned if creation was successful otherwise false
      */
     func createUser(newUser: User) -> Bool {
+        UserDefaults.standard.setValue(false, forKey: UserData.SIGNED_IN)
         if UserDefaults.standard.bool(forKey: UserData.SIGNED_IN) == false {
             var uuid = createUUID()
-            if isValidEmail(newUser.getEmail()), isValidPassword(newUser.getPassword()) {
+            if isValidEmail(newUser.getEmail()) && isValidPassword(newUser.getPassword()) {
                 // attempt multiple times in case ID already existed for another user
                 var attempt = 5
                 repeat {
                     var parameters = [String: Any]()
-
-                    parameters["request"] = "USER_CREATION"
-                    parameters["additionalData"] = ""
-                    parameters["email"] = newUser.getEmail()
-                    parameters["password"] = newUser.getPassword()
-                    parameters["userID"] = createUUID()
-                    parameters["active"] = true
+                    let userID = uuid
+                    var userWithID = newUser
+                    //giving a new user an id
+                    userWithID.setBasicID(basicID: userID)
+                    parameters["request"] = USER_CREATION
+                    do {
+                        parameters["userData"] = String(data: try JSONEncoder().encode(userWithID), encoding: .utf8)
+                        //parameters["userData"] = "some data"
+                    } catch {
+                        // probably should handle this better...
+                        parameters["userData"] = ""
+                    }
+                    parameters["userEmail"] = userWithID.getEmail()
+                    // if user has a google id
+                    if userWithID.getGoogleID() != "" {
+                        parameters["userPassword"] = userWithID.getGoogleID()
+                    }else{
+                        //user does not have a google id
+                        parameters["userPassword"] = userWithID.getPassword()
+                    }
+                    parameters["userPassword"] = userWithID.getPassword()
+                    parameters["userID"] = userID
+                    parameters["googleID"] = userWithID.getGoogleID()
+                    parameters["signedIn"] = true
                     postData(parameters: parameters, postUrl: REQUEST_CATCHER_URL)
 
                     // waiting for response from server
                     submissionSemaphore.wait()
-
-                    if dataResponse!["status"] as? String == "SUCCESS"{
-                        // if user creation was succesful
-                        // teporararalily storing in defaualts for testing... should use keychain in production
-                        UserDefaults.standard.set(newUser.getEmail(), forKey: UserData.EMAIL)
-                        UserDefaults.standard.set(newUser.getPassword(), forKey: UserData.PASSWORD)
-                        UserDefaults.standard.set(true, forKey: UserData.SIGNED_IN)
-                        UserDefaults.standard.set(uuid, forKey: UserData.ID_TOKEN)
-                            
-                        return true
+                    if dataResponse != nil && dataResponse!["status"] as? String == "SUCCESS" {
+                        // user is now logged in
+                        UserDefaults.standard.setValue(userWithID.getLoggedIn(), forKey: UserData.SIGNED_IN)                        //storing data securely using keychain
+                        return storeCredentials(user: userWithID)
                     } else {
                         uuid = createUUID()
                         attempt -= attempt
@@ -67,80 +86,191 @@ class UserData {
      - Returns: true is returned if load/signin was successful
      */
     func loadUser(user: User) -> Bool {
-        if UserDefaults.standard.bool(forKey: UserData.SIGNED_IN) == true {
-            var parameters = [String: Any]()
-            parameters["request"] = "USER_SIGN_IN"
-            parameters["additionalData"] = ""
+        var parameters = [String: Any]()
+        parameters["request"] = USER_SIGN_IN
+        do {
+            parameters["userData"] = String(data: try JSONEncoder().encode(user), encoding: .utf8)
+        } catch  {
+            // probably should handle this better...
+            parameters["userData"] = ""
+        }
+        parameters["signedIn"] = user.getLoggedIn() //false
+        // not signed in
+        if UserDefaults.standard.bool(forKey: UserData.SIGNED_IN) == false {
             parameters["email"] = user.getEmail()
             parameters["password"] = user.getPassword()
             parameters["userID"] = user.getBasicId()
+            parameters["googleID"] = user.getGoogleID()
+            
+            // check if user credentials found in database
             postData(parameters: parameters, postUrl: REQUEST_CATCHER_URL)
 
             // waiting for response from server
             submissionSemaphore.wait()
 
+            if dataResponse != nil && dataResponse!["status"] as? String == "SUCCESS" {
+                //store credentials
+                let str = (dataResponse["data"] as! String).base64Decoded
+                let data = Data(str!.utf8)
+
+                do {
+                    // make sure this JSON is in the format we expect
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        dataResponse["data"] = json
+                        return storeCredentials(user: user)
+                    }
+                } catch let error as NSError {
+                    print("Failed to load: \(error.localizedDescription)")
+                }
+            }
+        }else{
+            // retrieve credentials from keychain
+            let credentials = retreiveCredentials()
+            parameters["email"] = credentials[UserData.USER_EMAIL]
+            parameters["password"] = credentials[UserData.PASSWORD]
+            parameters["userID"] = credentials[UserData.USER_ID]
+            parameters["googleID"] = credentials[UserData.GOOGLE_ID]
+            postData(parameters: parameters, postUrl: REQUEST_CATCHER_URL)
+            // waiting for response from server
+            submissionSemaphore.wait()
             if dataResponse!["status"] as? String == "SUCCESS"{
-              //store data response and use it to update app
+                // signed in
+                UserDefaults.standard.setValue(user.getLoggedIn(), forKey: UserData.SIGNED_IN)
                 return true
             }
-        }else {
+        }
+        return false
+    }
+    
+    /**
+        This function stores the users credentials securely using keychain
+     - Returns true if successfully stored
+     */
+    func storeCredentials(user: User) ->Bool {
+        //storing data securely using keychain
+        let emailSaved: Bool = KeychainWrapper.standard.set(user.getEmail(), forKey: UserData.USER_EMAIL)
+        let passwordSaved: Bool = KeychainWrapper.standard.set(user.getPassword(), forKey: UserData.PASSWORD)
+        let userIDSaved: Bool = KeychainWrapper.standard.set(user.getBasicId(), forKey: UserData.USER_ID)
+        if user.getGoogleID() != "" {
+            let googleUser = KeychainWrapper.standard.set(user.getGoogleID(), forKey: UserData.GOOGLE_ID)
+            return emailSaved && passwordSaved && userIDSaved && googleUser
+        }
+        return emailSaved && passwordSaved && userIDSaved
+        
+    }
+    
+    func retreiveCredentials() -> [String:Any] {
+        if UserDefaults.standard.bool(forKey: UserData.SIGNED_IN){
+            return [UserData.USER_EMAIL: KeychainWrapper.standard.string(forKey: UserData.USER_EMAIL) ?? "",UserData.PASSWORD: KeychainWrapper.standard.string(forKey: UserData.PASSWORD) ?? "",
+                    UserData.USER_ID: KeychainWrapper.standard.string(forKey: UserData.USER_ID) ?? "",
+                    UserData.GOOGLE_ID: KeychainWrapper.standard.string(forKey: UserData.GOOGLE_ID) ?? ""]
+        }
+        return [:]
+    }
+    
+    func removeCredentials() -> Bool {
+        return KeychainWrapper.standard.removeAllKeys()
+    }
+    
+    func save(user: User) -> Bool{
+        if UserDefaults.standard.bool(forKey: UserData.SIGNED_IN){
             var parameters = [String: Any]()
-            parameters["request"] = "USER_SIGN_IN"
-            parameters["additionalData"] = ""
+            parameters["request"] = USER_SAVE
+            do {
+                parameters["userData"] = String(data: try JSONEncoder().encode(user), encoding: .utf8)
+            } catch  {
+                // probably should handle this better...
+                parameters["userData"] = ""
+            }
             parameters["email"] = user.getEmail()
             parameters["password"] = user.getPassword()
-            parameters["userID"] = user.getGoogleID()
+            parameters["userID"] = user.getBasicId()
+            parameters["googleID"] = user.getGoogleID()
+            parameters["signedIn"] = user.getLoggedIn()
+            if user.getLoggedIn() == false {
+                parameters["request"] = USER_SIGN_OUT
+            }
             postData(parameters: parameters, postUrl: REQUEST_CATCHER_URL)
-
             // waiting for response from server
             submissionSemaphore.wait()
 
-            if dataResponse!["status"] as? String == "SUCCESS"{
-             // store data response and use it to update app
-                return true
+            if dataResponse != nil, dataResponse!["status"] as? String == "SUCCESS" {
+            
+                // simple storage of user in defaults after removing sensitive data
+                /*
+                var simpleUser = user
+                simpleUser.setBasicID(basicID: "")
+                simpleUser.setPassword(password: "")
+                simpleUser.setEmail(email: "")
+                simpleUser.setGoogleID(googleID: "")
+                simpleUser.setReport(report: Report(age: 0, phoneNumber: "NA", residenceHall: "NA", affiliation: "NA", locationID: "NA", reportStatus: "NA", reportInfo: "NA", situationDescription: "NA", confirmerID: "NA", submitterID:"NA", reportID: "NA"))
+                //storing json user
+                var userJson = ""
+                do {
+                    userJson = String(data: try JSONEncoder().encode(simpleUser), encoding: .utf8) ?? ""
+                } catch  {
+                }
+                UserDefaults.standard.setValue(userJson, forKey: UserData.USER_STORE)
+                 */
+                // store credentials just in case they have been updated
+                return storeCredentials(user: user)
             }
-
         }
         return false
     }
 
-    func save() -> Bool{
-
-        return false
-    }
-
-    func logout() -> Bool{
-      return false
+    func logout(user: User) -> Bool{
+        var loggedOutUser =  user
+        loggedOutUser.setLoggedIn(status: true)
+        let response = save(user: loggedOutUser)
+        // if save was successful, user will be logged out
+        if response{
+            UserDefaults.standard.setValue(loggedOutUser.getLoggedIn(), forKey: UserData.SIGNED_IN)
+        }
+        return response && removeCredentials()
     }
 
     /**
-     This function is used for updated the apps data
+     This function is used for updating the apps data
      - Returns:true if update was successful and false if not
      */
-    func DataRequest(user: User) -> Bool {
+    func DataRequest(user: User?) -> Bool {
 
         var parameters = [String: Any]()
         // if already logged in
         if UserDefaults.standard.bool(forKey: UserData.SIGNED_IN){
-            // load data and set this person
-            let uid = UserDefaults.standard.string(forKey: UserData.ID_TOKEN)
-            parameters["request"] = "USER_DATA_REQUEST"
-            parameters["userID"] = uid
+            // retrieve credentials from keychain
+            let credentials = retreiveCredentials()
+            parameters["email"] = credentials[UserData.USER_EMAIL]
+            parameters["password"] = credentials[UserData.PASSWORD]
+            parameters["userID"] = credentials[UserData.USER_ID]
+            parameters["googleID"] = credentials[UserData.GOOGLE_ID]
             postData(parameters: parameters, postUrl: REQUEST_CATCHER_URL)
-            // waiting for response from server
             submissionSemaphore.wait()
         } else {
-            // attempt to log in then load data and set this person
-            parameters["request"] = "USER_DATA_REQUEST"
-            parameters["userID"] = user.getGoogleID()
-            parameters["additionalData"] = ""
+            print("in else")
+            parameters["request"] = USER_DATA_REQUEST
+            do {
+                parameters["userData"] = String(data: try JSONEncoder().encode(user), encoding: .utf8)
+            } catch  {
+                // probably should handle this better...
+                parameters["userData"] = ""
+            }
+            print("setting post values")
+            parameters["email"] = user?.getEmail()
+            parameters["password"] = user?.getPassword()
+            parameters["userID"] = user?.getBasicId()
+            parameters["googleID"] = user?.getGoogleID()
+            parameters["signedIn"] = user?.getLoggedIn()
             postData(parameters: parameters, postUrl: REQUEST_CATCHER_URL)
             // waiting for response from server
             submissionSemaphore.wait()
         }
-        if dataResponse != nil, dataResponse!["status"] as? String == "SUCCESS" {
+        //dataResponse = ["status": "SUCCESS", "data": ""]
+        if dataResponse != nil && dataResponse!["status"] as? String == "SUCCESS" {
             // do something
-                return true
+            print("success")
+            return true
 
         }
         return false
@@ -152,12 +282,29 @@ class UserData {
      */
     func getResponse() -> [String:Any]{
         var dict: [String:Any] = [:]
-        for (key, value) in self.dataResponse{
-            dict[key] = value is NSNull ? "": value
+        if self.dataResponse != nil{
+            dump(dataResponse)
+            for (key, value) in self.dataResponse{
+                dict[key] = value is NSNull ? "": value
+            }
+        } else {
+            print("data is nil")
         }
         return dict
     }
-
+    
+    func decodeUser(jsonUserData: String) -> User {
+        let jsonDecoder = JSONDecoder()
+        var user:User
+        do{
+             user = try jsonDecoder.decode(User.self, from: Data(jsonUserData.utf8))
+        } catch{
+            user = User()
+        }
+        return user
+    }
+    
+ 
 
     /**
      This function creates a unique identifier for the app user
@@ -204,6 +351,7 @@ class UserData {
         request.httpBody = parameters.percentEncoded()
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
             guard let data = data,
                   let response = response as? HTTPURLResponse,
                   error == nil else { // check for fundamental networking error
@@ -224,7 +372,6 @@ class UserData {
                 self.submissionSemaphore.signal()
             }
         }
-
         task.resume()
     }
     //
@@ -276,4 +423,11 @@ extension CharacterSet {
         allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
         return allowed
     }()
+}
+
+public extension String {
+    var base64Decoded: String? {
+        guard let decodedData = Data(base64Encoded: self) else { return nil }
+        return String(data: decodedData, encoding: .utf8)
+    }
 }

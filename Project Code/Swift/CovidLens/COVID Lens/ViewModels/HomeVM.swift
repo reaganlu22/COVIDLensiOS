@@ -11,6 +11,5 @@ final class HomeVM: ObservableObject {
     let title = "UNCG COVID-19 Cases"
     let info = "The number of confirmed COVID-19 cases on the UNCG campus is reported below."
     let disclaimer = "Disclaimer: This information is soley based on data collected through the COVID Lens application."
-    //let lastUpdated = time of query
     let icon = "chart.bar.doc.horizontal.fill"
 }

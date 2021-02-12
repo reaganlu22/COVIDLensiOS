@@ -27,8 +27,8 @@ class PythonScriptCallerTest extends TestCase {
      * @param type $expected - The expected return value from the API
      * @param type $testName - A descriptive name for this test
      */
-    public function testScript($scriptName, $testData, $expected, $testName) {
-        $actual = $this->api->getStats($scriptName, $testData);
+    public function testScript($testData, $expected, $testName) {
+        $actual = str_replace("\n", "", $this->api->getStats($testData));
         $this->assertEquals(json_encode($expected), $actual, $testName);
     }
 

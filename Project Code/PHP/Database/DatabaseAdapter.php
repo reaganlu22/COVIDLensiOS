@@ -1,6 +1,6 @@
 <?php
 
-require_once '../includes/autoload.php';
+//require_once '../includes/autoload.php';
 
 /**
  * Description of DatabaseAdapter
@@ -133,15 +133,22 @@ class DatabaseAdapter implements DatabaseAdapterInterface {
                     $email = $object->getEmail();
                     $password = $object->getPassword();
                 } else if ($object->getRequest() === Requests::userDataRequest()) {
-                    //REMEMBER TO ADD THIS...
-//                    $stmt->bind_param("ss", $email, $password);
-//                    $userEmail = $object->getEmail();
-//                    $userPassword = $object->getPassword();
+                    $reports = new Report();
+                    $reports->setRequest(Requests::reportReadAll());
+                    $cont = new ReportController();
+                    $x = $cont->invokeReport($reports);
+                    //formatting data to match the way that python api handles it
+                    $data = str_replace('CONFIRMED', 'Confirmed', json_encode($x['data']));
+                    $fixOne = str_replace('UNConfirmed', 'Not Confirmed', $data);
+                    $fixTwo = str_replace('timeSubmitted', 'timeStamp', $fixOne);
+                    $finalFix = json_decode($fixTwo, true);
+                    $result['status'] = FailOrPass::getSuccess();
+                    $result['data'] = $finalFix;
+                    return $result;
                 } else if ($object->getRequest() === Requests::reportRequest()) {
                     $stmt->bind_param("ss", $submitterID, $reportID);
                     $submitterID = $object->getSubmitterID();
                     $reportID = $object->getReportID();
-                    echo $object->getSql();
                 } else if ($object->getRequest() === Requests::resourceRequest()) {
                     $stmt->bind_param("s", $resourceID);
                     $resourceID = $object->getResourceID();

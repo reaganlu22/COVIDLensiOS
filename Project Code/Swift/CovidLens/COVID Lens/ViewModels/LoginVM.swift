@@ -5,7 +5,7 @@
 //  Created by Seth Goodwin on 10/9/20.
 //
 
-import Foundation
+import GoogleSignIn
 
 final class LoginVM: ObservableObject {
     @Published var emailText: String = ""

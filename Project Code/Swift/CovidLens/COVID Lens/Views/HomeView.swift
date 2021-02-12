@@ -22,27 +22,27 @@ struct HomeView: View {
                 //ScrollView {
                 TabInfoView(icon: viewModel.icon, title: viewModel.title, info: viewModel.info, disclaimer: viewModel.disclaimer)
                 Spacer()
-                    VStack {
-                        LazyVGrid(columns: layout, spacing: 30) {
-                            ForEach(data, id: \.self) { item in
-                                Text(item)
-                                    .font(.system(size: 18))
-                                    .foregroundColor(.black)
-                            }
-                            Text("Total")
+                VStack {
+                    LazyVGrid(columns: layout, spacing: 30) {
+                        ForEach(data, id: \.self) { item in
+                            Text(item)
                                 .font(.system(size: 18))
-                                .fontWeight(.bold)
                                 .foregroundColor(.black)
-                            Text("30")
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
-                                .foregroundColor(.black)
-                        }.padding(.vertical, 25)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.black, lineWidth: 4)
-                        )
-                    }.padding(.horizontal, 20)
+                        }
+                        Text("Total")
+                            .font(.system(size: 18))
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                        Text("30")
+                            .font(.system(size: 18))
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                    }.padding(.vertical, 25)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.black, lineWidth: 4)
+                    )
+                }.padding(.horizontal, 20)
                 
                 .padding(.vertical, -8)
                 Spacer()

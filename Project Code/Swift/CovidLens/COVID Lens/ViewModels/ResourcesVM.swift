@@ -9,7 +9,8 @@ import Foundation
 
 final class ResourcesVM: ObservableObject {
     let links = [
-        LinkViewModel(name: "North Carolina Department of Health and Human Servics (NCDHHS)", url: URL("https://covid19.ncdhhs.gov")),
+        LinkViewModel(name: "UNCG COVID-19 Updates", url: URL("https://update.uncg.edu/home/")),
+        .init(name: "North Carolina Department of Health and Human Servics (NCDHHS)", url: URL("https://covid19.ncdhhs.gov")),
         .init(name: "Centers for Disease Control and Prevention (CDC)", url: URL("https://www.cdc.gov/coronavirus/2019-nCoV/index.html")),
         .init(name: "World Health Organization (WHO)", url: URL("https://www.who.int/emergencies/diseases/novel-coronavirus-2019")),
         .init(name: "Guilford County Health Department", url: URL("https://www.guilfordcountync.gov/our-county/human-services/health-department/coronavirus-covid-19-info")),

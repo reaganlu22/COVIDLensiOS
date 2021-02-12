@@ -10,21 +10,16 @@ import SwiftUI
 import GoogleSignIn
 import GoogleMaps
 import GooglePlaces
-import Combine
 
 @available(iOS 14.0, *)
-
 @main
 struct COVID_LensApp: App {
-    
     @StateObject var userLoginState = AuthVM()
     
     // attach App Delegate to SwiftUI
-    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            
             if (userLoginState.isLoggedIn) {
                 TabContainterView()
                     .environmentObject(userLoginState)
@@ -32,14 +27,6 @@ struct COVID_LensApp: App {
                 LoginView(info: self.appDelegate)
                     .environmentObject(userLoginState)
             }
-            
-            //            if (authVM.isLoggedIn) {
-            //                TabContainterView()
-            //                    .environmentObject(authVM)
-            //            } else {
-            //                LoginView(info: self.appDelegate)
-            //                    .environmentObject(authVM)
-            //            }
         }
     }
     
@@ -49,16 +36,17 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
     
     var window: UIWindow?
     
-    
     @Published var userId:String?
     @Published var idToken:String?
     @Published var fullName:String?
     @Published var email:String?
     @Published var googleProfilePicURL:String?
-    //var apiKey = "AIzaSyBTOYwfO5V6sRC2z3QpxklUjizntrNnpd8"
+    @Published var signedIn: Bool?
     
-    //seth apikey
-    var apiKey = "AIzaSyBaBhLg6ULvTIXOsXZ7sU9GBQ1flu7H9O0"
+    @State var testUser = User()
+    @State var userData = UserData()
+    
+    var apiKey = "AIzaSyDQZDOO7FCla5tyqnrvS7TM1esDrUXiqoo" // your api key here
     // [START didfinishlaunching]
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -67,28 +55,26 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
         
         // TabBar color customization
         UITabBar.appearance().barTintColor = UIColor(Color(red: 240/255, green: 240/255, blue: 240/255))
+       
+         GIDSignIn.sharedInstance().clientID = "198218064612-mjsc83cd7c142go3a9g99o59lv3ts0lk.apps.googleusercontent.com" // your google client id here
         
-        // Initialize sign-in
-        //GIDSignIn.sharedInstance().clientID = "429712041183-baisri01foho74au10khrorhs157khn6.apps.googleusercontent.com"
-        
-        // seth client id
-        GIDSignIn.sharedInstance().clientID = "179846355573-6ikclf9armsnfd1eajs50t7hnqnv39r6.apps.googleusercontent.com"
-    
         GMSServices.provideAPIKey(apiKey)
         GMSPlacesClient.provideAPIKey(apiKey)
         
         GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         return true
     }
-    
     // [END didfinishlaunching]
+    
     // [START openurl]
     func application(_ application: UIApplication,
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
     // [END openurl]
+    
     // [START openurl_new]
     @available(iOS 9.0, *)
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
@@ -99,7 +85,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
     // [START signin_handler]
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
-        if let error = error {
+        if let error = error { // unsuccessful user sign in
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
                 print("The user has not signed in before or they have since signed out.")
             } else {
@@ -110,26 +96,35 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
                 name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
             // [END_EXCLUDE]
             return
+        } else { // successful user sign in
+            
+            // get user information from google
+            self.userId = user.userID ?? ""                  // For client-side use only!
+            self.idToken = user.authentication.idToken ?? "" // Safe to send to the server
+            self.fullName = user.profile.name ?? ""
+            self.email = user.profile.email ?? ""
+            self.googleProfilePicURL = user.profile.imageURL(withDimension: 150)?.absoluteString ?? ""
+            
+            // database post request?
+            
+            testUser = User(name: self.fullName ?? "", email: self.email ?? "", googleID: self.idToken ?? "", profilePic: self.googleProfilePicURL ?? "", basicID: self.userId ?? "")
+            
+            UserDefaults.standard.setValue(true, forKey: "loggedIn")
+            
+            // [START_EXCLUDE]
+            NotificationCenter.default.post(
+                name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+                object: nil,
+                userInfo: ["statusText": "Signed in user:\n\(fullName!)"])
+            // [END_EXCLUDE]
         }
-        // Perform any operations on signed in user here.
-        self.userId = user.userID                  // For client-side use only!
-        self.idToken = user.authentication.idToken // Safe to send to the server
-        self.fullName = user.profile.name
-        self.email = user.profile.email
-        self.googleProfilePicURL = user.profile.imageURL(withDimension: 150)?.absoluteString ?? ""
-        
-        // [START_EXCLUDE]
-        NotificationCenter.default.post(
-            name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-            object: nil,
-            userInfo: ["statusText": "Signed in user:\n\(fullName!)"])
-        // [END_EXCLUDE]
     }
     // [END signin_handler]
+    
     // [START disconnect_handler]
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
               withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
+        GIDSignIn.sharedInstance()?.signOut()
         // [START_EXCLUDE]
         NotificationCenter.default.post(
             name: Notification.Name(rawValue: "ToggleAuthUINotification"),
@@ -138,15 +133,4 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
         // [END_EXCLUDE]
     }
     // [END disconnect_handler]
-    
-    // conntect to database
-    //send user info to database
-    // instantiate User Struct
-    //    @EnvironmentObject var user = User(name: fullName, email: self.email, password: "", googleID: self.idToken, profilePic: self.googleProfilePicURL)
-    
-    
-    
-    // conntect to database
-    //send user info to database
-    // instantiate User Struct
 }

@@ -13,7 +13,8 @@ struct User: Codable {
     var profilePic: String
     var loggedIn: Bool
     var report: Report?
-    // initializer
+    
+    // default initializer
     init() {
         self.name = ""
         self.email =  ""
@@ -22,7 +23,28 @@ struct User: Codable {
         self.profilePic = ""
         self.basicID = ""
         self.loggedIn = true
-       }
+    }
+    
+    init(name: String, email: String, password: String) {
+        self.name = name
+        self.email = email
+        self.password = password
+        self.basicID = ""
+        self.googleID = ""
+        self.profilePic = ""
+        self.loggedIn = false
+    }
+    
+    // paramaterized initializer for google signin
+    init(name: String, email: String, googleID: String, profilePic: String, basicID: String) {
+        self.name = name
+        self.email =  email
+        self.password = googleID
+        self.googleID =  googleID
+        self.profilePic = profilePic
+        self.basicID = basicID
+        self.loggedIn = true
+    }
 
     // set the user's name
     mutating func setName(name: String) {
@@ -53,6 +75,14 @@ struct User: Codable {
         self.loggedIn = status
     }
     
+    
+    mutating func setReport(report: Report) {
+        self.report = report
+    }
+    
+    func getReport() -> Report {
+        return self.report ?? Report(age: 0, phoneNumber: "NA", residenceHall: "NA", affiliation: "NA", locationID: "NA", reportStatus: "NA", reportInfo: "NA", situationDescription: "NA", confirmerID: "NA", submitterID:"NA", reportID: "NA")
+    }
     func getLoggedIn()->Bool{
         return self.loggedIn
     }
@@ -64,7 +94,7 @@ struct User: Codable {
 
     // get user's password
     func getPassword() -> String{
-        return password
+        return password ?? ""
     }
 
     // get user's email
@@ -88,12 +118,23 @@ struct User: Codable {
     }
 
     enum CodkingKeys: String, CodingKey {
-        case name = "name"
-        case email = "email"
-        case password = "password"
-        case googleID = "googleID"
-        case profilePic = "profilePic"
-        case basicID = "basicID"
-        case report = "report"
+        case name
+        case email
+        case password
+        case googleID
+        case profilePic
+        case basicID
+        case report
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodkingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(email, forKey: .email)
+        try container.encode(password, forKey: .password)
+        try container.encode(googleID, forKey: .googleID)
+        try container.encode(profilePic, forKey: .profilePic)
+        try container.encode(basicID, forKey: .basicID)
+        try container.encode(report, forKey: .report)
     }
 }

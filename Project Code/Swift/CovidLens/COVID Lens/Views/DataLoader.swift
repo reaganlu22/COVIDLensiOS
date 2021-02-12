@@ -8,7 +8,6 @@
 import Foundation
 
 public class DataLoader {
-    //@Published var resHalls = [residenceHall]()
     var resHalls = [residenceHall]()
     
     /**

@@ -177,27 +177,28 @@ struct GoogleMapsView: UIViewRepresentable {
             "cases": 0
         ]
     ]
-        
+    
     func makeUIView(context: Self.Context) -> GMSMapView {
-
+        
         let camera = GMSCameraPosition.camera(withLatitude: 36.0679, longitude: -79.810463, zoom: 15.5)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
         do {
-          // set the Goole Map style with style.json
-          if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
-            mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
-          } else {
-            NSLog("Unable to find style.json")
-          }
+            // set the Goole Map style with style.json
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
         } catch {
-          NSLog("One or more of the map styles failed to load. \(error)")
+            NSLog("One or more of the map styles failed to load. \(error)")
         }
         
         return mapView
     }
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
+        // read residence hall info from json file
         for hall in DataLoader().readJSON() {
             let marker : GMSMarker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: hall.lat , longitude: hall.long )
@@ -207,14 +208,15 @@ struct GoogleMapsView: UIViewRepresentable {
             marker.map = mapView
         }
         
-//        for hall in resHalls {
-//            let marker : GMSMarker = GMSMarker()
-//            marker.position = CLLocationCoordinate2D(latitude: hall["lat"] as! CLLocationDegrees, longitude: hall["long"] as! CLLocationDegrees)
-//            marker.title = hall["name"] as? String
-//            marker.snippet = "Confirmed COVID-19 Cases: " + "\(hall["cases"] ?? "")"
-//            marker.icon = UIImage(named: "markerIcon")
-//            marker.map = mapView
-//        }
+        // read resdience hall info from code above (array of dicts)
+        //        for hall in resHalls {
+        //            let marker : GMSMarker = GMSMarker()
+        //            marker.position = CLLocationCoordinate2D(latitude: hall["lat"] as! CLLocationDegrees, longitude: hall["long"] as! CLLocationDegrees)
+        //            marker.title = hall["name"] as? String
+        //            marker.snippet = "Confirmed COVID-19 Cases: " + "\(hall["cases"] ?? "")"
+        //            marker.icon = UIImage(named: "markerIcon")
+        //            marker.map = mapView
+        //        }
     }
 }
 

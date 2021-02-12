@@ -13,10 +13,8 @@ final class SignupVM: ObservableObject {
     @Published var emailText: String = ""
     @Published var passwordText: String = ""
     @Published var checkPasswordText: String = ""
-    
     @Published var showingAlert: Bool = false
     @Published var validFields: Bool = false
-    
     
     let logo = "logo"
     let title = "Create an Account"

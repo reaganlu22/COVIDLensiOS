@@ -23,6 +23,7 @@ struct ResourcesView: View {
                                 Image(systemName: "circle.fill")
                                     .font(.system(size: 8.0))
                                     .foregroundColor(.black)
+                                // links to resources
                                 Link(destination: website.url, label: {
                                     Text(website.name)
                                         .font(.system(size: 17.0))

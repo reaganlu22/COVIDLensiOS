@@ -1,6 +1,0 @@
-framework module Pods_COVID_Lens_COVID_LensUITests {
-  umbrella header "Pods-COVID Lens-COVID LensUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

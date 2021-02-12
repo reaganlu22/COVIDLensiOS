@@ -5,7 +5,6 @@
 //  Created by Seth Goodwin on 10/7/20.
 //
 import UserNotifications
-
 import SwiftUI
 @available(iOS 14.0, *)
 
@@ -20,10 +19,9 @@ struct SelfReportView: View {
     @State private var date = Date()
     @State private var hallIsExpanded: Bool = false
     @State private var selectedHall: String = ""
-    @State private var reportSubmitedAlert = false
-    
-    var affiliations: [String] = ["Student", "Faculty", "Staff", "Contractor"]
-    var resHall: [String] = ["Cone", "Grogan", "Guilford", "Mary Foust", "Moore/Strong", "North Spencer", "Phillips/Hawkins", "Ragsdale/Mendenhall", "Reynolds", "South Spencer", "Weil/Winfield", "Jefferson Suites", "Shaw", "Gray", "Hinshaw", "Bailey", "Cotten", "Coit", "Jamison", "Lee", "Haywood", "Union", "Highland", "Lexington", "McCormick", "Spring Garden Appartments", "Tower Village"].sorted()
+    @State private var description: String = ""
+    @State var lastSubmittedDate: Date = Date()
+    @State var canSubmit: Bool?
     
     var body: some View {
         NavigationView {
@@ -31,17 +29,21 @@ struct SelfReportView: View {
                 
                 ScrollView {
                     // self-report instructions
-                    TabInfoView(icon: viewModel.icon, title: viewModel.title, info: viewModel.info)
+                    TabInfoView(icon: viewModel.icon, title: viewModel.title, info: viewModel.info, disclaimer: viewModel.disclaimer)
                     
                     VStack {
                         Text("University Affiliation")
                             .font(.system(size: 18.0))
                             .foregroundColor(.black)
+                            + Text(" *")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.red)
+                            .baselineOffset(1.0)
                         
                         // dropdown menu for campus affiliation
                         DisclosureGroup("\(selectedAffiliation)", isExpanded: $affilIsExpanded) {
                             VStack {
-                                ForEach(affiliations) { affil in
+                                ForEach(viewModel.affiliations) { affil in
                                     Text("\(affil)")
                                         .font(.body)
                                         .padding(.all, 2)
@@ -65,6 +67,10 @@ struct SelfReportView: View {
                         Text("Contact Phone Number")
                             .font(.system(size: 18.0))
                             .foregroundColor(.black)
+                            + Text(" *")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.red)
+                            .baselineOffset(1.0)
                         TextField("Phone Number", text: $phoneNumber)
                             .font(Font.system(size: 20))
                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -75,9 +81,13 @@ struct SelfReportView: View {
                         Text("Residence Hall")
                             .font(.system(size: 18.0))
                             .foregroundColor(.black)
+                            + Text(" *")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.red)
+                            .baselineOffset(1.0)
                         DisclosureGroup("\(selectedHall)", isExpanded: $hallIsExpanded) {
                             VStack {
-                                ForEach(resHall) { hall in
+                                ForEach(viewModel.resHall) { hall in
                                     Text("\(hall)")
                                         .font(.body)
                                         .padding(.all, 2)
@@ -101,74 +111,96 @@ struct SelfReportView: View {
                         Text("Last Day On Campus")
                             .font(.system(size: 18.0))
                             .foregroundColor(.black)
-                        DatePicker("", selection: $date, displayedComponents: .date)
+                            + Text(" *")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.red)
+                            .baselineOffset(1.0)
+                        DatePicker("", selection: $date, in: ...Date(), displayedComponents: .date)
                             .labelsHidden()
                             .datePickerStyle(CompactDatePickerStyle())
+                    }.padding(.all)
+                    
+                    // additional description textbox
+                    VStack {
+                        Text("Additional Info/Description")
+                            .font(.system(size: 18.0))
+                            .foregroundColor(.black)
+                        TextEditor(text: $description)
+                            .font(Font.system(size: 20))
+                            .cornerRadius(12)
                     }.padding(.all)
                     .padding(.bottom)
                     
                     HStack {
                         PrimaryButton(label: "Submit a Positive Result") {
-                            // connect to database
-                            // send data to database
-                            viewModel.showSubmittedAlert = true
-                            print(self.selectedAffiliation)
-                            print(self.phoneNumber)
-                            print(self.selectedHall)
-                            print(self.date)
-                            self.reportSubmitedAlert.toggle()
-                            //viewModel.post()
-                        }.alert(isPresented: $viewModel.showSubmittedAlert){
-                            Alert(
-                                title: Text("Your report has been submitted"),
-                                message: Text("You will be notified once your report has been confirmed"),
-                                dismissButton: .default(Text("Close"))
-                            )
-                        }
-<<<<<<< HEAD
-                  
-=======
-                    VStack {
-                            Button("Allow Notification") {
-                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                                    if success {
-                                        print("All set!")
-                                    } else if let error = error {
-                                        print(error.localizedDescription)
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd"
+                            let today = Date()
+                            var canSubmit = true
+                            
+                            // check if all required fields are filled out
+                            if(self.selectedAffiliation != "" && self.phoneNumber != "" && self.selectedHall != "" ) {
+                                // first time submitting a report
+                                if (UserDefaults.standard.string(forKey: "lastSubmittedDate") == nil) {
+                                    UserDefaults.standard.setValue(dateFormatter.string(from: today), forKey: "lastSubmittedDate")
+                                } else {
+                                    self.lastSubmittedDate = dateFormatter.date(from: UserDefaults.standard.string(forKey: "lastSubmittedDate")!)!
+                                    canSubmit = Calendar.current.dateComponents([.day], from: lastSubmittedDate, to: today).day! >= viewModel.twoWeeks
+                                    
+                                    let daysLeft  = viewModel.twoWeeks - Calendar.current.dateComponents([.day], from: lastSubmittedDate, to: today).day!
+                                    
+                                    if (daysLeft == 0) {
+                                        UserDefaults.standard.setValue(nil, forKey: "lastSubmittedDate")
                                     }
-                                }            }
-
-                            Button("Remind Me!") {
-                                let content = UNMutableNotificationContent()
-                                content.title = "Self Report Progress!"
-                                content.subtitle = "Your submittion is accepted!"
-                                content.sound = UNNotificationSound.default
-
-                                // show this notification five seconds from now
-                                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
-                                // choose a random identifier
-                                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-                                // add our notification request
-                                UNUserNotificationCenter.current().add(request)            }
+                                }
+                                
+                                if (canSubmit) {
+                                    // database post report info
+                                    viewModel.activeAlert = .valid
+                                } else {
+                                    viewModel.activeAlert = .tooSoon
+                                }
+                            } else {
+                                viewModel.activeAlert = .invalid
+                            }
+                            viewModel.showAlert.toggle()
                         }
->>>>>>> 11a6581596399269c6083f9867c1dc6ff0778df6
                     }
                 }
                 .padding(.vertical, -8)
                 Divider()
-            }.background(Color.white.ignoresSafeArea(.all, edges: .all))
+            }.background(Color.white.ignoresSafeArea(.all, edges: .all)).onTapGesture {
+                self.hideKeyboard()
+            }
             .navigationBarTitle("Self-Report", displayMode: .inline)
-            .alert(isPresented: $reportSubmitedAlert){
-                Alert(
-                    title: Text("Your report has been submitted"),
-                    message: Text("You will be notified once your report has been confirmed"),
-                    dismissButton: .default(Text("OK"))
-                )
+            .alert(isPresented: $viewModel.showAlert) {
+                switch viewModel.activeAlert {
+                case .valid:
+                    return Alert(
+                        title: Text("Report Submitted"),
+                        message: Text("You will be notified once your report has been confirmed"),
+                        dismissButton: .default(Text("OK"))
+                    )
+                case .invalid:
+                    return Alert(
+                        title: Text("Report Not Submitted"),
+                        message: Text("Please ensure all required fields are filled out"),
+                        dismissButton: .default(Text("OK"))
+                    )
+                case .tooSoon:
+                    return Alert(
+                        title: Text("Report Not Submitted"),
+                        message: Text("You can only sumbit a report once every 14 days"),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
             }
         }
     }
+}
+
+enum ActiveAlert {
+    case valid, invalid, tooSoon
 }
 
 extension String: Identifiable {
