@@ -7,7 +7,6 @@
 
 import SwiftUI
 import GoogleSignIn
-import Firebase
 
 @available(iOS 14.0, *)
 
