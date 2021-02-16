@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02EE152525351E6500A5A568 /* Default-568h@2x.png */; };
 		02FD54A8253A724800A8255D /* UserDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD54A7253A724800A8255D /* UserDataTests.swift */; };
+		5C29C24D25DC7528003A75C2 /* Documentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29C24C25DC7528003A75C2 /* Documentation.swift */; };
+		5C29C25125DC7688003A75C2 /* DocumentationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29C25025DC7688003A75C2 /* DocumentationVM.swift */; };
 		5D194AC8253E50010054CD15 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194AC7253E50010054CD15 /* HomeVM.swift */; };
 		5D194ADE253E6F780054CD15 /* residenceHalls.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D194ADD253E6F780054CD15 /* residenceHalls.json */; };
 		5D194AE8253E89090054CD15 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194AE7253E89090054CD15 /* DataLoader.swift */; };
@@ -61,6 +63,8 @@
 		144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_Lens_COVID_LensUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_LensTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID LensTests.release.xcconfig"; path = "Target Support Files/Pods-COVID LensTests/Pods-COVID LensTests.release.xcconfig"; sourceTree = "<group>"; };
+		5C29C24C25DC7528003A75C2 /* Documentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documentation.swift; sourceTree = "<group>"; };
+		5C29C25025DC7688003A75C2 /* DocumentationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationVM.swift; sourceTree = "<group>"; };
 		5D194A692538FF990054CD15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D194AC7253E50010054CD15 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		5D194ADD253E6F780054CD15 /* residenceHalls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = residenceHalls.json; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				5D815C8C2534E9E600508556 /* ResourcesVM.swift */,
 				5D815C9E253506F700508556 /* SelfReportVM.swift */,
 				5D194AC7253E50010054CD15 /* HomeVM.swift */,
+				5C29C25025DC7688003A75C2 /* DocumentationVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				5D815C912534FA1900508556 /* TabInfoView.swift */,
 				5D815CAB2535076E00508556 /* SelfReportView.swift */,
 				5D194AE7253E89090054CD15 /* DataLoader.swift */,
+				5C29C24C25DC7528003A75C2 /* Documentation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -469,10 +475,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C29C24D25DC7528003A75C2 /* Documentation.swift in Sources */,
 				5DC881692530DDD600135316 /* GoogleMapsView.swift in Sources */,
 				5D5DB5E82530B56C009FB2DE /* SettingsView.swift in Sources */,
 				5D5DB568252E9337009FB2DE /* PrimaryButtonStyle.swift in Sources */,
 				5DC8818F25312FD500135316 /* SignupVM.swift in Sources */,
+				5C29C25125DC7688003A75C2 /* DocumentationVM.swift in Sources */,
 				5D5DB593252EDC49009FB2DE /* HomeView.swift in Sources */,
 				5D815CAC2535076E00508556 /* SelfReportView.swift in Sources */,
 				5D5DB5BC252F6D82009FB2DE /* LoginView.swift in Sources */,

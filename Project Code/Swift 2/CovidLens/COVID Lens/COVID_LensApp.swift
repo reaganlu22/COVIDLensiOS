@@ -46,7 +46,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
     @State var testUser = User()
     @State var userData = UserData()
     
-    var apiKey = "" // your api key here
+    var apiKey = "AIzaSyDQZDOO7FCla5tyqnrvS7TM1esDrUXiqoo" // your api key here
     // [START didfinishlaunching]
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -56,7 +56,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
         // TabBar color customization
         UITabBar.appearance().barTintColor = UIColor(Color(red: 240/255, green: 240/255, blue: 240/255))
        
-         GIDSignIn.sharedInstance().clientID = "" // your google client id here
+         GIDSignIn.sharedInstance().clientID = "198218064612-mjsc83cd7c142go3a9g99o59lv3ts0lk.apps.googleusercontent.com" // your google client id here
         
         GMSServices.provideAPIKey(apiKey)
         GMSPlacesClient.provideAPIKey(apiKey)
