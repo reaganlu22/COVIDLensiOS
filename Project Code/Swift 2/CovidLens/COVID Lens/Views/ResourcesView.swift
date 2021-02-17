@@ -33,6 +33,25 @@ struct ResourcesView: View {
                                 Spacer()
                             }
                         }
+                        //Title about COVID lens description
+                        TabInfoView(icon: viewModel.icon, title: viewModel.title2, info: viewModel.info2)
+                        //Link for COVID lens application Documentation.
+                        ForEach(viewModel.linksAboutUs,id: \.self){ website in
+                            HStack(spacing: 15 ){
+                                Image(systemName: "circle.fill")
+                                    .font(.system(size: 8.0))
+                                    .foregroundColor(.black)
+                                
+                                //Link to app documentation
+                                Link(destination: website.url, label: {
+                                    Text(website.name)
+                                        .font(.system(size: 17.0))
+                                        .foregroundColor(Color(red: 0/255, green: 193/255, blue: 203/255))
+                                        .fontWeight(.medium)
+                                })
+                                Spacer()
+                            }
+                        }
                     }.padding(.top)
                     .padding(.horizontal, 20)
                 }
