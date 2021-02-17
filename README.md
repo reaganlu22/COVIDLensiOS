@@ -17,7 +17,6 @@
 </h4>
 
 <h4 align="center"> UNCG 2020 Senior Capstone Project 🎓 </h4>
-## ............................................................
 ## Motivation and Goals
  The global COVID-19 pandemic was declared on March 11, 2020 by the World Health Organization and, as the new year is slowly approaching, the virus shows no apparent signs of disappearing soon. This suggests a necessity of new data-driven tools and methods to help society work around and cope with COVID-19 while promoting safety. The main goal of COVID Lens is to provide a novel COVID-19 tracking and public awareness system that will inform and protect members of the UNCG community from the COVID-19 virus.
 
