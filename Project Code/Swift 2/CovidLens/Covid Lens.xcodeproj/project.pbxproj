@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02EE152525351E6500A5A568 /* Default-568h@2x.png */; };
 		02FD54A8253A724800A8255D /* UserDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD54A7253A724800A8255D /* UserDataTests.swift */; };
+		5CBF8DB225E30D7700FB9079 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CBF8DB125E30D7700FB9079 /* GoogleService-Info.plist */; };
 		5D194AC8253E50010054CD15 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194AC7253E50010054CD15 /* HomeVM.swift */; };
 		5D194ADE253E6F780054CD15 /* residenceHalls.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D194ADD253E6F780054CD15 /* residenceHalls.json */; };
 		5D194AE8253E89090054CD15 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D194AE7253E89090054CD15 /* DataLoader.swift */; };
@@ -61,7 +62,7 @@
 		144186A92F4CFDE851D95000 /* Pods_COVID_Lens_COVID_LensUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_Lens_COVID_LensUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8932CCBD5CC695FA58D340 /* Pods_COVID_LensTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_LensTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4724743CC6763EE69A45E024 /* Pods-COVID LensTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID LensTests.release.xcconfig"; path = "Target Support Files/Pods-COVID LensTests/Pods-COVID LensTests.release.xcconfig"; sourceTree = "<group>"; };
-		5D194A692538FF990054CD15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5CBF8DB125E30D7700FB9079 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D194AC7253E50010054CD15 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		5D194ADD253E6F780054CD15 /* residenceHalls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = residenceHalls.json; sourceTree = "<group>"; };
 		5D194AE7253E89090054CD15 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 		5DDA2006252A633C00BC238D = {
 			isa = PBXGroup;
 			children = (
+				5CBF8DB125E30D7700FB9079 /* GoogleService-Info.plist */,
 				02EE152525351E6500A5A568 /* Default-568h@2x.png */,
 				5DDA2011252A633C00BC238D /* COVID Lens */,
 				5DDA2023252A634100BC238D /* COVID LensTests */,
@@ -227,7 +229,6 @@
 				5D5DB55E252E8CFD009FB2DE /* Views */,
 				5D5DB552252E80BB009FB2DE /* ViewModels */,
 				5DDA2016252A634100BC238D /* Assets.xcassets */,
-				5D194A692538FF990054CD15 /* GoogleService-Info.plist */,
 				5DDA201B252A634100BC238D /* Info.plist */,
 				5DC8819E2532DEAB00135316 /* style.json */,
 				5D194ADD253E6F780054CD15 /* residenceHalls.json */,
@@ -354,6 +355,7 @@
 				02EE152625351E6500A5A568 /* Default-568h@2x.png in Resources */,
 				5DC8819F2532DEAB00135316 /* style.json in Resources */,
 				5D194ADE253E6F780054CD15 /* residenceHalls.json in Resources */,
+				5CBF8DB225E30D7700FB9079 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,7 +654,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"COVID Lens/Preview Content\"";
-				DEVELOPMENT_TEAM = M89WSFD858;
+				DEVELOPMENT_TEAM = T4FA78KC77;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "COVID Lens/Info.plist";
@@ -678,7 +680,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"COVID Lens/Preview Content\"";
-				DEVELOPMENT_TEAM = M89WSFD858;
+				DEVELOPMENT_TEAM = T4FA78KC77;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "COVID Lens/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
