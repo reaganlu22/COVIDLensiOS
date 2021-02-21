@@ -22,10 +22,10 @@ struct COVID_LensApp: App {
         WindowGroup {
             if (userLoginState.isLoggedIn) {
                 TabContainterView()
-                 //   .environmentObject(userLoginState)
+                  .environmentObject(userLoginState)
             } else {
                 LoginView(info: self.appDelegate)
-                    .environmentObject(userLoginState)
+                  .environmentObject(userLoginState)
             }
         }
     }
