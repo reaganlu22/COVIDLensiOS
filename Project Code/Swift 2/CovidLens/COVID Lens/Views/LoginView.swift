@@ -14,7 +14,7 @@ struct LoginView : View {
     @ObservedObject var info: AppDelegate
     @StateObject private var viewModel = LoginVM()
     @EnvironmentObject var userLoginState: AuthVM
-    private let signinSemaphore = DispatchSemaphore(value: 0)
+//    private let signinSemaphore = DispatchSemaphore(value: 0)
     
     var title: some View {
         VStack(spacing: 15) {

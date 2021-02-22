@@ -69,6 +69,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
     // [END didfinishlaunching]
     
     // [START openurl]
+    
     func application(_ application: UIApplication,
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
@@ -134,3 +135,4 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
     }
     // [END disconnect_handler]
 }
+
